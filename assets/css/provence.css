@@ -24,6 +24,7 @@
   --shadow-sm: 0 2px 10px rgba(59, 50, 38, 0.08);
   --shadow-md: 0 14px 30px rgba(59, 50, 38, 0.12);
   --shadow-glow: 0 0 0 1px rgba(107, 91, 149, 0.14), 0 20px 40px rgba(107, 91, 149, 0.18);
+  --hero-overlay: linear-gradient(160deg, rgba(59,50,38,0.62), rgba(107,91,149,0.55));
 }
 
 body { background: var(--color-bg); }

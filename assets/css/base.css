@@ -118,6 +118,43 @@ input, textarea, select { font: inherit; }
 @media (max-width: 900px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 
+/* ---------- Photos (banque d'images libres de droits) ---------- */
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.media-frame.ratio-1 { aspect-ratio: 1; }
+.media-frame.ratio-4-3 { aspect-ratio: 4 / 3; }
+.media-frame.ratio-16-9 { aspect-ratio: 16 / 9; }
+
+.hero-photo {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay, linear-gradient(160deg, rgba(20,22,43,0.65), rgba(20,22,43,0.4)));
+}
+.hero-photo > .container { position: relative; z-index: 1; }
+.hero-photo h1 { color: #fff; }
+.hero-photo .lede { color: rgba(255, 255, 255, 0.88); }
+.hero-photo .eyebrow { color: #fff; }
+.hero-photo .leaf-divider, .hero-photo .divider-dot { color: rgba(255, 255, 255, 0.8); }
+.hero-photo .badge-tricolore span:nth-child(2) { background: rgba(255,255,255,0.92); border-color: transparent; }
+
 /* ---------- Boutons ---------- */
 .btn {
   display: inline-flex;
