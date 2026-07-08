@@ -42,7 +42,7 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-photo" style="background-image:url('https://images.pexels.com/photos/34804003/pexels-photo-34804003.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920');">
     <div class="container hero-inner">
       <div>
         <span class="eyebrow">Studio de création de sites vitrines</span>
@@ -69,12 +69,40 @@
     </div>
   </section>
 
+  <div class="container">
+    <div class="stat-bar reveal">
+      <div class="stat"><strong>3</strong><span>formules sur-mesure</span></div>
+      <div class="stat"><strong>100%</strong><span>responsive &amp; rapide</span></div>
+      <div class="stat"><strong>RGPD</strong><span>&amp; mentions légales inclus</span></div>
+      <div class="stat"><strong>Vercel</strong><span>ou Netlify au choix</span></div>
+    </div>
+  </div>
+
   <!-- TRUSTBAR -->
   <div class="trustbar">
     <div class="container trustbar-inner">
       <span>Pizzerias</span><span>Restaurants</span><span>Salons de beauté</span><span>Commerces de proximité</span><span>Artisans</span>
     </div>
   </div>
+
+  <!-- PARTENAIRE -->
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:center;">
+      <div class="media-frame ratio-4-3 reveal">
+        <img src="https://images.pexels.com/photos/36729739/pexels-photo-36729739.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Commerçante souriante dans sa boutique" loading="lazy" width="1200" height="675">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Un partenaire qui comprend votre métier</span>
+        <h2 class="section-title">On s'occupe du site, vous vous occupez de vos clients</h2>
+        <p class="text-muted">Pas besoin de connaissances techniques : IDEA prend en charge la conception, la rédaction des mentions obligatoires et la mise en ligne. Vous gardez la main sur les mises à jour (horaires, photos, offres) sans dépendre de personne.</p>
+        <ul class="hero-trust" style="flex-direction:column; align-items:flex-start; gap:0.75rem; margin-top:1.5rem;">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Un interlocuteur unique du brief à la mise en ligne</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Un design pensé pour votre clientèle locale</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Un site qui évolue avec votre commerce</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <!-- FONCTIONNEMENT -->
   <section class="section" id="fonctionnement">
@@ -85,19 +113,19 @@
         <p class="section-subtitle">Vous vous concentrez sur votre commerce, IDEA s'occupe de tout le reste.</p>
       </div>
       <div class="grid grid-4">
-        <div class="card step-card">
+        <div class="card step-card reveal">
           <h3>Échange &amp; brief</h3>
           <p class="text-muted">On discute de votre activité, de votre image et de vos objectifs pour cadrer le projet.</p>
         </div>
-        <div class="card step-card">
+        <div class="card step-card reveal">
           <h3>Design sur-mesure</h3>
           <p class="text-muted">Un site pensé pour votre univers : couleurs, ton, mise en avant de vos produits ou services.</p>
         </div>
-        <div class="card step-card">
+        <div class="card step-card reveal">
           <h3>Mise en ligne</h3>
           <p class="text-muted">Déploiement sur Vercel ou Netlify, nom de domaine, mentions légales et RGPD en règle.</p>
         </div>
-        <div class="card step-card">
+        <div class="card step-card reveal">
           <h3>Suivi &amp; évolutions</h3>
           <p class="text-muted">Le site évolue avec vous : nouvelles photos, nouveaux horaires, nouvelles offres.</p>
         </div>
@@ -115,9 +143,9 @@
       </div>
       <div class="grid grid-3">
 
-        <article class="card module-card">
-          <div class="module-thumb thumb-provence" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7z"/><path d="M9 11c1.2-1.5 4.8-1.5 6 0"/><circle cx="10" cy="14" r="0.6" fill="currentColor" stroke="none"/><circle cx="14" cy="15" r="0.6" fill="currentColor" stroke="none"/></svg>
+        <article class="card module-card reveal">
+          <div class="media-frame ratio-4-3" style="margin-bottom:1.5rem;">
+            <img src="https://images.pexels.com/photos/32641697/pexels-photo-32641697.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aperçu du site de démonstration Pizzeria Lou Soleï — four à bois" loading="lazy" width="800" height="600">
           </div>
           <div class="module-tags"><span class="badge">Pizzeria</span><span class="badge">Thème provençal</span></div>
           <h3>Pizzeria Lou Soleï</h3>
@@ -125,9 +153,9 @@
           <a href="/demos/pizzeria-provencale/" class="btn btn-secondary btn-block">Voir la démo</a>
         </article>
 
-        <article class="card module-card">
-          <div class="module-thumb thumb-italien" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7z"/><circle cx="10" cy="13" r="0.6" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="16" r="0.6" fill="currentColor" stroke="none"/></svg>
+        <article class="card module-card reveal">
+          <div class="media-frame ratio-4-3" style="margin-bottom:1.5rem;">
+            <img src="https://images.pexels.com/photos/29626980/pexels-photo-29626980.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aperçu du site de démonstration Pizzeria Da Enzo — four napolitain" loading="lazy" width="800" height="600">
           </div>
           <div class="module-tags"><span class="badge">Pizzeria</span><span class="badge">Thème italien</span></div>
           <h3>Pizzeria Da Enzo</h3>
@@ -135,9 +163,9 @@
           <a href="/demos/pizzeria-italienne/" class="btn btn-secondary btn-block">Voir la démo</a>
         </article>
 
-        <article class="card module-card">
-          <div class="module-thumb thumb-beaute" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-6.5-4.1-9-8.2C1 9.2 3 6 6.3 6c2 0 3.2 1.1 3.7 2 .5-.9 1.7-2 3.7-2C17 6 19 9.2 21 12.8 18.5 16.9 12 21 12 21z" transform="scale(0.8) translate(2.6 2)"/></svg>
+        <article class="card module-card reveal">
+          <div class="media-frame ratio-4-3" style="margin-bottom:1.5rem;">
+            <img src="https://images.pexels.com/photos/31390599/pexels-photo-31390599.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aperçu du site de démonstration Salon Émeraude — ambiance cocooning" loading="lazy" width="800" height="600">
           </div>
           <div class="module-tags"><span class="badge">Salon</span><span class="badge">Esthétique</span></div>
           <h3>Salon Émeraude</h3>
@@ -156,26 +184,31 @@
         <span class="eyebrow">Pourquoi IDEA</span>
         <h2 class="section-title">Des sites pensés pour les vrais besoins d'un commerce</h2>
       </div>
-      <div class="grid grid-4">
-        <div class="feature-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
-          <h3>Rapide à charger</h3>
-          <p class="text-muted">Sites légers, optimisés pour le mobile, sans surcharge inutile.</p>
+      <div class="grid grid-2" style="align-items:center; gap:3rem;">
+        <div class="media-frame ratio-4-3 reveal">
+          <img src="https://images.pexels.com/photos/34803986/pexels-photo-34803986.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Espace de travail moderne pour la conception d'un site web" loading="lazy" width="1200" height="900">
         </div>
-        <div class="feature-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
-          <h3>Conformes</h3>
-          <p class="text-muted">Mentions légales, politique de confidentialité et bandeau cookies inclus par défaut.</p>
-        </div>
-        <div class="feature-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
-          <h3>Sur-mesure</h3>
-          <p class="text-muted">Un design qui reflète l'identité de votre commerce, pas un modèle générique.</p>
-        </div>
-        <div class="feature-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
-          <h3>Hébergé pro</h3>
-          <p class="text-muted">Mise en ligne sur Vercel ou Netlify : rapide, sécurisé, évolutif.</p>
+        <div class="grid grid-2" style="gap:1.5rem;">
+          <div class="feature-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+            <h3>Rapide à charger</h3>
+            <p class="text-muted">Sites légers, optimisés pour le mobile, sans surcharge inutile.</p>
+          </div>
+          <div class="feature-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3>Conformes</h3>
+            <p class="text-muted">Mentions légales, confidentialité et bandeau cookies inclus par défaut.</p>
+          </div>
+          <div class="feature-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <h3>Sur-mesure</h3>
+            <p class="text-muted">Un design qui reflète l'identité de votre commerce, pas un modèle générique.</p>
+          </div>
+          <div class="feature-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+            <h3>Hébergé pro</h3>
+            <p class="text-muted">Mise en ligne sur Vercel ou Netlify : rapide, sécurisé, évolutif.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -190,7 +223,7 @@
         <p class="section-subtitle">Tarifs communiqués sur devis, selon la taille et les besoins de votre projet.</p>
       </div>
       <div class="grid grid-3">
-        <div class="card pricing-card">
+        <div class="card pricing-card reveal">
           <h3>Essentiel</h3>
           <p class="price">Sur devis</p>
           <ul>
@@ -201,7 +234,7 @@
           </ul>
           <a href="#contact" class="btn btn-secondary btn-block">Demander un devis</a>
         </div>
-        <div class="card pricing-card is-highlight">
+        <div class="card pricing-card is-highlight reveal">
           <span class="badge">Le plus choisi</span>
           <h3>Business</h3>
           <p class="price">Sur devis</p>
@@ -213,7 +246,7 @@
           </ul>
           <a href="#contact" class="btn btn-primary btn-block">Demander un devis</a>
         </div>
-        <div class="card pricing-card">
+        <div class="card pricing-card reveal">
           <h3>Sur-mesure</h3>
           <p class="price">Sur devis</p>
           <ul>
@@ -231,7 +264,7 @@
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="container">
-      <div class="cta-panel">
+      <div class="cta-panel reveal">
         <div>
           <span class="eyebrow" style="color:var(--color-accent-2)">Contact</span>
           <h2>Parlons de votre site vitrine</h2>

@@ -194,6 +194,9 @@ input, textarea, select { font: inherit; }
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition), box-shadow var(--transition);
 }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.media-frame:hover img { transform: scale(1.05); }
+.media-frame img { transition: transform 0.5s ease; }
 
 /* ---------- Badges / ruban démonstration ---------- */
 .badge {
@@ -355,3 +358,41 @@ label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4r
 .legal-page h2 { margin-top: 2rem; font-size: 1.3rem; }
 .legal-page section + section { margin-top: 1.5rem; }
 .placeholder-flag { background: #FEF3C7; color: #92400E; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; }
+
+/* ---------- Révélation au défilement ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Bandeau de chiffres clés ---------- */
+.stat-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  padding: 1.75rem clamp(1rem, 4vw, 2.5rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-top: -2.75rem;
+  position: relative;
+  z-index: 2;
+}
+.stat-bar .stat { text-align: center; }
+.stat-bar .stat strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--color-accent);
+  line-height: 1.2;
+}
+.stat-bar .stat span { font-size: 0.82rem; color: var(--color-text-muted); }
+
+/* ---------- Lignes avec vignette photo (menus / prestations) ---------- */
+.thumb-row { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px dashed var(--color-border); }
+.thumb-row:last-child { border-bottom: none; }
+.thumb-row .media-frame { width: 64px; flex-shrink: 0; }
+.thumb-row .thumb-body { flex-grow: 1; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+.thumb-row h4 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+.thumb-row p { margin: 0; color: var(--color-text-muted); font-size: 0.88rem; }
+.thumb-row .price { font-weight: 700; white-space: nowrap; }
