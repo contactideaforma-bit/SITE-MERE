@@ -1,0 +1,188 @@
+/* =========================================================
+   IDEA — mother.css
+   Thème du site mère : futuriste, tons clairs.
+   ========================================================= */
+
+:root {
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-bg: #F6F8FD;
+  --color-bg-alt: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-border: rgba(23, 25, 43, 0.08);
+
+  --color-text: #14162B;
+  --color-text-muted: #5B5E79;
+
+  --color-accent: #4F46E5;
+  --color-accent-2: #22D3EE;
+  --color-accent-contrast: #FFFFFF;
+}
+
+body { position: relative; overflow-x: hidden; }
+
+/* --- Fond futuriste : grille + halos animés --- */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(79, 70, 229, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+.bg-fx::before, .bg-fx::after {
+  content: '';
+  position: absolute;
+  width: 46vw; height: 46vw;
+  max-width: 620px; max-height: 620px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation: float 18s ease-in-out infinite;
+}
+.bg-fx::before { top: -10%; left: -12%; background: radial-gradient(circle, #4F46E5, transparent 70%); }
+.bg-fx::after { top: 10%; right: -14%; background: radial-gradient(circle, #22D3EE, transparent 70%); animation-delay: -9s; }
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, 6%) scale(1.08); }
+}
+
+/* --- Hero --- */
+.hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2rem, 6vw, 4rem); }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 940px) { .hero-inner { grid-template-columns: 1fr; } }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 0.6em; }
+.hero h1 .accent {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-lead { font-size: 1.1rem; color: var(--color-text-muted); max-width: 46ch; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-trust { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--color-text-muted); }
+.hero-trust li { display: flex; align-items: center; gap: 0.5rem; }
+.hero-trust svg { width: 18px; height: 18px; color: var(--color-accent); flex-shrink: 0; }
+
+/* --- Carte visuelle du hero (mockup abstrait) --- */
+.hero-visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #ffffff, #eef1fc);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-glow);
+  padding: 1.75rem;
+  min-height: 360px;
+}
+.hero-visual .browser-dots { display: flex; gap: 6px; margin-bottom: 1.25rem; }
+.hero-visual .browser-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--color-border); }
+.mock-line { height: 12px; border-radius: 6px; background: var(--color-border); margin-bottom: 0.9rem; }
+.mock-line.w-70 { width: 70%; }
+.mock-line.w-45 { width: 45%; }
+.mock-line.w-90 { width: 90%; }
+.mock-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 1.4rem; }
+.mock-card-grid div {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(79,70,229,0.16), rgba(34,211,238,0.16));
+  border: 1px solid var(--color-border);
+}
+.hero-visual .orbit {
+  position: absolute; right: -18px; top: -18px;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; box-shadow: var(--shadow-glow);
+  font-size: 0.7rem; font-weight: 700; text-align: center; line-height: 1.1;
+}
+
+/* --- Logos / preuve sociale (placeholders) --- */
+.trustbar { padding: 1.5rem 0 0.5rem; }
+.trustbar-inner { display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; opacity: 0.75; }
+.trustbar span { font-weight: 700; letter-spacing: 0.04em; color: var(--color-text-muted); font-size: 0.95rem; }
+
+/* --- Étapes --- */
+.steps { counter-reset: step; }
+.step-card { position: relative; padding-top: 2.6rem; }
+.step-card::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  position: absolute; top: 0; left: 2rem;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  opacity: 0.5;
+}
+
+/* --- Modules / démonstrations --- */
+.module-card { display: flex; flex-direction: column; height: 100%; }
+.module-thumb {
+  height: 150px;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.module-thumb svg { width: 46px; height: 46px; color: #fff; position: relative; z-index: 1; }
+.module-thumb::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.thumb-provence { background: linear-gradient(135deg, #9C8AD1, #6B5B95); }
+.thumb-italien { background: linear-gradient(135deg, #E1554F, #C8393B); }
+.thumb-beaute { background: linear-gradient(135deg, #D8A9B5, #C9A66B); }
+.module-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.module-card p { color: var(--color-text-muted); font-size: 0.95rem; flex-grow: 1; }
+.module-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+/* --- Pourquoi IDEA --- */
+.feature-card svg { width: 30px; height: 30px; color: var(--color-accent); margin-bottom: 1rem; }
+
+/* --- Formules --- */
+.pricing-card { position: relative; }
+.pricing-card.is-highlight { border-color: var(--color-accent); box-shadow: var(--shadow-glow); }
+.pricing-card .badge { position: absolute; top: -0.8rem; left: 2rem; }
+.pricing-card .price { font-family: var(--font-heading); font-size: 1.15rem; margin: 1rem 0 1.4rem; color: var(--color-text-muted); }
+.pricing-card ul { margin: 1.4rem 0; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.92rem; }
+.pricing-card li { display: flex; gap: 0.6rem; align-items: flex-start; }
+.pricing-card svg { width: 18px; height: 18px; color: var(--color-accent); flex-shrink: 0; margin-top: 2px; }
+
+/* --- CTA / Contact --- */
+.cta-panel {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #14162B, #292C4A);
+  color: #fff;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+@media (max-width: 860px) { .cta-panel { grid-template-columns: 1fr; } }
+.cta-panel .section-subtitle { color: rgba(255,255,255,0.72); }
+.cta-panel h2 { color: #fff; }
+.cta-panel .field, .cta-panel textarea { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); color: #fff; }
+.cta-panel label { color: rgba(255,255,255,0.85); }
+.cta-panel .form-note { color: rgba(255,255,255,0.6); }
+.contact-detail { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; color: rgba(255,255,255,0.85); }
+.contact-detail svg { width: 20px; height: 20px; color: var(--color-accent-2); flex-shrink: 0; }
+[data-form-feedback] {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(34, 211, 238, 0.14);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  font-size: 0.9rem;
+}

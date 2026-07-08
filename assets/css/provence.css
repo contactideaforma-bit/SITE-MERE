@@ -1,0 +1,90 @@
+/* =========================================================
+   Thème démo — Pizzeria Lou Soleï (Provence)
+   ========================================================= */
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Nunito Sans', sans-serif;
+
+  --color-bg: #FBF6EC;
+  --color-bg-alt: #FFFDF8;
+  --color-surface: #FFFFFF;
+  --color-border: rgba(107, 91, 149, 0.16);
+
+  --color-text: #3B3226;
+  --color-text-muted: #7A6F5D;
+
+  --color-accent: #6B5B95;
+  --color-accent-2: #C98A3B;
+  --color-accent-contrast: #FFFFFF;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+
+  --shadow-sm: 0 2px 10px rgba(59, 50, 38, 0.08);
+  --shadow-md: 0 14px 30px rgba(59, 50, 38, 0.12);
+  --shadow-glow: 0 0 0 1px rgba(107, 91, 149, 0.14), 0 20px 40px rgba(107, 91, 149, 0.18);
+}
+
+body { background: var(--color-bg); }
+
+.hero-provence {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 85% 0%, rgba(201,138,59,0.16), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 0% 20%, rgba(107,91,149,0.14), transparent 60%);
+  text-align: center;
+}
+.hero-provence h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-style: italic; }
+.hero-provence .lede { max-width: 56ch; margin: 0 auto 2rem; color: var(--color-text-muted); font-size: 1.1rem; }
+.hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.leaf-divider { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin: 0 auto 1.5rem; color: var(--color-accent); }
+.leaf-divider span { width: 42px; height: 1px; background: currentColor; opacity: 0.4; }
+
+.icon-tile {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(107, 91, 149, 0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-accent);
+  margin-bottom: 1.1rem;
+}
+.icon-tile svg { width: 26px; height: 26px; }
+
+/* Carte / menu */
+.menu-list { display: flex; flex-direction: column; gap: 0; }
+.menu-item {
+  display: flex; justify-content: space-between; gap: 1.5rem;
+  padding: 1.4rem 0; border-bottom: 1px dashed var(--color-border);
+}
+.menu-item:last-child { border-bottom: none; }
+.menu-item h4 { margin: 0 0 0.35rem; font-size: 1.1rem; }
+.menu-item p { margin: 0; color: var(--color-text-muted); font-size: 0.92rem; }
+.menu-item .price { font-family: var(--font-heading); font-weight: 700; white-space: nowrap; color: var(--color-accent-2); }
+
+/* Galerie placeholder */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+@media (max-width: 860px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+.gallery-tile {
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.gallery-tile svg { width: 32px; height: 32px; position: relative; z-index: 1; }
+.gallery-tile::after { content:''; position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.28) 1px, transparent 1px); background-size: 12px 12px; }
+.gallery-tile.g1 { background: linear-gradient(135deg,#9C8AD1,#6B5B95); }
+.gallery-tile.g2 { background: linear-gradient(135deg,#E7B25E,#C98A3B); }
+.gallery-tile.g3 { background: linear-gradient(135deg,#8FA05B,#5F7038); }
+.gallery-tile.g4 { background: linear-gradient(135deg,#D9C08C,#B08B4F); }
+
+.testimonial { font-style: italic; }
+.testimonial .stars { color: var(--color-accent-2); margin-bottom: 0.75rem; display:flex; gap:0.2rem; }
+.testimonial .stars svg { width: 16px; height: 16px; }
+.testimonial-author { margin-top: 1rem; font-style: normal; font-weight: 700; font-size: 0.9rem; }
+
+.info-card { display: flex; gap: 1rem; align-items: flex-start; }
+.info-card svg { width: 22px; height: 22px; color: var(--color-accent); flex-shrink: 0; margin-top: 3px; }
+
+.section-alt { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }

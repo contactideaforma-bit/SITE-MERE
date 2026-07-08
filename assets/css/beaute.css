@@ -1,0 +1,87 @@
+/* =========================================================
+   Thème démo — Salon Émeraude (esthétique)
+   ========================================================= */
+:root {
+  --font-heading: 'Cormorant', serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  --color-bg: #FAF3EF;
+  --color-bg-alt: #FFFDFC;
+  --color-surface: #FFFFFF;
+  --color-border: rgba(201, 166, 107, 0.22);
+
+  --color-text: #2E2A2A;
+  --color-text-muted: #766A63;
+
+  --color-accent: #B76E86;
+  --color-accent-2: #C9A66B;
+  --color-accent-contrast: #FFFFFF;
+
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+
+  --shadow-sm: 0 2px 12px rgba(46, 42, 42, 0.06);
+  --shadow-md: 0 16px 34px rgba(46, 42, 42, 0.10);
+  --shadow-glow: 0 0 0 1px rgba(183, 110, 134, 0.16), 0 22px 45px rgba(183, 110, 134, 0.18);
+}
+
+body { background: var(--color-bg); }
+
+.hero-beaute {
+  padding: clamp(3.5rem, 9vw, 7rem) 0;
+  text-align: center;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,166,107,0.16), transparent 65%);
+}
+.hero-beaute h1 { font-size: clamp(2.3rem, 5.6vw, 3.8rem); font-weight: 500; }
+.hero-beaute .lede { max-width: 54ch; margin: 0 auto 2rem; color: var(--color-text-muted); font-size: 1.1rem; }
+.hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.divider-dot { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-bottom: 1.4rem; color: var(--color-accent-2); }
+.divider-dot span { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.divider-dot::before, .divider-dot::after { content:''; width: 42px; height: 1px; background: currentColor; opacity: 0.5; }
+
+.icon-tile {
+  width: 58px; height: 58px; border-radius: 50%;
+  background: rgba(183, 110, 134, 0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-accent);
+  margin-bottom: 1.1rem;
+}
+.icon-tile svg { width: 26px; height: 26px; }
+
+/* Prestations */
+.service-row { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.3rem 0; border-bottom: 1px solid var(--color-border); }
+.service-row:last-child { border-bottom: none; }
+.service-row h4 { margin: 0 0 0.3rem; font-size: 1.15rem; }
+.service-row p { margin: 0; color: var(--color-text-muted); font-size: 0.9rem; }
+.service-row .price { font-weight: 700; color: var(--color-accent); white-space: nowrap; }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+@media (max-width: 860px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+.gallery-tile { aspect-ratio: 1; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: #fff; position: relative; overflow: hidden; }
+.gallery-tile svg { width: 30px; height: 30px; position: relative; z-index: 1; }
+.gallery-tile::after { content:''; position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 12px 12px; }
+.gallery-tile.g1 { background: linear-gradient(135deg,#D8A9B5,#B76E86); }
+.gallery-tile.g2 { background: linear-gradient(135deg,#E4CFA0,#C9A66B); }
+.gallery-tile.g3 { background: linear-gradient(135deg,#CBB8D8,#9A82B0); }
+.gallery-tile.g4 { background: linear-gradient(135deg,#E8C4C9,#C98B96); }
+
+.team-card { text-align: center; }
+.team-avatar {
+  width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  display: flex; align-items: center; justify-content: center; color: #fff;
+  font-family: var(--font-heading); font-size: 1.6rem;
+}
+.team-card h4 { margin-bottom: 0.2rem; }
+.team-card .role { color: var(--color-accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.6rem; }
+
+.testimonial { font-style: italic; }
+.testimonial .stars { color: var(--color-accent-2); margin-bottom: 0.75rem; }
+.testimonial-author { margin-top: 1rem; font-weight: 700; font-size: 0.9rem; font-style: normal; }
+
+.info-card { display: flex; gap: 1rem; align-items: flex-start; }
+.info-card svg { width: 22px; height: 22px; color: var(--color-accent); flex-shrink: 0; margin-top: 3px; }
+
+.section-alt { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
