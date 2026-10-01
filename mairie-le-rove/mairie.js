@@ -151,7 +151,7 @@
   function norm(s) {
     return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
   }
-  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var ICON = '<span class="arrow" aria-hidden="true">→</span>';
 
   var input = document.getElementById("site-search");
   var results = document.getElementById("search-results");
@@ -232,6 +232,59 @@
   }
   window.addEventListener("hashchange", openFromHash);
   openFromHash();
+
+  /* ---------- Météo du Rove (Open-Meteo : gratuit, sans clé, sans traceur) ---------- */
+  var weather = document.getElementById("weather");
+  if (weather && window.fetch) {
+    var LAT = 43.37, LON = 5.25;
+    var LABELS = {
+      0: ["Grand soleil", "sun"], 1: ["Ciel dégagé", "sun"], 2: ["Quelques nuages", "cloud"], 3: ["Ciel couvert", "cloud"],
+      45: ["Brouillard", "cloud"], 48: ["Brouillard givrant", "cloud"],
+      51: ["Bruine légère", "rain"], 53: ["Bruine", "rain"], 55: ["Bruine forte", "rain"],
+      61: ["Pluie faible", "rain"], 63: ["Pluie", "rain"], 65: ["Pluie forte", "rain"],
+      66: ["Pluie verglaçante", "rain"], 67: ["Pluie verglaçante", "rain"],
+      71: ["Neige faible", "cloud"], 73: ["Neige", "cloud"], 75: ["Neige forte", "cloud"], 77: ["Grésil", "cloud"],
+      80: ["Averses", "rain"], 81: ["Averses", "rain"], 82: ["Fortes averses", "rain"],
+      85: ["Averses de neige", "cloud"], 86: ["Averses de neige", "cloud"],
+      95: ["Orage", "rain"], 96: ["Orage et grêle", "rain"], 99: ["Orage et grêle", "rain"]
+    };
+    function q(sel) { return weather.querySelector(sel); }
+    function sky(name) {
+      weather.querySelectorAll("[data-sky]").forEach(function (g) { g.hidden = g.getAttribute("data-sky") !== name; });
+    }
+    function windLabel(speed, dir) {
+      var dirs = ["N", "NE", "E", "SE", "S", "SO", "O", "NO"];
+      var d = dirs[Math.round(dir / 45) % 8];
+      var s = Math.round(speed);
+      var txt = s + " km/h " + d;
+      if (s >= 40 && (d === "NO" || d === "N" || d === "O")) txt += " · Mistral";
+      return txt;
+    }
+    var url = "https://api.open-meteo.com/v1/forecast?latitude=" + LAT + "&longitude=" + LON +
+      "&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FParis&forecast_days=1";
+    fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+      var c = d.current, day = d.daily;
+      var code = LABELS[c.weather_code] || ["Temps variable", "cloud"];
+      var windy = c.wind_speed_10m >= 45;
+      q("[data-weather-temp]").textContent = Math.round(c.temperature_2m);
+      q("[data-weather-desc]").textContent = windy && code[1] !== "rain" ? code[0] + ", vent fort" : code[0];
+      q("[data-weather-range]").textContent = "min " + Math.round(day.temperature_2m_min[0]) + "° / max " + Math.round(day.temperature_2m_max[0]) + "°";
+      q("[data-weather-wind]").textContent = windLabel(c.wind_speed_10m, c.wind_direction_10m);
+      sky(windy && code[1] !== "rain" ? "wind" : code[1]);
+      var t = q("[data-weather-time]");
+      try { t.textContent = "à " + new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" }).format(new Date()); } catch (e) {}
+      weather.classList.remove("is-loading");
+    }).catch(function () {
+      q("[data-weather-desc]").textContent = "Météo momentanément indisponible";
+      q("[data-weather-range]").textContent = "";
+      q("[data-weather-temp]").textContent = "–";
+      weather.classList.remove("is-loading");
+    });
+    fetch("https://marine-api.open-meteo.com/v1/marine?latitude=43.35&longitude=5.25&current=sea_surface_temperature&timezone=Europe%2FParis")
+      .then(function (r) { return r.json(); })
+      .then(function (d) { if (d.current && d.current.sea_surface_temperature != null) q("[data-weather-sea]").textContent = Math.round(d.current.sea_surface_temperature) + " °C"; })
+      .catch(function () {});
+  }
 
   /* ---------- Retour en haut ---------- */
   var top = document.querySelector(".back-top");
