@@ -23,6 +23,10 @@ assets/
   js/main.js                   → Menu mobile, bannière cookies, formulaires de démo (aucun tracker)
   img/favicon.svg
 
+pizza-al-dente/                → Maquette client : Pizza al dente (Le Rove), non indexée
+mairie-le-rove/                → Maquette client : Mairie du Rove (refonte de lerove.fr), non indexée
+                                 index.html + mairie.css + mairie.js + mentions-legales.html
+
 demos/
   pizzeria-provencale/index.html + mentions-legales.html
   pizzeria-italienne/index.html  + mentions-legales.html

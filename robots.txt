@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /demos/
+Disallow: /pizza-al-dente/
+Disallow: /mairie-le-rove/
 
 Sitemap: https://votre-domaine.example/sitemap.xml
