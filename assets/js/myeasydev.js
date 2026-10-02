@@ -2,7 +2,7 @@
 (() => {
   "use strict";
 
-  const CONTACT_EMAIL = "contact@ideaforma.fr"; // à remplacer par l'adresse MyEasyDev quand le domaine sera acheté
+  const CONTACT_EMAIL = "webidea@gmail.com"; // adresse de contact MyEasyDev
   const DISCOUNT = 0.15;
   const PLANS = {
     vitrine:  { label: "Vitrine", price: 1000, month: 39 },

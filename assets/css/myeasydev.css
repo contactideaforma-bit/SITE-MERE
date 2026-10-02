@@ -184,6 +184,7 @@ del { color: var(--ink-soft); text-decoration-thickness: 2px; }
 
 /* Aperçus de sites (iframe redimensionnée) */
 .preview { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: var(--paper); }
+.preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
 .preview iframe {
   position: absolute; top: 0; left: 0; border: 0;
   width: 1280px; height: 800px; transform-origin: 0 0;
@@ -258,6 +259,9 @@ del { color: var(--ink-soft); text-decoration-thickness: 2px; }
 .work--yellow { --card: #FFF1B0; }
 .work--orange { --card: #FFDCC8; }
 .work--mint { --card: #CBF3E7; }
+.work--lavender { --card: #DCE0FF; }
+.work--sky { --card: #D4ECFF; }
+.work--lime { --card: #E8F5C4; }
 .work--blue > a { background: var(--blue); color: var(--white); }
 .work--ink > a { background: var(--white); color: var(--ink); border: 2px solid var(--ink); }
 .work--text > a { justify-content: flex-end; padding: 1.6rem; min-height: 280px; }
