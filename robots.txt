@@ -5,4 +5,4 @@ Disallow: /pizza-al-dente/
 Disallow: /mairie-le-rove/
 Disallow: /sushi-tys/
 
-Sitemap: https://votre-domaine.example/sitemap.xml
+Sitemap: https://myeasydev.vercel.app/sitemap.xml

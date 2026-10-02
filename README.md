@@ -1,4 +1,4 @@
-# IDEA — Book de démonstration (sites vitrines)
+# MyEasyDev — Site vitrine + book de démonstration
 
 Site vitrine "mère" présentant IDEA, avec 3 sites de démonstration factices pour montrer
 le savoir-faire à des prospects (petits commerçants, artisans).
@@ -8,15 +8,17 @@ Aucune dépendance, aucun outil de build : HTML / CSS / JS natifs. Ouvre, modifi
 ## Structure
 
 ```
-index.html                     → Site mère (thème futuriste, tons clairs)
+index.html                     → Site MyEasyDev (offre, tarifs, réalisations, contact) — Bricolage Grotesque via Google Fonts
 mentions-legales.html          → Mentions légales du site IDEA (à compléter : SIRET, adresse...)
 confidentialite.html           → Politique de confidentialité / cookies
 robots.txt / sitemap.xml       → SEO de base (le dossier /demos/ est exclu de l'indexation)
 404.html                       → Page d'erreur personnalisée
 
 assets/
-  css/base.css                 → Fondations partagées (reset, layout, boutons, header, footer...)
-  css/mother.css               → Thème du site mère (futuriste, clair)
+  css/myeasydev.css            → Feuille de style du site MyEasyDev (index, mentions légales, confidentialité)
+  js/myeasydev.js              → Menu, aperçus des réalisations, calculateur de tarifs, formulaire mailto
+  css/base.css                 → Fondations partagées des démos et de la 404 (reset, layout, boutons, header, footer...)
+  css/mother.css               → Ancien thème du site mère (encore utilisé par 404.html)
   css/provence.css             → Thème démo Pizzeria Lou Soleï (provençal)
   css/italien.css              → Thème démo Pizzeria Da Enzo (italien)
   css/beaute.css                → Thème démo Salon Émeraude (esthétique)

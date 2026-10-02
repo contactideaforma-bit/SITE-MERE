@@ -1,376 +1,413 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IDEA — Sites vitrines professionnels pour commerçants</title>
-<meta name="description" content="IDEA conçoit des sites vitrines sur-mesure pour les commerçants et artisans : pizzerias, salons, restaurants, boutiques. Design pro, rapide, conforme, hébergé sur Vercel ou Netlify.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="IDEA — Sites vitrines professionnels pour commerçants">
-<meta property="og:description" content="Des sites vitrines sur-mesure, modernes et conformes pour les petits commerces. Découvrez nos démonstrations.">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/base.css">
-<link rel="stylesheet" href="/assets/css/mother.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MyEasyDev | Sites internet pour commerces, restaurants et artisans</title>
+  <meta name="description" content="Création de sites internet pour les commerces de proximité, restaurants, artisans et collectivités de la région marseillaise. Tarifs clairs, offre de lancement à -15 %.">
+  <meta name="theme-color" content="#3044FF">
+  <link rel="canonical" href="https://myeasydev.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="MyEasyDev | Des sites qui font entrer les clients">
+  <meta property="og:description" content="Sites vitrines, menus en ligne, réservation et commande pour les commerces de proximité. Offre de lancement : -15 % sur la création.">
+  <meta property="og:url" content="https://myeasydev.vercel.app/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap">
+  <link rel="stylesheet" href="/assets/css/myeasydev.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MyEasyDev",
+    "description": "Création de sites internet pour commerces, restaurants, artisans et collectivités.",
+    "url": "https://myeasydev.vercel.app/",
+    "email": "contact@ideaforma.fr",
+    "areaServed": "Provence-Alpes-Côte d'Azur",
+    "priceRange": "€€"
+  }
+  </script>
 </head>
 <body>
-<a class="skip-link" href="#main">Aller au contenu principal</a>
-<div class="bg-fx" aria-hidden="true"></div>
+  <a class="skip" href="#contenu">Aller au contenu</a>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="logo"><span class="dot"></span> IDEA</a>
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
-      <span></span>
-    </button>
-    <nav class="nav" id="site-nav" aria-label="Navigation principale">
-      <a href="#demonstrations">Démonstrations</a>
-      <a href="#fonctionnement">Fonctionnement</a>
-      <a href="#formules">Formules</a>
-      <a href="#contact">Contact</a>
-      <div class="nav-cta">
-        <a href="#contact" class="btn btn-primary">Demander un devis</a>
-      </div>
-    </nav>
-  </div>
-</header>
+  <header class="top" id="top">
+    <div class="wrap top__inner">
+      <a class="brand" href="/" aria-label="MyEasyDev, accueil">my<span>easy</span>dev</a>
+      <button class="top__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav class="top__nav" id="menu" aria-label="Navigation principale">
+        <a href="#realisations">Réalisations</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#methode">Méthode</a>
+        <a class="btn btn--small" href="#contact">Demander un devis</a>
+      </nav>
+    </div>
+  </header>
 
-<main id="main">
+  <main id="contenu">
 
-  <!-- HERO -->
-  <section class="hero hero-photo" style="background-image:url('https://images.pexels.com/photos/34804003/pexels-photo-34804003.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920');">
-    <div class="container hero-inner">
-      <div>
-        <span class="eyebrow">Studio de création de sites vitrines</span>
-        <h1>Votre commerce mérite un site <span class="accent">à la hauteur</span> de votre savoir-faire</h1>
-        <p class="hero-lead">IDEA conçoit et met en ligne des sites vitrines modernes, rapides et conformes pour les commerçants et artisans : pizzerias, restaurants, salons, boutiques de proximité.</p>
-        <div class="hero-actions">
-          <a href="#demonstrations" class="btn btn-primary">Voir les démonstrations</a>
-          <a href="#contact" class="btn btn-secondary">Discutons de votre projet</a>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="hero__kicker">Sites internet pour les commerces de proximité, de Marseille à toute la Provence</p>
+          <h1 class="hero__title">Des sites qui font entrer les clients.</h1>
+          <p class="hero__lead">Restaurants, salons, artisans, boutiques, mairies : je crée votre site sur mesure, à vos couleurs, pensé d'abord pour le téléphone et conforme à la loi. Vous gardez un interlocuteur unique, du premier appel au suivi.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#tarifs">Voir les tarifs</a>
+            <a class="btn btn--ghost" href="#realisations">Parcourir les réalisations</a>
+          </div>
         </div>
-        <ul class="hero-trust">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Mentions légales &amp; RGPD inclus</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Hébergement Vercel ou Netlify</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> 100% responsive</li>
+
+        <div class="hero__stage" aria-label="Aperçu de sites réalisés">
+          <div class="stage">
+            <span class="stage__block stage__block--a" aria-hidden="true"></span>
+            <span class="stage__block stage__block--b" aria-hidden="true"></span>
+            <span class="stage__block stage__block--c" aria-hidden="true"></span>
+
+            <figure class="window" data-pos="0">
+              <div class="window__bar"><span>myeasydev.vercel.app/sushi-tys</span></div>
+              <div class="preview" data-src="/sushi-tys/"></div>
+            </figure>
+            <figure class="window" data-pos="1">
+              <div class="window__bar"><span>myeasydev.vercel.app/mairie-le-rove</span></div>
+              <div class="preview" data-src="/mairie-le-rove/"></div>
+            </figure>
+            <figure class="window" data-pos="2">
+              <div class="window__bar"><span>myeasydev.vercel.app/demos/salon-esthetique</span></div>
+              <div class="preview" data-src="/demos/salon-esthetique/"></div>
+            </figure>
+
+            <a class="sticker" href="#tarifs" aria-label="Offre de lancement : moins 15 % sur la création, jusqu'au 31 décembre 2026">
+              <svg viewBox="0 0 200 200" aria-hidden="true">
+                <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+                <text><textPath href="#ring" textLength="476" lengthAdjust="spacing">offre de lancement jusqu'au 31 décembre 2026 </textPath></text>
+              </svg>
+              <strong>-15 %</strong>
+            </a>
+          </div>
+          <div class="stage__tabs" role="group" aria-label="Choisir l'aperçu affiché">
+            <button type="button" data-show="0" aria-pressed="true">Sushi Ty's</button>
+            <button type="button" data-show="1" aria-pressed="false">Mairie du Rove</button>
+            <button type="button" data-show="2" aria-pressed="false">Salon Émeraude</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Pizzerias</span><span>Restaurants</span><span>Salons de beauté</span><span>Carrosseries</span><span>Boulangeries</span><span>Artisans</span><span>Boutiques</span><span>Mairies</span><span>Associations</span><span>Organismes de formation</span>
+        <span>Pizzerias</span><span>Restaurants</span><span>Salons de beauté</span><span>Carrosseries</span><span>Boulangeries</span><span>Artisans</span><span>Boutiques</span><span>Mairies</span><span>Associations</span><span>Organismes de formation</span>
+      </div>
+    </div>
+
+    <!-- REALISATIONS -->
+    <section class="section" id="realisations" aria-labelledby="real-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="real-title">Réalisations</h2>
+          <p>Des sites en ligne, des maquettes proposées à des commerces de la région et des démonstrations. Tout s'ouvre : cliquez, naviguez, testez sur votre téléphone.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filtrer les réalisations">
+          <button type="button" data-filter="tous" aria-pressed="true">Tout voir</button>
+          <button type="button" data-filter="restaurant" aria-pressed="false">Restaurants</button>
+          <button type="button" data-filter="commerce" aria-pressed="false">Commerces et services</button>
+          <button type="button" data-filter="collectivite" aria-pressed="false">Collectivités</button>
+          <button type="button" data-filter="appli" aria-pressed="false">Applications et plateformes</button>
+        </div>
+
+        <ul class="works">
+          <li class="work work--wide work--pink" data-cat="restaurant">
+            <a href="/sushi-tys/">
+              <div class="preview" data-src="/sushi-tys/"></div>
+              <div class="work__text">
+                <h3>Sushi Ty's</h3>
+                <p>Restaurant de sushis à Septèmes-les-Vallons. Menu illustré, avis, lien de commande et version mobile façon application.</p>
+                <span class="work__tag">Maquette proposée</span>
+              </div>
+            </a>
+          </li>
+          <li class="work work--yellow" data-cat="collectivite">
+            <a href="/mairie-le-rove/">
+              <div class="preview" data-src="/mairie-le-rove/"></div>
+              <div class="work__text">
+                <h3>Mairie du Rove</h3>
+                <p>Refonte d'un site communal : démarches, actualités, météo locale et accès rapide sur mobile.</p>
+                <span class="work__tag">Maquette proposée</span>
+              </div>
+            </a>
+          </li>
+          <li class="work work--orange" data-cat="restaurant">
+            <a href="/pizza-al-dente/">
+              <div class="preview" data-src="/pizza-al-dente/"></div>
+              <div class="work__text">
+                <h3>Pizza al dente</h3>
+                <p>Pizzeria au Rove. Carte claire, horaires et appel en un geste.</p>
+                <span class="work__tag">Maquette proposée</span>
+              </div>
+            </a>
+          </li>
+          <li class="work work--blue work--text" data-cat="appli">
+            <a href="https://myeasyauto.fr" target="_blank" rel="noopener">
+              <div class="work__text">
+                <h3>My Easy Auto</h3>
+                <p>Application en ligne de gestion des sinistres pour les carrosseries : dossiers, documents, relances et suivi des impayés au même endroit.</p>
+                <span class="work__tag">Application en service</span>
+              </div>
+            </a>
+          </li>
+          <li class="work work--mint" data-cat="commerce">
+            <a href="/demos/salon-esthetique/">
+              <div class="preview" data-src="/demos/salon-esthetique/"></div>
+              <div class="work__text">
+                <h3>Salon Émeraude</h3>
+                <p>Institut de beauté : prestations, tarifs et prise de rendez-vous.</p>
+                <span class="work__tag">Démonstration</span>
+              </div>
+            </a>
+          </li>
+          <li class="work work--yellow" data-cat="restaurant">
+            <a href="/demos/pizzeria-provencale/">
+              <div class="preview" data-src="/demos/pizzeria-provencale/"></div>
+              <div class="work__text">
+                <h3>Pizzeria Lou Soleï</h3>
+                <p>Une pizzeria à l'accent provençal, lavande et ocre.</p>
+                <span class="work__tag">Démonstration</span>
+              </div>
+            </a>
+          </li>
+          <li class="work work--pink" data-cat="restaurant">
+            <a href="/demos/pizzeria-italienne/">
+              <div class="preview" data-src="/demos/pizzeria-italienne/"></div>
+              <div class="work__text">
+                <h3>Pizzeria Da Enzo</h3>
+                <p>L'esprit trattoria : carte, histoire de la maison, réservation.</p>
+                <span class="work__tag">Démonstration</span>
+              </div>
+            </a>
+          </li>
+          <li class="work work--ink work--text" data-cat="appli">
+            <a href="https://ideaforma.fr" target="_blank" rel="noopener">
+              <div class="work__text">
+                <h3>Ideaforma</h3>
+                <p>Site et plateforme d'un organisme de formation certifié Qualiopi : catalogue, demandes de devis et espace stagiaire.</p>
+                <span class="work__tag">Site en ligne</span>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <span class="orbit">SITE<br>LIVE</span>
-        <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="mock-line w-70"></div>
-        <div class="mock-line w-45"></div>
-        <div class="mock-line w-90"></div>
-        <div class="mock-card-grid"><div></div><div></div><div></div></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="container">
-    <div class="stat-bar reveal">
-      <div class="stat"><strong>3</strong><span>formules sur-mesure</span></div>
-      <div class="stat"><strong>100%</strong><span>responsive &amp; rapide</span></div>
-      <div class="stat"><strong>RGPD</strong><span>&amp; mentions légales inclus</span></div>
-      <div class="stat"><strong>Vercel</strong><span>ou Netlify au choix</span></div>
-    </div>
-  </div>
-
-  <!-- TRUSTBAR -->
-  <div class="trustbar">
-    <div class="container trustbar-inner">
-      <span>Pizzerias</span><span>Restaurants</span><span>Salons de beauté</span><span>Commerces de proximité</span><span>Artisans</span>
-    </div>
-  </div>
-
-  <!-- PARTENAIRE -->
-  <section class="section">
-    <div class="container grid grid-2" style="align-items:center;">
-      <div class="media-frame ratio-4-3 reveal">
-        <img src="https://images.pexels.com/photos/36729739/pexels-photo-36729739.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Commerçante souriante dans sa boutique" loading="lazy" width="1200" height="675">
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">Un partenaire qui comprend votre métier</span>
-        <h2 class="section-title">On s'occupe du site, vous vous occupez de vos clients</h2>
-        <p class="text-muted">Pas besoin de connaissances techniques : IDEA prend en charge la conception, la rédaction des mentions obligatoires et la mise en ligne. Vous gardez la main sur les mises à jour (horaires, photos, offres) sans dépendre de personne.</p>
-        <ul class="hero-trust" style="flex-direction:column; align-items:flex-start; gap:0.75rem; margin-top:1.5rem;">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Un interlocuteur unique du brief à la mise en ligne</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Un design pensé pour votre clientèle locale</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Un site qui évolue avec votre commerce</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- FONCTIONNEMENT -->
-  <section class="section" id="fonctionnement">
-    <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">Fonctionnement</span>
-        <h2 class="section-title">Un site en ligne, sans complexité pour vous</h2>
-        <p class="section-subtitle">Vous vous concentrez sur votre commerce, IDEA s'occupe de tout le reste.</p>
-      </div>
-      <div class="grid grid-4">
-        <div class="card step-card reveal">
-          <h3>Échange &amp; brief</h3>
-          <p class="text-muted">On discute de votre activité, de votre image et de vos objectifs pour cadrer le projet.</p>
+    <!-- TARIFS -->
+    <section class="section section--tint" id="tarifs" aria-labelledby="tarifs-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="tarifs-title">Tarifs</h2>
+          <p>Trois formules de base, des options à la carte, un prix connu d'avance. Pour l'ouverture de MyEasyDev, la création de votre site et les options sont à -15 %.</p>
         </div>
-        <div class="card step-card reveal">
-          <h3>Design sur-mesure</h3>
-          <p class="text-muted">Un site pensé pour votre univers : couleurs, ton, mise en avant de vos produits ou services.</p>
-        </div>
-        <div class="card step-card reveal">
-          <h3>Mise en ligne</h3>
-          <p class="text-muted">Déploiement sur Vercel ou Netlify, nom de domaine, mentions légales et RGPD en règle.</p>
-        </div>
-        <div class="card step-card reveal">
-          <h3>Suivi &amp; évolutions</h3>
-          <p class="text-muted">Le site évolue avec vous : nouvelles photos, nouveaux horaires, nouvelles offres.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- DEMONSTRATIONS -->
-  <section class="section" id="demonstrations">
-    <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">Book de démonstration</span>
-        <h2 class="section-title">Trois exemples pour vous projeter</h2>
-        <p class="section-subtitle">Des sites fictifs, réalisés à titre de démonstration, pour montrer ce qu'IDEA peut créer pour votre commerce.</p>
-      </div>
-      <div class="grid grid-3">
+        <div class="launch" role="note">
+          <strong>Offre de lancement</strong>
+          <p>-15 % sur la création du site et les options ponctuelles, pour tout devis signé jusqu'au 31 décembre 2026. Les abonnements mensuels ne sont pas concernés.</p>
+        </div>
 
-        <article class="card module-card reveal">
-          <div class="media-frame ratio-4-3" style="margin-bottom:1.5rem;">
-            <img src="https://images.pexels.com/photos/32641697/pexels-photo-32641697.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aperçu du site de démonstration Pizzeria Lou Soleï — four à bois" loading="lazy" width="800" height="600">
+        <div class="plans">
+          <article class="plan" data-plan="vitrine">
+            <h3>Vitrine</h3>
+            <p class="plan__for">Pour être trouvé, rassurer et donner envie de venir. Je m'occupe de tout, vous n'avez rien à gérer.</p>
+            <p class="plan__price"><del>1 000 €</del> <span>850 €</span></p>
+            <p class="plan__month">puis 39 € par mois</p>
+            <ul class="plan__list">
+              <li>Jusqu'à 5 pages à vos couleurs</li>
+              <li>Menu, carte ou prestations illustrés</li>
+              <li>Galerie photos et avis clients</li>
+              <li>Plan d'accès, horaires, appel en un geste</li>
+              <li>Liens vers vos réseaux, Uber Eats ou Planity</li>
+              <li>Mensualité : hébergement, nom de domaine, sauvegardes et vos mises à jour faites par moi</li>
+            </ul>
+            <button class="btn btn--ghost plan__pick" type="button" data-pick="vitrine">Composer à partir de cette formule</button>
+          </article>
+
+          <article class="plan plan--feature" data-plan="autonome">
+            <p class="plan__badge">Le meilleur équilibre</p>
+            <h3>Vitrine autonome</h3>
+            <p class="plan__for">Tout le site Vitrine, plus un espace de gestion simple pour changer vous-même vos prix, plats, photos et horaires.</p>
+            <p class="plan__price"><del>1 600 €</del> <span>1 360 €</span></p>
+            <p class="plan__month">puis 29 € par mois</p>
+            <ul class="plan__list">
+              <li>Tout le contenu de la formule Vitrine</li>
+              <li>Espace de gestion sécurisé, utilisable sur téléphone</li>
+              <li>Modification du menu et des prix en quelques secondes</li>
+              <li>Annonces : fermeture exceptionnelle, plat du jour, événement</li>
+              <li>Prise en main accompagnée d'une heure</li>
+              <li>Mensualité : hébergement, nom de domaine, sauvegardes et assistance technique</li>
+            </ul>
+            <button class="btn plan__pick" type="button" data-pick="autonome">Composer à partir de cette formule</button>
+          </article>
+
+          <article class="plan" data-plan="commerce">
+            <h3>Commerce connecté</h3>
+            <p class="plan__for">Pour vendre en direct : commande en ligne, espace client et fidélité, sans commission sur vos ventes.</p>
+            <p class="plan__price"><del>2 800 €</del> <span>2 380 €</span></p>
+            <p class="plan__month">puis 49 € par mois</p>
+            <ul class="plan__list">
+              <li>Tout le contenu de la formule Vitrine autonome</li>
+              <li>Commande en ligne avec paiement sécurisé</li>
+              <li>Espace client : historique et commandes favorites</li>
+              <li>Programme de fidélité à points</li>
+              <li>Tableau des commandes en temps réel</li>
+              <li>Mensualité : hébergement, nom de domaine, sauvegardes, assistance et maintenance du paiement</li>
+            </ul>
+            <button class="btn btn--ghost plan__pick" type="button" data-pick="commerce">Composer à partir de cette formule</button>
+          </article>
+        </div>
+
+        <!-- Options + simulateur -->
+        <div class="builder" id="composer">
+          <div class="builder__options">
+            <h3>Options à la carte</h3>
+            <p class="builder__hint">Cochez ce qui vous intéresse : le total se met à jour à côté.</p>
+
+            <fieldset class="field-plans">
+              <legend>Formule de base</legend>
+              <label><input type="radio" name="plan" value="vitrine"> Vitrine</label>
+              <label><input type="radio" name="plan" value="autonome" checked> Vitrine autonome</label>
+              <label><input type="radio" name="plan" value="commerce"> Commerce connecté</label>
+            </fieldset>
+
+            <table class="options">
+              <caption class="sr-only">Options ponctuelles et leurs prix, avec et sans remise de lancement</caption>
+              <thead>
+                <tr><th scope="col">Option</th><th scope="col">Prix normal</th><th scope="col">Lancement</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><label><input type="checkbox" data-opt="page" data-price="120"> Page supplémentaire</label></td><td><del>120 €</del></td><td>102 €</td></tr>
+                <tr><td><label><input type="checkbox" data-opt="resa" data-price="400"> Réservation ou prise de rendez-vous en ligne</label></td><td><del>400 €</del></td><td>340 €</td></tr>
+                <tr><td><label><input type="checkbox" data-opt="appli" data-price="400"> Version mobile façon application, installable sur l'écran d'accueil</label></td><td><del>400 €</del></td><td>340 €</td></tr>
+                <tr><td><label><input type="checkbox" data-opt="en" data-price="300"> Version anglaise du site</label></td><td><del>300 €</del></td><td>255 €</td></tr>
+                <tr><td><label><input type="checkbox" data-opt="logo" data-price="300"> Logo et charte graphique</label></td><td><del>300 €</del></td><td>255 €</td></tr>
+                <tr><td><label><input type="checkbox" data-opt="google" data-price="200"> Référencement local : fiche Google et optimisation</label></td><td><del>200 €</del></td><td>170 €</td></tr>
+                <tr><td><label><input type="checkbox" data-opt="textes" data-price="180"> Rédaction de vos textes</label></td><td><del>180 €</del></td><td>153 €</td></tr>
+                <tr><td><label><input type="checkbox" data-opt="photos" data-price="120"> Retouche et optimisation de 30 photos</label></td><td><del>120 €</del></td><td>102 €</td></tr>
+              </tbody>
+            </table>
+
+            <div class="recurring">
+              <label for="mails">Adresses e-mail professionnelles (5 € par mois et par adresse)</label>
+              <input id="mails" type="number" min="0" max="20" step="1" value="0" inputmode="numeric">
+            </div>
+            <p class="builder__more">Gestion de vos réseaux sociaux, application métier ou site sur mesure : sur devis, après un premier échange.</p>
           </div>
-          <div class="module-tags"><span class="badge">Pizzeria</span><span class="badge">Thème provençal</span></div>
-          <h3>Pizzeria Lou Soleï</h3>
-          <p>Une pizzeria provençale imaginaire : four à bois, produits locaux, ambiance ensoleillée du Sud.</p>
-          <a href="/demos/pizzeria-provencale/" class="btn btn-secondary btn-block">Voir la démo</a>
-        </article>
 
-        <article class="card module-card reveal">
-          <div class="media-frame ratio-4-3" style="margin-bottom:1.5rem;">
-            <img src="https://images.pexels.com/photos/29626980/pexels-photo-29626980.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aperçu du site de démonstration Pizzeria Da Enzo — four napolitain" loading="lazy" width="800" height="600">
-          </div>
-          <div class="module-tags"><span class="badge">Pizzeria</span><span class="badge">Thème italien</span></div>
-          <h3>Pizzeria Da Enzo</h3>
-          <p>Une trattoria napolitaine fictive : tradition familiale, four napolitain, recettes authentiques.</p>
-          <a href="/demos/pizzeria-italienne/" class="btn btn-secondary btn-block">Voir la démo</a>
-        </article>
-
-        <article class="card module-card reveal">
-          <div class="media-frame ratio-4-3" style="margin-bottom:1.5rem;">
-            <img src="https://images.pexels.com/photos/31390599/pexels-photo-31390599.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aperçu du site de démonstration Salon Émeraude — ambiance cocooning" loading="lazy" width="800" height="600">
-          </div>
-          <div class="module-tags"><span class="badge">Salon</span><span class="badge">Esthétique</span></div>
-          <h3>Salon Émeraude</h3>
-          <p>Un salon d'esthétique imaginaire : soins du visage, massages, univers cocooning et haut de gamme.</p>
-          <a href="/demos/salon-esthetique/" class="btn btn-secondary btn-block">Voir la démo</a>
-        </article>
-
-      </div>
-
-      <div class="card reveal" style="margin-top:2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;">
-        <div>
-          <div class="module-tags"><span class="badge">Projet client</span><span class="badge">Pizzeria · Le Rove</span></div>
-          <h3 style="margin-top:.75rem;">Pizza al dente — maquette</h3>
-          <p class="text-muted" style="margin:0;">Proposition de site pour une vraie pizzeria : carte filtrable, statut « ouvert / fermé » en direct, appel et itinéraire en un geste.</p>
-        </div>
-        <a href="/pizza-al-dente/" target="_blank" rel="noopener" class="btn btn-primary">Ouvrir la maquette ↗</a>
-      </div>
-
-      <div class="card reveal" style="margin-top:1.25rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;">
-        <div>
-          <div class="module-tags"><span class="badge">Projet client</span><span class="badge">Collectivité · Le Rove</span></div>
-          <h3 style="margin-top:.75rem;">Mairie du Rove — maquette</h3>
-          <p class="text-muted" style="margin:0;">Proposition de refonte du site communal : démarches en un clic, parcours par profil (parents, seniors, nouveaux arrivants, associations), recherche instantanée, agenda, accessibilité renforcée (taille du texte, contraste), version mobile façon application avec barre de raccourcis.</p>
-        </div>
-        <a href="/mairie-le-rove/" target="_blank" rel="noopener" class="btn btn-primary">Ouvrir la maquette ↗</a>
-      </div>
-
-      <div class="card reveal" style="margin-top:1.25rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;">
-        <div>
-          <div class="module-tags"><span class="badge">Projet client</span><span class="badge">Restaurant · Septèmes-les-Vallons</span></div>
-          <h3 style="margin-top:.75rem;">Sushi Ty's — maquette</h3>
-          <p class="text-muted" style="margin:0;">Proposition de site pour un restaurant de sushis : carte illustrée et filtrable (photo, pièces, prix), commande Uber Eats en un geste, avis Google, galerie, horaires en direct et barre de raccourcis façon application sur mobile.</p>
-        </div>
-        <a href="/sushi-tys/" target="_blank" rel="noopener" class="btn btn-primary">Ouvrir la maquette ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- POURQUOI IDEA -->
-  <section class="section" style="background:var(--color-bg-alt); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
-    <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">Pourquoi IDEA</span>
-        <h2 class="section-title">Des sites pensés pour les vrais besoins d'un commerce</h2>
-      </div>
-      <div class="grid grid-2" style="align-items:center; gap:3rem;">
-        <div class="media-frame ratio-4-3 reveal">
-          <img src="https://images.pexels.com/photos/34803986/pexels-photo-34803986.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Espace de travail moderne pour la conception d'un site web" loading="lazy" width="1200" height="900">
-        </div>
-        <div class="grid grid-2" style="gap:1.5rem;">
-          <div class="feature-card reveal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
-            <h3>Rapide à charger</h3>
-            <p class="text-muted">Sites légers, optimisés pour le mobile, sans surcharge inutile.</p>
-          </div>
-          <div class="feature-card reveal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
-            <h3>Conformes</h3>
-            <p class="text-muted">Mentions légales, confidentialité et bandeau cookies inclus par défaut.</p>
-          </div>
-          <div class="feature-card reveal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
-            <h3>Sur-mesure</h3>
-            <p class="text-muted">Un design qui reflète l'identité de votre commerce, pas un modèle générique.</p>
-          </div>
-          <div class="feature-card reveal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
-            <h3>Hébergé pro</h3>
-            <p class="text-muted">Mise en ligne sur Vercel ou Netlify : rapide, sécurisé, évolutif.</p>
-          </div>
+          <aside class="summary" aria-live="polite">
+            <h3>Votre estimation</h3>
+            <dl>
+              <div><dt>Formule</dt><dd id="s-plan">Vitrine autonome</dd></div>
+              <div><dt>Création et options, prix normal</dt><dd id="s-gross">1 600 €</dd></div>
+              <div class="summary__off"><dt>Remise de lancement -15 %</dt><dd id="s-off">-240 €</dd></div>
+              <div class="summary__total"><dt>À régler pour la création</dt><dd id="s-total">1 360 €</dd></div>
+              <div><dt>Ensuite, chaque mois</dt><dd id="s-month">29 €</dd></div>
+            </dl>
+            <p class="summary__legal">Prix nets. TVA non applicable, article 293 B du CGI. Estimation indicative, confirmée par un devis écrit gratuit.</p>
+            <a class="btn" href="#contact" id="s-send">Demander le devis de cette sélection</a>
+          </aside>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FORMULES -->
-  <section class="section" id="formules">
-    <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">Formules</span>
-        <h2 class="section-title">Un accompagnement adapté à chaque commerce</h2>
-        <p class="section-subtitle">Tarifs communiqués sur devis, selon la taille et les besoins de votre projet.</p>
-      </div>
-      <div class="grid grid-3">
-        <div class="card pricing-card reveal">
-          <h3>Essentiel</h3>
-          <p class="price">Sur devis</p>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Site vitrine one-page</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Présentation, contact, horaires</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Mentions légales &amp; RGPD</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Hébergement Vercel/Netlify</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary btn-block">Demander un devis</a>
-        </div>
-        <div class="card pricing-card is-highlight reveal">
-          <span class="badge">Le plus choisi</span>
-          <h3>Business</h3>
-          <p class="price">Sur devis</p>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Plusieurs pages (menu, galerie, avis)</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Référencement local optimisé</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Formulaire de contact</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Accompagnement à la mise en ligne</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary btn-block">Demander un devis</a>
-        </div>
-        <div class="card pricing-card reveal">
-          <h3>Sur-mesure</h3>
-          <p class="price">Sur devis</p>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Fonctionnalités spécifiques</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Réservation ou prise de rendez-vous</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Évolutions &amp; maintenance</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Suivi personnalisé</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary btn-block">Demander un devis</a>
+    <!-- INCLUS -->
+    <section class="section" aria-labelledby="inclus-title">
+      <div class="wrap inclus">
+        <h2 id="inclus-title">Ce qui est compris dans chaque site, sans supplément</h2>
+        <div class="inclus__grid">
+          <div><h3>Conforme à la loi</h3><p>Mentions légales, politique de confidentialité et gestion des cookies conformes aux recommandations de la CNIL. Pas de traceur publicitaire installé dans votre dos.</p></div>
+          <div><h3>Pensé pour le téléphone</h3><p>La majorité de vos clients vous cherchent sur mobile. Le site est conçu d'abord pour eux, puis adapté aux grands écrans.</p></div>
+          <div><h3>Rapide et sécurisé</h3><p>Hébergement professionnel, connexion chiffrée en HTTPS, sauvegardes. Les pages s'affichent vite, même avec une connexion faible.</p></div>
+          <div><h3>Lisible par tous</h3><p>Contrastes suffisants, textes à bonne taille, navigation au clavier : un site agréable aussi pour les personnes malvoyantes ou âgées.</p></div>
+          <div><h3>Trouvable sur Google</h3><p>Titres, descriptions et structure soignés pour que votre commerce ressorte quand on cherche votre activité près de chez vous.</p></div>
+          <div><h3>À votre nom</h3><p>Vos textes, vos photos et votre nom de domaine vous appartiennent. Vous savez toujours ce que vous payez et pourquoi.</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="cta-panel reveal">
-        <div>
-          <span class="eyebrow" style="color:var(--color-accent-2)">Contact</span>
-          <h2>Parlons de votre site vitrine</h2>
-          <p class="section-subtitle">Décrivez votre commerce et vos besoins : je reviens vers vous rapidement pour construire le site qui vous ressemble.</p>
-          <div class="contact-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
-            <a href="mailto:contact.ideaforma@gmail.com">contact.ideaforma@gmail.com</a>
-          </div>
+    <!-- METHODE -->
+    <section class="section section--blue" id="methode" aria-labelledby="methode-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="methode-title">Comment ça se passe</h2>
+          <p>Quatre étapes, un seul interlocuteur. Vous validez chaque étape avant la suivante.</p>
         </div>
-        <form class="form-grid" data-demo-form novalidate>
-          <div>
-            <label for="name">Nom</label>
-            <input class="field" id="name" name="name" type="text" autocomplete="name" required>
+        <ol class="steps">
+          <li><h3>On en parle</h3><p>Un appel ou un rendez-vous dans votre commerce. Je note vos besoins, vos clients, ce qui vous distingue. Gratuit et sans engagement.</p></li>
+          <li><h3>Vous voyez votre maquette</h3><p>Une première version cliquable à vos couleurs, en général sous 7 jours. Vous la testez sur votre téléphone et on ajuste ensemble.</p></li>
+          <li><h3>Mise en ligne</h3><p>Je branche le nom de domaine, les mentions légales, Google, vos réseaux. Votre site est en ligne et vous recevez vos accès.</p></li>
+          <li><h3>Je reste là</h3><p>Mises à jour, nouveaux plats, horaires d'été, questions : vous m'écrivez, c'est pris en charge.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact">
+        <div class="contact__intro">
+          <h2 id="contact-title">Parlons de votre site</h2>
+          <p>Décrivez votre commerce en quelques mots. Je vous réponds sous 48 heures ouvrées avec une première idée et un devis gratuit.</p>
+          <p class="contact__direct">Vous préférez écrire directement ? <a href="mailto:contact@ideaforma.fr">contact@ideaforma.fr</a></p>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="f-nom">Nom et prénom</label>
+              <input id="f-nom" name="nom" type="text" autocomplete="name" required>
+            </div>
+            <div class="form__field">
+              <label for="f-commerce">Commerce ou structure</label>
+              <input id="f-commerce" name="commerce" type="text" autocomplete="organization" required>
+            </div>
           </div>
-          <div>
-            <label for="email">E-mail</label>
-            <input class="field" id="email" name="email" type="email" autocomplete="email" required>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="f-mail">E-mail</label>
+              <input id="f-mail" name="mail" type="email" autocomplete="email" required>
+            </div>
+            <div class="form__field">
+              <label for="f-tel">Téléphone <span class="opt">(facultatif)</span></label>
+              <input id="f-tel" name="tel" type="tel" autocomplete="tel">
+            </div>
           </div>
-          <div>
-            <label for="business">Votre commerce</label>
-            <input class="field" id="business" name="business" type="text" placeholder="Ex. Pizzeria, salon de coiffure, boutique...">
+          <div class="form__field">
+            <label for="f-msg">Votre projet</label>
+            <textarea id="f-msg" name="message" rows="6" required></textarea>
           </div>
-          <div>
-            <label for="message">Votre projet</label>
-            <textarea class="field" id="message" name="message" rows="4" required></textarea>
+          <div class="form__check">
+            <input id="f-rgpd" type="checkbox" required>
+            <label for="f-rgpd">J'accepte que mes informations soient utilisées uniquement pour répondre à ma demande. Voir la <a href="/confidentialite.html">politique de confidentialité</a>.</label>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
-          <p class="form-note">Ce formulaire de démonstration n'envoie aucune donnée. Écrivez-nous directement à <a href="mailto:contact.ideaforma@gmail.com" style="text-decoration:underline">contact.ideaforma@gmail.com</a>.</p>
-          <div data-form-feedback hidden tabindex="-1">Merci ! Ceci est un formulaire de démonstration — aucune information n'a été transmise. Contactez-nous par e-mail pour un vrai échange.</div>
+          <p class="form__error" id="f-error" role="alert" hidden></p>
+          <button class="btn" type="submit">Préparer mon message</button>
+          <p class="form__note">Le bouton ouvre votre messagerie avec votre message déjà rédigé : vous l'envoyez vous-même. Rien n'est enregistré sur ce site.</p>
         </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <a href="/" class="logo"><span class="dot"></span> IDEA</a>
-        <p class="text-muted" style="margin-top:1rem;max-width:32ch;">Sites vitrines sur-mesure pour les commerçants et artisans. Design pro, hébergement moderne, accompagnement humain.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#demonstrations">Démonstrations</a></li>
-          <li><a href="#fonctionnement">Fonctionnement</a></li>
-          <li><a href="#formules">Formules</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Informations</h4>
-        <ul>
-          <li><a href="/mentions-legales.html">Mentions légales</a></li>
-          <li><a href="/confidentialite.html">Politique de confidentialité</a></li>
-          <li><a href="mailto:contact.ideaforma@gmail.com">contact.ideaforma@gmail.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© <span data-year></span> IDEA. Tous droits réservés.</p>
-      <div class="footer-legal">
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p class="brand brand--foot">my<span>easy</span>dev</p>
+      <p>Création de sites internet et services numériques, région marseillaise.</p>
+      <nav aria-label="Informations légales">
         <a href="/mentions-legales.html">Mentions légales</a>
         <a href="/confidentialite.html">Confidentialité</a>
-      </div>
+      </nav>
+      <p class="foot__small">Ce site n'utilise aucun cookie ni outil de mesure d'audience. &copy; <span id="year">2026</span> MyEasyDev</p>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Gestion des cookies">
-  <p>Ce site n'utilise que des cookies strictement nécessaires à son fonctionnement (aucun traceur publicitaire ou statistique). En savoir plus dans notre <a href="/confidentialite.html" style="text-decoration:underline">politique de confidentialité</a>.</p>
-  <div class="cookie-actions">
-    <button class="btn btn-primary" data-consent="accepted">J'ai compris</button>
-    <a class="btn btn-secondary" href="/confidentialite.html">En savoir plus</a>
-  </div>
-</div>
-
-<script src="/assets/js/main.js"></script>
+  <script src="/assets/js/myeasydev.js" defer></script>
 </body>
 </html>
