@@ -5,3 +5,4 @@ Disallow: /pizza-al-dente/
 Disallow: /mairie-le-rove/
 
 Sitemap: https://votre-domaine.example/sitemap.xml
+Disallow: /sushi-tys/

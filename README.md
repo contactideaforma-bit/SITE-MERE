@@ -26,6 +26,8 @@ assets/
 pizza-al-dente/                → Maquette client : Pizza al dente (Le Rove), non indexée
 mairie-le-rove/                → Maquette client : Mairie du Rove (refonte de lerove.fr), non indexée
                                  index.html + mairie.css + mairie.js + mentions-legales.html
+sushi-tys/                     → Maquette client : Sushi Ty's (Septèmes-les-Vallons), non indexée
+                                 index.html + sushi.css + sushi.js + mentions-legales.html
 
 demos/
   pizzeria-provencale/index.html + mentions-legales.html
