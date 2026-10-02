@@ -3,6 +3,6 @@ Allow: /
 Disallow: /demos/
 Disallow: /pizza-al-dente/
 Disallow: /mairie-le-rove/
+Disallow: /sushi-tys/
 
 Sitemap: https://votre-domaine.example/sitemap.xml
-Disallow: /sushi-tys/
