@@ -352,3 +352,74 @@ html[data-contrast="high"] .hero-photo::before { background: rgba(0, 0, 0, 0.74)
 .section-head.center { text-align: center; max-width: 720px; margin-left: auto; margin-right: auto; }
 .section-alt { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 .placeholder-flag { font-family: var(--font-body); font-style: normal; }
+
+/* =========================================================
+   v3 — Version mobile « application »
+   Barre de raccourcis fixe en bas, hero et accès rapides
+   compactés, marges confortables, aucun débordement latéral.
+   ========================================================= */
+.hero-grid > * { min-width: 0; }
+.appbar { display: none; }
+
+@media (max-width: 760px) {
+  html, body { overflow-x: hidden; }
+  .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .demo-ribbon { position: static; font-size: 0.78rem; }
+  .a11y-bar { font-size: 0.78rem; }
+  .a11y-inner { padding: 0.3rem 0; }
+  .a11y-tools { flex-wrap: nowrap; gap: 0.3rem; }
+  .a11y-tools .label { display: none; }
+  .a11y-btn { padding: 0.3rem 0.6rem; min-width: 38px; }
+  .site-header .header-inner { padding: 0.7rem 0; }
+  .logo small { display: none; }
+
+  .hero-mairie { padding: 2rem 0 2.25rem; }
+  .hero-grid { gap: 1.5rem; }
+  .hero-tag { font-size: 0.8rem; }
+  .hero-mairie h1 { font-size: 2.2rem; }
+  .hero-mairie .lede { font-size: 1rem; margin-bottom: 1.1rem; }
+  .search-box form { padding: 0.3rem 0.3rem 0.3rem 1rem; }
+  .search-box input { font-size: 1rem; min-height: 46px; }
+  .search-box form .btn { padding: 0.7rem 1rem; font-size: 0.9rem; }
+  .search-hints { display: flex; gap: 0.4rem; overflow-x: auto; flex-wrap: nowrap; margin: 0.75rem -1.25rem 0; padding: 0 1.25rem 0.4rem; scrollbar-width: none; }
+  .search-hints::-webkit-scrollbar { display: none; }
+  .search-hints > * { flex-shrink: 0; }
+  .weather { max-width: none; padding: 1.1rem 1.2rem; }
+  .weather-row { font-size: 0.82rem; }
+
+  /* accès rapides : carrousel horizontal, les 4 numéros à portée de pouce */
+  .quick-bar { display: flex; gap: 0.75rem; overflow-x: auto; scroll-snap-type: x mandatory; margin: 1rem -1.25rem 0; padding: 0.25rem 1.25rem 0.75rem; scrollbar-width: none; }
+  .quick-bar::-webkit-scrollbar { display: none; }
+  .quick-item { flex: 0 0 72%; scroll-snap-align: start; }
+
+  .section { padding: 2.5rem 0; }
+  .tiles { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .tile { padding: 0; }
+  .tile h3 { font-size: 0.98rem; }
+  .tile p { font-size: 0.82rem; }
+  .tabs { overflow-x: auto; flex-wrap: nowrap; margin: 0 -1.25rem; padding: 0 1.25rem 0.5rem; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex-shrink: 0; }
+  .news-card.is-featured .news-media { aspect-ratio: 16/10; }
+  .discover-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .discover-card { aspect-ratio: 1; }
+  .back-top { bottom: calc(86px + env(safe-area-inset-bottom)); }
+  .cookie-banner { bottom: calc(84px + env(safe-area-inset-bottom)); }
+
+  /* la barre en bas et la marge pour qu'elle ne masque rien */
+  body.has-appbar { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  .appbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid var(--color-border); padding: 0.45rem 0.4rem calc(0.55rem + env(safe-area-inset-bottom)); box-shadow: 0 -8px 24px rgba(26, 42, 60, 0.10); }
+  .appbar a, .appbar button { font: inherit; background: none; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 0.25rem; font-size: 0.68rem; font-weight: 600; color: var(--color-text-muted); padding: 0.3rem 0.2rem; min-height: 52px; border-radius: 12px; }
+  .appbar a:active, .appbar button:active { background: var(--color-accent-2-soft); }
+  .appbar .is-active { color: var(--color-accent); }
+  .appbar svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .appbar-main { color: var(--color-accent); }
+  .appbar-main-btn { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent)); color: #fff; display: grid; place-items: center; margin-top: -26px; box-shadow: 0 8px 20px rgba(17, 73, 122, 0.35), 0 0 0 5px var(--color-bg); }
+  .appbar-main-btn svg { width: 26px; height: 26px; }
+  .appbar-urgent { color: #B42318; }
+  html[data-contrast="high"] .appbar { background: #fff; border-top: 2px solid #1A2A3C; }
+}
+@media (max-width: 400px) {
+  .tiles { grid-template-columns: 1fr; }
+  .discover-grid { grid-template-columns: 1fr; }
+}

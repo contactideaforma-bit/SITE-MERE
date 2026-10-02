@@ -294,4 +294,30 @@
     }, { passive: true });
     top.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
   }
+
+  /* ---------- Barre mobile : raccourci actif + bouton recherche ---------- */
+  (function () {
+    var links = document.querySelectorAll(".appbar a[href^='#']");
+    if ("IntersectionObserver" in window && links.length) {
+      var pairs = [];
+      links.forEach(function (a) {
+        var t = document.querySelector(a.getAttribute("href"));
+        if (t) pairs.push({ a: a, el: t });
+      });
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          pairs.forEach(function (p) { if (p.el === en.target) p.a.classList.toggle("is-active", en.isIntersecting); });
+        });
+      }, { rootMargin: "-40% 0px -45% 0px", threshold: 0 });
+      pairs.forEach(function (p) { obs.observe(p.el); });
+    }
+    var sbtn = document.querySelector("[data-appbar-search]");
+    var sinput = document.getElementById("site-search");
+    if (sbtn && sinput) {
+      sbtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(function () { sinput.focus(); }, 350);
+      });
+    }
+  })();
 })();
