@@ -8,7 +8,7 @@ Aucune dépendance, aucun outil de build : HTML / CSS / JS natifs. Ouvre, modifi
 ## Structure
 
 ```
-index.html                     → Site MyEasyDev (offre, tarifs, réalisations, contact) — Bricolage Grotesque via Google Fonts
+index.html                     → Site MyEasyDev (offre, tarifs, réalisations, contact) — Newsreader + Familjen Grotesk via Google Fonts
 mentions-legales.html          → Mentions légales du site IDEA (à compléter : SIRET, adresse...)
 confidentialite.html           → Politique de confidentialité / cookies
 robots.txt / sitemap.xml       → SEO de base (le dossier /demos/ est exclu de l'indexation)
@@ -87,3 +87,22 @@ Les chemins sont en racine absolue (`/assets/...`) : sers toujours le dossier de
 Voir le bloc de commandes fourni dans la conversation pour initialiser Git et pousser ce projet
 vers un nouveau dépôt GitHub. Une fois poussé, connecter le dépôt depuis le tableau de bord
 Vercel ou Netlify pour un déploiement automatique à chaque `git push`.
+
+## Typographie : un couple de polices par univers
+
+Aucune police « par défaut » d'outil (Inter, Fraunces, Bricolage…) : chaque site a son propre couple,
+chargé depuis Google Fonts, pour un rendu travaillé et reconnaissable.
+
+| Site                       | Titres          | Texte            |
+|----------------------------|-----------------|------------------|
+| MyEasyDev (site mère)      | Newsreader      | Familjen Grotesk |
+| Auberge du Mérou           | Castoro         | Hanken Grotesk   |
+| Sushi Ty's                 | Gabarito        | Onest            |
+| Mairie du Rove             | Petrona         | Mulish           |
+| Pizza al dente             | Zilla Slab      | Karla            |
+| Démo Pizzeria Lou Soleï    | Marcellus       | Figtree          |
+| Démo Pizzeria Da Enzo      | Bodoni Moda     | Work Sans        |
+| Démo Salon Émeraude        | Italiana        | Jost             |
+
+Règle pour une nouvelle maquette : choisir un couple non encore utilisé, angles sobres (6–14 px, pas de
+pilule), étiquettes en petites capitales espacées, filets fins plutôt que bordures épaisses.

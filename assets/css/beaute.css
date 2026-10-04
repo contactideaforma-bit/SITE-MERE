@@ -2,8 +2,8 @@
    Thème démo — Salon Émeraude (esthétique)
    ========================================================= */
 :root {
-  --font-heading: 'Cormorant', serif;
-  --font-body: 'Montserrat', sans-serif;
+  --font-heading: 'Italiana', serif;
+  --font-body: 'Jost', sans-serif;
 
   --color-bg: #FAF3EF;
   --color-bg-alt: #FFFDFC;
@@ -34,7 +34,7 @@ body { background: var(--color-bg); }
   text-align: center;
   background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,166,107,0.16), transparent 65%);
 }
-.hero-beaute h1 { font-size: clamp(2.3rem, 5.6vw, 3.8rem); font-weight: 500; }
+.hero-beaute h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 400; }
 .hero-beaute .lede { max-width: 54ch; margin: 0 auto 2rem; color: var(--color-text-muted); font-size: 1.1rem; }
 .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
@@ -86,3 +86,5 @@ body { background: var(--color-bg); }
 .info-card svg { width: 22px; height: 22px; color: var(--color-accent); flex-shrink: 0; margin-top: 3px; }
 
 .section-alt { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+
+h1, h2, h3, h4 { font-weight: 400; }
