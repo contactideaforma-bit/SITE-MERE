@@ -125,6 +125,7 @@ a sa propre construction :
 - **Carrosserie Roc Blanc** — industriel : écran scindé texte / photo, bande d'engagements, prestations en
   index numéroté sur des lignes, frise horizontale pour le sinistre, comparateur pleine largeur, fiche de devis.
 - **Mairie du Rove** — portail civique : recherche en tête, accès rapides, démarches en vignettes, météo.
-- **Pizza Maracana** — Brésil, peps et fun : vert / jaune / bleu / corail, vagues de Copacabana en séparateurs,
-  photo en forme organique animée, stickers inclinés, pizzas en « tickets » à encoches numérotés, blocs à angles coupés.
+- **Pizza Maracana** — Brésil photographique : bannière plein écran (Pain de Sucre), en-tête transparent qui devient
+  plein au défilement, bandeau drapeau « Vem comer ! », section commande sur photo voilée de vert, pizzas en « tickets »
+  à encoches numérotés, galets photo. Images dans assets/img/maracana/.
 - **Pizza al dente** — carte de pizzeria : liste à points de conduite, filtres, bandeau d'infos.

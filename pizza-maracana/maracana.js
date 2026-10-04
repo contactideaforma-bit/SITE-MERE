@@ -51,3 +51,8 @@
     sections.forEach(function (s) { obs.observe(s.el); });
   }
 })();
+/* en-tête : transparent sur la photo, plein une fois qu'on a défilé */
+(function () {
+  function onScroll() { document.body.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+})();
