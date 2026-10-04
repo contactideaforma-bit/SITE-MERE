@@ -34,6 +34,8 @@ auberge-du-merou/              → Maquette client : Auberge du Mérou (calanque
                                  index.html + merou.css + merou.js + mentions-legales.html
 
 demos/
+  carrosserie-roc-blanc/         → Démo : carrosserie indépendante fictive (devis photo, sinistre, avant/après)
+                                 index.html + rocblanc.css + rocblanc.js + mentions-legales.html
   pizzeria-provencale/index.html + mentions-legales.html
   pizzeria-italienne/index.html  + mentions-legales.html
   salon-esthetique/index.html    + mentions-legales.html
@@ -100,6 +102,7 @@ chargé depuis Google Fonts, pour un rendu travaillé et reconnaissable.
 | Sushi Ty's                 | Gabarito        | Onest            |
 | Mairie du Rove             | Petrona         | Mulish           |
 | Pizza al dente             | Zilla Slab      | Karla            |
+| Démo Carrosserie Roc Blanc | Archivo         | Albert Sans      |
 | Démo Pizzeria Lou Soleï    | Marcellus       | Figtree          |
 | Démo Pizzeria Da Enzo      | Bodoni Moda     | Work Sans        |
 | Démo Salon Émeraude        | Italiana        | Jost             |
