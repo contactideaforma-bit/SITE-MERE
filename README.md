@@ -128,4 +128,6 @@ a sa propre construction :
 - **Pizza Maracana** — Brésil photographique : bannière plein écran (Pain de Sucre), en-tête transparent qui devient
   plein au défilement, bandeau drapeau « Vem comer ! », section commande sur photo voilée de vert, pizzas en « tickets »
   à encoches numérotés, galets photo. Images dans assets/img/maracana/.
+  Mobile : pas de barre d'onglets — réglette à deux boutons (Appeler / Uber Eats), carte en accordéon par
+  catégorie, étapes en frise verticale, chiffres clés en rangée qui défile.
 - **Pizza al dente** — carte de pizzeria : liste à points de conduite, filtres, bandeau d'infos.

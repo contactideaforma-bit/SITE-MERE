@@ -56,3 +56,21 @@
   function onScroll() { document.body.classList.toggle("scrolled", window.scrollY > 40); }
   window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 })();
+/* mobile : la carte en accordéon (une catégorie ouverte à la fois) */
+(function () {
+  var mobile = window.matchMedia("(max-width: 760px)");
+  var groups = Array.prototype.slice.call(document.querySelectorAll(".group"));
+  groups.forEach(function (g) {
+    var btn = g.querySelector(".group-head button");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      if (!mobile.matches) return;
+      var open = !g.classList.contains("is-open");
+      groups.forEach(function (o) { o.classList.remove("is-open"); var b = o.querySelector(".group-head button"); if (b) b.setAttribute("aria-expanded", "false"); });
+      if (open) { g.classList.add("is-open"); btn.setAttribute("aria-expanded", "true"); g.scrollIntoView({ block: "start", behavior: "smooth" }); }
+    });
+  });
+  /* hors mobile, tout est visible : on force l'état ouvert */
+  function sync() { if (!mobile.matches) groups.forEach(function (g) { g.classList.add("is-open"); }); else { groups.forEach(function (g, i) { g.classList.toggle("is-open", i === 0); }); } }
+  if (mobile.addEventListener) mobile.addEventListener("change", sync); sync();
+})();

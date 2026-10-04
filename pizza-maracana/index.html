@@ -36,7 +36,7 @@
 }
 </script>
 </head>
-<body class="has-appbar">
+<body class="has-mstrip">
 <a class="skip-link" href="#main">Aller au contenu principal</a>
 <div class="demo-ribbon" role="note"><strong>Maquette</strong> proposée par IDEA à Pizza Maracana — site non officiel, en attente de validation. <a href="/">Découvrir IDEA</a></div>
 
@@ -102,8 +102,8 @@
       <div class="legend"><span class="l-veg">Sans viande</span><span class="l-meat">Garnie</span><span class="l-halal">Spécialité halal</span></div>
     </div>
 
-    <div class="group" id="carte-classiques">
-      <h3 class="group-head">Les classiques</h3>
+    <div class="group is-open" id="carte-classiques">
+      <h3 class="group-head"><button type="button" aria-expanded="true">Les classiques <span class="chev" aria-hidden="true"></span></button></h3>
       <ul class="tickets">
         <li class="ticket veg"><span class="num">1</span><span class="j-name">Fromage<span class="j-desc">Sauce tomate, fromage fondu. La plus demandée.</span></span><span class="j-price">10 €</span></li>
         <li class="ticket veg"><span class="num">2</span><span class="j-name">Anchois<span class="j-desc">Sauce tomate, anchois, olives noires.</span></span><span class="j-price">8,50 €</span></li>
@@ -120,7 +120,7 @@
     </div>
 
     <div class="group" id="carte-garnies">
-      <h3 class="group-head">Les garnies</h3>
+      <h3 class="group-head"><button type="button" aria-expanded="false">Les garnies <span class="chev" aria-hidden="true"></span></button></h3>
       <ul class="tickets">
         <li class="ticket meat"><span class="num">12</span><span class="j-name">Jambon & fromage<span class="j-desc">Jambon, fromage fondu.</span></span><span class="j-price">12 €</span></li>
         <li class="ticket meat"><span class="num">13</span><span class="j-name">Mozzarella & jambon<span class="j-desc">Jambon, mozzarella.</span></span><span class="j-price">12 €</span></li>
@@ -132,7 +132,7 @@
     </div>
 
     <div class="group" id="carte-specialites">
-      <h3 class="group-head">Les spécialités halal</h3>
+      <h3 class="group-head"><button type="button" aria-expanded="false">Les spécialités halal <span class="chev" aria-hidden="true"></span></button></h3>
       <ul class="tickets">
         <li class="ticket halal"><span class="num">18</span><span class="j-name">Royale halal<span class="j-desc">Viande au choix, mozzarella, champignons, fromage. Très demandée.</span></span><span class="j-price">13 €</span></li>
         <li class="ticket halal"><span class="num">19</span><span class="j-name">Arménienne<span class="j-desc">Viande hachée, oignons, poivrons rouges et verts.</span></span><span class="j-price">13 €</span></li>
@@ -141,7 +141,7 @@
     </div>
 
     <div class="group" id="carte-chaussons">
-      <h3 class="group-head">Chaussons & dessert</h3>
+      <h3 class="group-head"><button type="button" aria-expanded="false">Chaussons & dessert <span class="chev" aria-hidden="true"></span></button></h3>
       <p class="group-note">Les chaussons et la pizza dessert sont sur la carte de la pizzeria ; les intitulés et prix seront repris à l'identique sur le site final.</p>
       <ul class="tickets">
         <li class="ticket meat"><span class="num">C</span><span class="j-name">Chausson au choix<span class="j-desc">Pâte repliée, garniture au choix parmi les pizzas.</span></span><span class="j-price">à la carte</span></li>
@@ -233,14 +233,11 @@
   </div>
 </footer>
 
-<!-- BARRE D'ACTIONS MOBILE : Appeler au centre -->
-<nav class="appbar" aria-label="Raccourcis">
-  <a href="#carte"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>Carte</span></a>
-  <a href="https://www.ubereats.com/fr/store/pizza-maracana/vPP0_pYFQueNKTACYPeHmQ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Livraison</span></a>
-  <a href="tel:+33491679012" class="appbar-main"><span class="appbar-main-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></span><span>Appeler</span></a>
-  <a href="https://www.google.com/maps/dir/?api=1&destination=73+chemin+de+Gibbes,+13014+Marseille" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Y aller</span></a>
-  <a href="#infos"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Horaires</span></a>
-</nav>
+<!-- MOBILE : réglette à deux boutons, Appeler / Uber Eats -->
+<div class="mstrip" aria-label="Commander">
+  <a href="tel:+33491679012" class="mstrip-call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg><span>Appeler<small data-status-text>…</small></span></a>
+  <a href="https://www.ubereats.com/fr/store/pizza-maracana/vPP0_pYFQueNKTACYPeHmQ" target="_blank" rel="noopener" class="mstrip-ue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Uber Eats<small>livraison le soir</small></span></a>
+</div>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Information cookies">
   <p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Le plan est fourni par OpenStreetMap. <a href="mentions-legales.html#donnees" style="text-decoration:underline">En savoir plus</a></p>

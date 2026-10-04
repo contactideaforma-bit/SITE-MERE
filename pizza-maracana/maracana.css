@@ -303,3 +303,71 @@ body.scrolled .top .nav a.nav-call { background: var(--verde); color: #fff; }
   .flagband { padding: 3.5rem 0; }
   .flagband::after { background: rgba(22, 33, 58, 0.62); }
 }
+
+/* =====================================================================
+   Mobile « Maracana » : pas de barre d'onglets. Une réglette à deux boutons
+   (Appeler / Uber Eats), la carte en accordéon par catégorie, les étapes en
+   frise verticale, les chiffres clés en rangée qui défile.
+   ===================================================================== */
+.appbar { display: none !important; }
+.mstrip { display: none; }
+.group-head button { all: unset; cursor: default; display: inline-flex; align-items: center; gap: 0.5rem; }
+.chev { display: none; }
+@media (max-width: 760px) {
+  body.has-mstrip { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  .cookie-banner { bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .mstrip { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; display: grid; grid-template-columns: 1.15fr 1fr; padding: 0 0 env(safe-area-inset-bottom); box-shadow: 0 -10px 30px rgba(22, 33, 58, 0.18); }
+  .mstrip a { display: flex; align-items: center; gap: 0.7rem; padding: 0.8rem 1rem; min-height: 68px; font-family: var(--font-heading); font-size: 1.15rem; line-height: 1; letter-spacing: 0.02em; }
+  .mstrip a small { display: block; font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; margin-top: 0.3rem; opacity: 0.85; text-transform: none; }
+  .mstrip svg { width: 24px; height: 24px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .mstrip-call { background: var(--amarelo); color: var(--ink); }
+  .mstrip-ue { background: var(--azul); color: #fff; }
+
+  /* hero plus court, chiffres clés en rangée qui défile */
+  .hero { min-height: 74vh; }
+  .hero-inner { padding-top: 5.5rem; padding-bottom: 1.5rem; }
+  .hero h1 { font-size: clamp(3rem, 15vw, 4.4rem); }
+  .hero-sub { font-size: 1rem; }
+  .hero-actions { display: none; }
+  .hero-facts { display: flex; overflow-x: auto; gap: 0.6rem; margin: 1.4rem calc(-1 * clamp(1.25rem, 4vw, 3rem)) 0; padding: 0 clamp(1.25rem, 4vw, 3rem); border-top: 0; scrollbar-width: none; scroll-snap-type: x mandatory; scroll-padding-inline: clamp(1.25rem, 4vw, 3rem); }
+  .hero-facts::-webkit-scrollbar { display: none; }
+  .hero-facts li { flex: 0 0 auto; scroll-snap-align: start; background: rgba(255, 255, 255, 0.14); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; padding: 0.6rem 0.9rem; min-width: 140px; }
+  .hero-facts strong { font-size: 1.35rem; }
+
+  /* carte en accordéon */
+  .carte-head { gap: 0.4rem; }
+  .legend { font-size: 0.78rem; }
+  .group { margin-bottom: 0.6rem; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .group-head { display: block; transform: none; margin: 0; width: 100%; font-size: 1.35rem; clip-path: none; padding: 0; background: #fff !important; color: var(--ink); }
+  .group-head button { width: 100%; box-sizing: border-box; cursor: pointer; justify-content: space-between; padding: 0.95rem 1rem; border-left: 6px solid var(--azul); }
+  .group:nth-of-type(2) .group-head button { border-left-color: var(--verde); }
+  .group:nth-of-type(3) .group-head button { border-left-color: var(--coral); }
+  .group:nth-of-type(4) .group-head button { border-left-color: var(--ink); }
+  .chev { display: inline-block; width: 10px; height: 10px; border-right: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); transform: rotate(45deg); transition: transform var(--transition); margin-right: 0.3rem; }
+  .group.is-open .chev { transform: rotate(-135deg); }
+  .group .tickets, .group .group-note { display: none; }
+  .group.is-open .tickets { display: grid; grid-template-columns: 1fr; gap: 0; padding: 0 0.5rem 0.5rem; }
+  .group.is-open .group-note { display: block; padding: 0 1rem; margin: 0.4rem 0 0.6rem; }
+  .ticket { box-shadow: none; -webkit-mask: none; mask: none; border-top: 1px dashed var(--line); padding: 0.7rem 0.5rem; }
+  .ticket:hover { transform: none; }
+  .ticket:first-child { border-top: 0; }
+
+  /* étapes en frise verticale */
+  .balls { display: grid; grid-template-columns: 1fr; gap: 0; position: relative; padding-left: 2.2rem; }
+  .balls::before { content: ""; position: absolute; left: 0.9rem; top: 0.5rem; bottom: 0.5rem; width: 3px; background: rgba(255, 255, 255, 0.5); border-radius: 2px; }
+  .ball { background: transparent; color: #fff; padding: 0 0 1.4rem; border-radius: 0; position: relative; }
+  .ball b { position: absolute; left: -2.2rem; top: -0.2rem; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; font-size: 1.1rem; background: var(--amarelo); color: var(--ink); border-radius: 50%; text-shadow: none; }
+  .ball h3 { color: var(--amarelo); font-size: 1.4rem; }
+  .ball p { color: rgba(255, 255, 255, 0.88); }
+  .ue { flex-direction: column; align-items: flex-start; }
+  .ue .btn-big { width: 100%; justify-content: center; }
+
+  /* photos : deux colonnes, horaires compacts, avis en bandeau */
+  .photos { gap: 0.6rem; }
+  .score-grid { gap: 0.8rem; }
+  .score { flex-direction: row; align-items: center; gap: 1rem; }
+  .score strong { font-size: 3rem; margin: 0; }
+  .score .kick { display: none; }
+  .hours-table { font-size: 0.86rem; }
+  .map { height: 220px; }
+}
