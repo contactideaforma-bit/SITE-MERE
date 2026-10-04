@@ -108,29 +108,26 @@
 <main id="main">
 <span id="top"></span>
 
-<!-- HERO -->
+<!-- HERO : titre géant pleine largeur, bandeau défilant, bande de photos -->
 <section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="status" data-status data-state="closed"><span class="status-dot"></span><span data-status-text>Horaires en cours de chargement</span></p>
-      <h1>Des sushis <span class="accent">généreux</span>, des rolls qu'on ne trouve nulle part ailleurs.</h1>
+  <div class="container">
+    <p class="status" data-status data-state="closed"><span class="status-dot"></span><span data-status-text>Horaires en cours de chargement</span></p>
+    <h1 class="giant"><span>Des sushis</span><span class="accent">généreux.</span><span>Des rolls <em>introuvables</em> ailleurs.</span></h1>
+    <div class="hero-row">
       <p class="lede">Rolls signature gratinés au chalumeau, California, fried rolls encore chauds, poke bowls : une cuisine japonaise halal, préparée à la commande au cœur de Septèmes-les-Vallons.</p>
       <div class="hero-actions">
         <a href="https://www.ubereats.com/fr/store/sushi-tys-septemes-les-vallons/-w663wJDTeO_4dyjRO-8Qw" target="_blank" rel="noopener" class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg> Commander sur Uber Eats</a>
         <a href="#carte" class="btn btn-secondary btn-lg">Voir la carte</a>
       </div>
-      <ul class="hero-proof" aria-label="Points clés">
-        <li><strong>4,9<small>/5</small></strong><span>343 avis Google</span></li>
-        <li><strong>Halal</strong><span>viandes et préparations</span></li>
-        <li><strong>Mar. – Sam.</strong><span>midi & soir</span></li>
-      </ul>
     </div>
-    <div class="hero-visual">
-      <div class="hero-main"><img src="https://images.pexels.com/photos/38100806/pexels-photo-38100806.jpeg?auto=compress&cs=tinysrgb&w=1100&h=1250&fit=crop" alt="California rolls au tobiko, spécialité de Sushi Ty&#x27;s" width="1100" height="1250"></div>
-      <div class="hero-small hero-small-1"><img src="https://images.pexels.com/photos/34303216/pexels-photo-34303216.jpeg?auto=compress&cs=tinysrgb&w=520&h=520&fit=crop" alt="Fire salmon roll gratiné au chalumeau" width="520" height="520" loading="lazy" decoding="async"></div>
-      <div class="hero-small hero-small-2"><img src="https://images.pexels.com/photos/24960122/pexels-photo-24960122.jpeg?auto=compress&cs=tinysrgb&w=520&h=520&fit=crop" alt="Préparation d&#x27;un roll au saumon" width="520" height="520" loading="lazy" decoding="async"></div>
-      <div class="hero-pill">Préparé à la commande</div>
-    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Halal</span><span>Préparé à la commande</span><span>4,9 / 5 · 343 avis</span><span>Uber Eats · Just Eat</span><span>Mardi – samedi</span><span>Septèmes-les-Vallons</span><span>Halal</span><span>Préparé à la commande</span><span>4,9 / 5 · 343 avis</span><span>Uber Eats · Just Eat</span><span>Mardi – samedi</span><span>Septèmes-les-Vallons</span></div></div>
+  <div class="container photo-strip">
+    <figure class="polaroid p1"><img src="https://images.pexels.com/photos/38100806/pexels-photo-38100806.jpeg?auto=compress&cs=tinysrgb&w=700&h=700&fit=crop" alt="California rolls au tobiko" width="700" height="700"><figcaption>California tobiko</figcaption></figure>
+    <figure class="polaroid p2"><img src="https://images.pexels.com/photos/34303216/pexels-photo-34303216.jpeg?auto=compress&cs=tinysrgb&w=700&h=700&fit=crop" alt="Fire salmon roll gratiné au chalumeau" width="700" height="700" loading="lazy" decoding="async"><figcaption>Fire salmon roll</figcaption></figure>
+    <figure class="polaroid p3"><img src="https://images.pexels.com/photos/15913466/pexels-photo-15913466.jpeg?auto=compress&cs=tinysrgb&w=700&h=700&fit=crop" alt="Poke bowl saumon avocat" width="700" height="700" loading="lazy" decoding="async"><figcaption>Poke bowl saumon</figcaption></figure>
+    <figure class="polaroid p4"><img src="https://images.pexels.com/photos/37924349/pexels-photo-37924349.jpeg?auto=compress&cs=tinysrgb&w=700&h=700&fit=crop" alt="Chicken katsu burger" width="700" height="700" loading="lazy" decoding="async"><figcaption>Chicken katsu burger</figcaption></figure>
+    <span class="sticker-round" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#ring">préparé à la commande · halal · préparé à la commande ·</textPath></text></svg><strong>Ty's</strong></span>
   </div>
 </section>
 
@@ -208,27 +205,12 @@
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">La carte</span>
-      <h2 class="section-title">Clair, illustré, filtrable</h2>
+      <h2 class="section-title">Toute la carte, <span class="accent">en photos</span></h2>
       <p class="section-subtitle">Chaque recette avec sa photo, ses pièces et son prix à emporter. Filtrez par envie ou tapez un ingrédient.</p>
     </div>
 
-    <div class="menu-tools">
-      <label class="menu-search">
-        <span class="sr-only">Rechercher dans la carte</span>
-        <input type="search" id="menu-q" placeholder="Saumon, poulet pané, avocat…" autocomplete="off">
-      </label>
-      <div class="chips" role="group" aria-label="Filtres">
-<button class="chip" type="button" data-filter="all" aria-pressed="true">Tout</button>
-<button class="chip" type="button" data-filter="best" aria-pressed="false">Les plus demandés</button>
-<button class="chip" type="button" data-filter="saumon" aria-pressed="false">Saumon</button>
-<button class="chip" type="button" data-filter="poulet" aria-pressed="false">Poulet</button>
-<button class="chip" type="button" data-filter="crevette" aria-pressed="false">Crevettes</button>
-<button class="chip" type="button" data-filter="spicy" aria-pressed="false">Épicé</button>
-<button class="chip" type="button" data-filter="frit" aria-pressed="false">Croustillant</button>
-<button class="chip" type="button" data-filter="veggie" aria-pressed="false">Végétarien</button>
-      </div>
-    </div>
-
+    <div class="carte-layout">
+      <aside class="carte-rail">
     <nav class="cat-nav" aria-label="Catégories de la carte">
 <a href="#carte-plateaux">Plateaux</a>
 <a href="#carte-signature">Signature rolls</a>
@@ -241,8 +223,27 @@
 <a href="#carte-bowls">Bowls, donburis &amp; yakisobas</a>
 <a href="#carte-street">Street food &amp; accompagnements</a>
 <a href="#carte-douceurs">Boissons &amp; desserts</a>
-    </nav>
+        </nav>
+    <div class="menu-tools">
+          <label class="menu-search">
+            <span class="sr-only">Rechercher dans la carte</span>
+            <input type="search" id="menu-q" placeholder="Saumon, poulet pané, avocat…" autocomplete="off">
+          </label>
+          <div class="chips" role="group" aria-label="Filtres">
+<button class="chip" type="button" data-filter="all" aria-pressed="true">Tout</button>
+<button class="chip" type="button" data-filter="best" aria-pressed="false">Les plus demandés</button>
+<button class="chip" type="button" data-filter="saumon" aria-pressed="false">Saumon</button>
+<button class="chip" type="button" data-filter="poulet" aria-pressed="false">Poulet</button>
+<button class="chip" type="button" data-filter="crevette" aria-pressed="false">Crevettes</button>
+<button class="chip" type="button" data-filter="spicy" aria-pressed="false">Épicé</button>
+<button class="chip" type="button" data-filter="frit" aria-pressed="false">Croustillant</button>
+<button class="chip" type="button" data-filter="veggie" aria-pressed="false">Végétarien</button>
+          </div>
+        </div>
 
+    
+      </aside>
+      <div class="carte-main">
     <p class="sr-only" id="menu-live" aria-live="polite"></p>
 <section class="menu-group" id="carte-plateaux" data-group="plateaux">
   <div class="menu-group-head">
@@ -877,6 +878,8 @@
   </div>
 </section>
     <p class="menu-empty" id="menu-empty" hidden>Aucune recette ne correspond. Essayez un autre mot ou retirez le filtre.</p>
+      </div>
+    </div>
     <p class="menu-note text-muted">Tarifs indicatifs à emporter, à valider avec le restaurant. Les prix en livraison peuvent différer selon la plateforme. Allergènes sur demande.</p>
   </div>
 </section>

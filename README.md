@@ -109,3 +109,17 @@ chargé depuis Google Fonts, pour un rendu travaillé et reconnaissable.
 
 Règle pour une nouvelle maquette : choisir un couple non encore utilisé, angles sobres (6–14 px, pas de
 pilule), étiquettes en petites capitales espacées, filets fins plutôt que bordures épaisses.
+
+## Structure : un parti pris par site
+
+Les sites ne doivent pas partager le même squelette (hero en deux colonnes + cartes). Chaque maquette
+a sa propre construction :
+
+- **Auberge du Mérou** — éditorial : couverture photo plein écran, colonnes de texte, carte typographique
+  à points de conduite, grandes photos interstitielles, chiffres en marge, citation d'avis unique.
+- **Sushi Ty's** — street : titre géant pleine largeur, bandeau défilant, photos façon polaroïds, rail de
+  catégories collé à gauche + tuiles produit (comme une appli de commande), bande oblique, galerie défilante.
+- **Carrosserie Roc Blanc** — industriel : écran scindé texte / photo, bande d'engagements, prestations en
+  index numéroté sur des lignes, frise horizontale pour le sinistre, comparateur pleine largeur, fiche de devis.
+- **Mairie du Rove** — portail civique : recherche en tête, accès rapides, démarches en vignettes, météo.
+- **Pizza al dente** — carte de pizzeria : liste à points de conduite, filtres, bandeau d'infos.

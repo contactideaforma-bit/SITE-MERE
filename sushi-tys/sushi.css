@@ -332,3 +332,119 @@ a.social-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md);
 }
 
 .nav .btn-primary, .nav .btn-primary:hover { color: #fff; }
+
+/* =====================================================================
+   v3 « street » — parti pris : titre géant pleine largeur, bandeau défilant,
+   photos façon polaroïds, rail de catégories collé à gauche et tuiles produit
+   comme une appli de commande, bandes obliques. Surcharge ce qui précède.
+   ===================================================================== */
+:root { --tilt: -2deg; }
+.hero { padding: clamp(1.5rem, 4vw, 3rem) 0 0; background: var(--cream); overflow: visible; }
+.hero .status { margin-bottom: 1rem; }
+.giant { display: flex; flex-direction: column; font-size: clamp(2.8rem, 9.5vw, 8.2rem); line-height: 0.92; letter-spacing: -0.04em; font-weight: 800; text-transform: uppercase; margin: 0 0 1.5rem; color: var(--navy); }
+.giant .accent { color: var(--orange); }
+.giant em { font-style: normal; color: var(--teal); }
+.hero-row { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: end; padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+.hero-row .lede { margin: 0; }
+.hero-row .hero-actions { margin: 0; justify-content: flex-end; }
+.marquee { background: var(--orange); color: #fff; overflow: hidden; transform: rotate(-1.2deg) scale(1.02); padding: 0.75rem 0; margin: 0.5rem 0 0; }
+.marquee-track { display: flex; width: max-content; animation: ty-slide 28s linear infinite; }
+.marquee-track span { font-family: var(--font-heading); font-weight: 800; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0 1.4rem; white-space: nowrap; }
+.marquee-track span::after { content: "✦"; margin-left: 2.8rem; opacity: 0.7; }
+@keyframes ty-slide { to { transform: translateX(-50%); } }
+body { overflow-x: hidden; }
+.photo-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; padding-top: clamp(2.5rem, 6vw, 4rem); padding-bottom: clamp(2rem, 5vw, 3.5rem); position: relative; }
+.polaroid { margin: 0; min-width: 0; background: #fff; padding: 0.6rem 0.6rem 0.9rem; box-shadow: var(--shadow-md); border: 1px solid var(--color-border); transform: rotate(var(--tilt)); transition: transform var(--transition); }
+.polaroid:hover { transform: rotate(0) translateY(-6px); }
+.polaroid img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; }
+.polaroid figcaption { font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem; margin-top: 0.6rem; color: var(--navy); }
+.p1 { --tilt: -3deg; } .p2 { --tilt: 2deg; margin-top: 1.5rem; } .p3 { --tilt: -1.5deg; } .p4 { --tilt: 2.5deg; margin-top: 2rem; }
+.sticker-round { position: absolute; right: 2%; top: -0.5rem; width: 120px; height: 120px; display: grid; place-items: center; color: var(--navy); }
+.sticker-round svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: ty-spin 16s linear infinite; }
+.sticker-round text { font-family: var(--font-heading); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; fill: var(--navy); }
+.sticker-round strong { font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: var(--orange); }
+@keyframes ty-spin { to { transform: rotate(360deg); } }
+
+/* modes : bande sans cartes */
+.modes { padding: 0; background: #fff; border-top: 3px solid var(--navy); border-bottom: 1px solid var(--color-border); }
+.modes-grid { gap: 0; }
+.mode, a.mode:hover { border: 0; border-radius: 0; border-left: 1px solid var(--color-border); padding: 1.4rem 1.5rem; transform: none; box-shadow: none; }
+.mode:first-child { border-left: 0; }
+.mode-pay { background: var(--teal-soft); }
+.mode strong { font-size: 1.2rem; letter-spacing: -0.02em; }
+
+/* signatures : tuiles pleines, prix en sticker */
+.sig-card { border: 0; background: var(--orange-soft); }
+.sig-photo { aspect-ratio: 1; }
+.sig-body { padding: 1rem 1.15rem 1.3rem; }
+.dish-head .price { background: var(--navy); color: #fff; padding: 0.25rem 0.6rem; border-radius: 6px; transform: rotate(-3deg); font-size: 0.95rem; }
+
+/* carte : rail collé à gauche + tuiles produit */
+.carte { border-top: 0; background: var(--color-bg); }
+.carte-layout { display: grid; grid-template-columns: 240px 1fr; gap: 2.5rem; align-items: start; }
+.carte-rail { position: sticky; top: 84px; display: grid; gap: 1rem; }
+.carte-rail .cat-nav { position: static; display: grid; gap: 0.1rem; overflow: visible; margin: 0; padding: 0; background: none; border: 0; backdrop-filter: none; }
+.carte-rail .cat-nav a { text-align: left; border-radius: 6px; padding: 0.55rem 0.75rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+.carte-rail .cat-nav a.is-active { background: var(--orange); color: #fff; }
+.carte-rail .menu-tools { grid-template-columns: 1fr; gap: 0.75rem; margin: 0; padding-top: 1rem; border-top: 1px solid var(--color-border); }
+.carte-rail .chips { gap: 0.35rem; }
+.carte-rail .chip { font-size: 0.78rem; padding: 0.4rem 0.7rem; }
+.menu-group { padding: 0 0 2rem; scroll-margin-top: 90px; }
+.menu-group-head h3 { border-left: 0; padding-left: 0; font-size: 2rem; letter-spacing: -0.03em; }
+.dish-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.dish { grid-template-columns: 1fr; gap: 0; padding: 0; overflow: hidden; border: 1px solid var(--color-border); border-radius: 14px; background: #fff; }
+.dish:hover { border-color: var(--orange); transform: translateY(-4px); }
+.dish-photo { width: 100%; aspect-ratio: 4/3; border-radius: 0; }
+.dish-photo--empty { font-size: 2rem; }
+.dish-body { padding: 0.9rem 1rem 1.1rem; }
+.dish-body h4 { font-size: 1.05rem; }
+.dish-foot { justify-content: space-between; }
+.dish-foot .price { background: var(--navy); color: #fff; padding: 0.3rem 0.65rem; border-radius: 6px; font-size: 0.95rem; order: 9; margin-left: auto; }
+
+/* exclu : bande oblique turquoise */
+.exclu { background: var(--teal-soft); border-top: 0; clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 96%); padding: clamp(4rem, 8vw, 7rem) 0; }
+.exclu-photo { transform: rotate(-2deg); border: 8px solid #fff; border-radius: 8px; }
+
+/* galerie : bande qui défile horizontalement */
+.gallery { display: flex; gap: 0.75rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); margin: 0 calc(-1 * var(--gutter)); padding: 0.25rem var(--gutter) 1rem; scrollbar-width: none; grid-auto-rows: auto; }
+.gallery::-webkit-scrollbar { display: none; }
+.g-item, .g-item.tall, .g-item.wide { flex: 0 0 260px; height: 260px; scroll-snap-align: start; border-radius: 10px; }
+.g-item.wide { flex-basis: 390px; }
+.g-item:nth-child(odd) { transform: rotate(-1.5deg); }
+.g-item:nth-child(even) { transform: rotate(1.5deg); margin-top: 1rem; }
+
+/* avis : bulles */
+.avis { background: var(--color-bg); border: 0; }
+.review { border: 2px solid var(--navy); border-top-width: 2px; border-radius: 18px 18px 18px 4px; box-shadow: 6px 6px 0 var(--orange-soft); }
+.review:nth-child(2) { transform: rotate(1deg); }
+.review:nth-child(3) { transform: rotate(-1deg); }
+
+@media (max-width: 1024px) {
+  .photo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .carte-layout { grid-template-columns: 1fr; }
+  .carte-rail { position: static; }
+  .carte-rail .cat-nav { display: flex; overflow-x: auto; gap: 0.3rem; }
+  .carte-rail .cat-nav a { flex-shrink: 0; }
+  .dish-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .hero { padding-top: 1.25rem; }
+  .giant { font-size: 2.9rem; }
+  .hero-row { grid-template-columns: 1fr; gap: 1rem; padding-bottom: 1.25rem; }
+  .hero-row .hero-actions { justify-content: stretch; }
+  .hero-actions .btn-secondary { display: inline-flex; }
+  .marquee-track span { font-size: 0.95rem; }
+  .photo-strip { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1rem; padding-top: 2rem; padding-bottom: 2rem; }
+  .p2, .p4 { margin-top: 1rem; }
+  .sticker-round { width: 90px; height: 90px; right: 0.5rem; top: -1rem; }
+  .sticker-round strong { font-size: 1.2rem; }
+  .modes-grid { grid-template-columns: 1fr 1fr; }
+  .mode { border-left: 0; border-top: 1px solid var(--color-border); }
+  .carte-rail .cat-nav { position: sticky; top: 59px; z-index: 40; background: rgba(255,250,243,0.95); padding: 0.5rem 0; margin: 0 calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: var(--gutter); }
+  .dish-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .dish-body { padding: 0.7rem 0.75rem 0.9rem; }
+  .dish-body h4 { font-size: 0.92rem; }
+  .dish-desc { display: none; }
+  .dish-foot .price { font-size: 0.85rem; padding: 0.25rem 0.5rem; }
+  .g-item, .g-item.tall, .g-item.wide { flex-basis: 200px; height: 200px; }
+}
