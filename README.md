@@ -30,6 +30,8 @@ mairie-le-rove/                → Maquette client : Mairie du Rove (refonte de 
                                  index.html + mairie.css + mairie.js + mentions-legales.html
 sushi-tys/                     → Maquette client : Sushi Ty's (Septèmes-les-Vallons), non indexée
                                  index.html + sushi.css + sushi.js + mentions-legales.html
+auberge-du-merou/              → Maquette client : Auberge du Mérou (calanque de Niolon, Le Rove), non indexée
+                                 index.html + merou.css + merou.js + mentions-legales.html
 
 demos/
   pizzeria-provencale/index.html + mentions-legales.html

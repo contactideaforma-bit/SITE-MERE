@@ -4,5 +4,6 @@ Disallow: /demos/
 Disallow: /pizza-al-dente/
 Disallow: /mairie-le-rove/
 Disallow: /sushi-tys/
+Disallow: /auberge-du-merou/
 
 Sitemap: https://myeasydev.vercel.app/sitemap.xml
