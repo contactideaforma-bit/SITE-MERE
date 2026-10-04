@@ -104,7 +104,7 @@ chargé depuis Google Fonts, pour un rendu travaillé et reconnaissable.
 | Sushi Ty's                 | Gabarito        | Onest            |
 | Mairie du Rove             | Petrona         | Mulish           |
 | Pizza al dente             | Zilla Slab      | Karla            |
-| Pizza Maracana             | Big Shoulders Display | Red Hat Text |
+| Pizza Maracana             | Lilita One      | Red Hat Text     |
 | Démo Carrosserie Roc Blanc | Archivo         | Albert Sans      |
 | Démo Pizzeria Lou Soleï    | Marcellus       | Figtree          |
 | Démo Pizzeria Da Enzo      | Bodoni Moda     | Work Sans        |
@@ -125,6 +125,6 @@ a sa propre construction :
 - **Carrosserie Roc Blanc** — industriel : écran scindé texte / photo, bande d'engagements, prestations en
   index numéroté sur des lignes, frise horizontale pour le sinistre, comparateur pleine largeur, fiche de devis.
 - **Mairie du Rove** — portail civique : recherche en tête, accès rapides, démarches en vignettes, météo.
-- **Pizza Maracana** — affiche de quartier : affiche encadrée avec bande verte/jaune, tableau d'affichage
-  ouvert/fermé, pizzas numérotées comme des maillots, bandeau défilant vert, blocs à bordure épaisse.
+- **Pizza Maracana** — Brésil, peps et fun : vert / jaune / bleu / corail, vagues de Copacabana en séparateurs,
+  photo en forme organique animée, stickers inclinés, pizzas en « tickets » à encoches numérotés, blocs à angles coupés.
 - **Pizza al dente** — carte de pizzeria : liste à points de conduite, filtres, bandeau d'infos.
