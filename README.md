@@ -105,13 +105,20 @@ chargé depuis Google Fonts, pour un rendu travaillé et reconnaissable.
 | Mairie du Rove             | Petrona         | Mulish           |
 | Pizza al dente             | Zilla Slab      | Karla            |
 | Pizza Maracana             | Lilita One      | Red Hat Text     |
-| Démo Carrosserie Roc Blanc | Archivo         | Albert Sans      |
+| Démo Carrosserie Roc Blanc | Saira Condensed | Atkinson Hyperlegible |
 | Démo Pizzeria Lou Soleï    | Marcellus       | Figtree          |
 | Démo Pizzeria Da Enzo      | Bodoni Moda     | Work Sans        |
 | Démo Salon Émeraude        | Italiana        | Jost             |
 
 Règle pour une nouvelle maquette : choisir un couple non encore utilisé, angles sobres (6–14 px, pas de
 pilule), étiquettes en petites capitales espacées, filets fins plutôt que bordures épaisses.
+
+## Impeccable (qualité de design)
+
+Le skill [Impeccable](https://impeccable.style) de Paul Bakaus est installé dans le projet (`.claude/skills/impeccable`,
+agents dans `.claude/agents`, hook dans `.claude/settings.json`). Dans Claude Code ou Cowork, ouvrir le dossier
+du site et taper `/impeccable audit demos/…` ou `/impeccable polish …`. Le moteur se télécharge une fois au premier
+lancement dans `~/.impeccable/bin/`. Les dossiers `.claude/` et `.impeccable/` sont exclus du déploiement (.vercelignore).
 
 ## Structure : un parti pris par site
 
@@ -122,8 +129,13 @@ a sa propre construction :
   à points de conduite, grandes photos interstitielles, chiffres en marge, citation d'avis unique.
 - **Sushi Ty's** — street : titre géant pleine largeur, bandeau défilant, photos façon polaroïds, rail de
   catégories collé à gauche + tuiles produit (comme une appli de commande), bande oblique, galerie défilante.
-- **Carrosserie Roc Blanc** — industriel : écran scindé texte / photo, bande d'engagements, prestations en
-  index numéroté sur des lignes, frise horizontale pour le sinistre, comparateur pleine largeur, fiche de devis.
+- **Carrosserie Roc Blanc** — la plaque d'immatriculation (SIV) : chaque section est une plaque (bande bleue
+  gauche = titre vertical, champ blanc réfléchissant = contenu, bande bleue droite = info clé, quatre vis).
+  Premier écran : une plaque géante qui est le vrai champ de saisie (AB-123-CD mis en forme en direct, synchronisé
+  avec le formulaire de devis). Jaune des anciennes plaques arrière pour l'action. Lignes de prestations avec prix
+  en mini-plaques, étapes sinistre numérotées, comparateur à poignée-vis, formulaire photo, atelier + plan.
+  Mobile : bandes à l'horizontale (titre en haut, info en bas), plaque d'action fixe en bas (Appeler | statut |
+  Devis photo), pas de barre d'onglets. Contexte Impeccable : demos/carrosserie-roc-blanc/PRODUCT.md et DESIGN.md.
 - **Mairie du Rove** — portail civique : recherche en tête, accès rapides, démarches en vignettes, météo.
 - **Pizza Maracana** — Brésil photographique : bannière plein écran (Pain de Sucre), en-tête transparent qui devient
   plein au défilement, bandeau drapeau « Vem comer ! », section commande sur photo voilée de vert, pizzas en « tickets »
