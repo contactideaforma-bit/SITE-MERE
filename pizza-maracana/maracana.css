@@ -97,7 +97,7 @@ h2 em { font-style: normal; color: var(--verde); }
 .stadium-facts li { background: #fff; padding: 0.7rem 1.1rem; display: flex; flex-direction: column; min-width: 150px; clip-path: var(--cut); box-shadow: var(--shadow-sm); }
 .stadium-facts strong { font-family: var(--font-heading); font-size: 1.6rem; line-height: 1; color: var(--azul); }
 .stadium-facts strong small { font-size: 0.9rem; color: var(--ink); }
-.stadium-facts span { font-size: 0.78rem; color: var(--color-text-muted); }
+.stadium-facts span { font-size: 0.8rem; color: var(--color-text-muted); }
 .stadium .wave { margin-top: clamp(1.5rem, 4vw, 2.5rem); }
 
 /* ---------- Bandeau samba ---------- */
@@ -196,7 +196,7 @@ h2 em { font-style: normal; color: var(--verde); }
   .top .nav a.nav-call { text-align: center; }
 }
 @media (max-width: 760px) {
-  .demo-ribbon { position: static; font-size: 0.78rem; }
+  .demo-ribbon { position: static; font-size: 0.8rem; }
   .brand { font-size: 1.3rem; }
   .stadium h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
   .btn-big { font-size: 1.15rem; flex: 1 1 100%; justify-content: center; }
@@ -214,7 +214,7 @@ h2 em { font-style: normal; color: var(--verde); }
   body.has-appbar { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   .cookie-banner { bottom: calc(88px + env(safe-area-inset-bottom)); }
   .appbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; background: var(--ink); padding: 0.45rem 0.5rem calc(0.55rem + env(safe-area-inset-bottom)); }
-  .appbar a { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-family: var(--font-heading); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.75); padding: 0.3rem 0.2rem; min-height: 52px; justify-content: flex-end; }
+  .appbar a { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-family: var(--font-heading); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.75); padding: 0.3rem 0.2rem; min-height: 52px; justify-content: flex-end; }
   .appbar a.is-active { color: var(--amarelo); }
   .appbar svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .appbar-main { color: #fff; }
@@ -247,7 +247,7 @@ body.scrolled .top .nav a:hover { color: var(--verde); }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(22, 33, 58, 0.55) 0%, rgba(22, 33, 58, 0.08) 35%, rgba(22, 33, 58, 0.25) 60%, rgba(22, 33, 58, 0.86) 100%); }
 .hero-inner { padding: clamp(5rem, 12vw, 9rem) 0 clamp(2rem, 4vw, 3rem); }
 .hero .board { background: rgba(255, 255, 255, 0.14); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.35); clip-path: none; border-radius: 4px; }
-.hero-kicker { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amarelo); margin: 1.2rem 0 0.4rem; }
+.hero-kicker { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amarelo); margin: 1.2rem 0 0.4rem; }
 .hero h1 { font-size: clamp(3.4rem, 9vw, 7.6rem); line-height: 0.9; margin: 0 0 0.8rem; color: #fff; text-shadow: 0 6px 30px rgba(0,0,0,0.35); }
 .hero h1 span { color: var(--amarelo); }
 .hero-sub { font-size: 1.1rem; max-width: 52ch; color: rgba(255,255,255,0.9); margin: 0 0 1.5rem; }
@@ -336,7 +336,7 @@ body.scrolled .top .nav a.nav-call { background: var(--verde); color: #fff; }
 
   /* carte en accordéon */
   .carte-head { gap: 0.4rem; }
-  .legend { font-size: 0.78rem; }
+  .legend { font-size: 0.8rem; }
   .group { margin-bottom: 0.6rem; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
   .group-head { display: block; transform: none; margin: 0; width: 100%; font-size: 1.35rem; clip-path: none; padding: 0; background: #fff !important; color: var(--ink); }
   .group-head button { width: 100%; box-sizing: border-box; cursor: pointer; justify-content: space-between; padding: 0.95rem 1rem; border-left: 6px solid var(--azul); }
@@ -370,4 +370,25 @@ body.scrolled .top .nav a.nav-call { background: var(--verde); color: #fff; }
   .score .kick { display: none; }
   .hours-table { font-size: 0.86rem; }
   .map { height: 220px; }
+}
+
+/* =====================================================================
+   Passe « audit » (critères Impeccable) : cibles tactiles, longueur de ligne,
+   tailles minimales, contrastes sur photo, focus visible.
+   ===================================================================== */
+:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; border-radius: 4px; }
+.hero :focus-visible, .flagband :focus-visible, .how :focus-visible { outline-color: #fff; }
+.top .nav a { padding: 0.6rem 0.2rem; }                      /* cibles ≥ 40 px */
+.foot a, .score a { display: inline-block; padding: 0.5rem 0; }
+.foot-inner p { margin: 0; }
+.group-note, .carte-note, .photo-note, .sec-lede { max-width: 72ch; }   /* longueur de ligne */
+.hero-kicker { font-size: 0.84rem; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45); }
+.hero .board { text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4); }
+.hero h1, .hero-sub, .hero-facts { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35); }
+.hero::after { background: linear-gradient(180deg, rgba(22, 33, 58, 0.62) 0%, rgba(22, 33, 58, 0.18) 35%, rgba(22, 33, 58, 0.35) 60%, rgba(22, 33, 58, 0.9) 100%); }
+.legend { font-size: 0.86rem; }
+.cookie-banner .btn-primary { background: var(--verde-deep); }
+@media (max-width: 760px) {
+  .mstrip a small { font-size: 0.76rem; }
+  .legend { gap: 0.6rem 1rem; }
 }

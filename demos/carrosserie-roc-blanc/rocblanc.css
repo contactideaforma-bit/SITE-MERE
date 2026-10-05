@@ -36,7 +36,7 @@ body { background: #fff; font-size: 1.02rem; line-height: 1.55; font-weight: 400
 h1, h2, h3 { font-stretch: 80%; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; line-height: 0.98; }
 h2 { font-size: clamp(2.2rem, 4.4vw, 4rem); margin: 0.3rem 0 1rem; }
 h3 { font-size: 1.35rem; text-transform: none; font-stretch: 90%; letter-spacing: -0.01em; }
-.mono { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); }
+.mono { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); }
 .dim { opacity: 0.7; }
 .wide { width: min(100% - 2 * clamp(1.25rem, 4vw, 3rem), 1280px); margin-inline: auto; }
 .section { padding: clamp(3.5rem, 7vw, 6.5rem) 0; }
@@ -50,7 +50,7 @@ h3 { font-size: 1.35rem; text-transform: none; font-stretch: 90%; letter-spacing
 .btn { border-radius: 0; }
 
 /* Boutons blocs */
-.btn-block-red, .btn-block-line { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 1.3rem; border: 1.5px solid var(--ink); color: var(--ink); background: #fff; transition: background var(--transition), color var(--transition); cursor: pointer; }
+.btn-block-red, .btn-block-line { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 1.3rem; border: 1.5px solid var(--ink); color: var(--ink); background: #fff; transition: background var(--transition), color var(--transition); cursor: pointer; }
 .btn-block-red { background: var(--red); border-color: var(--red); color: #fff; }
 .btn-block-red:hover { background: var(--ink); border-color: var(--ink); }
 .btn-block-line:hover { background: var(--ink); color: #fff; }
@@ -64,9 +64,9 @@ h3 { font-size: 1.35rem; text-transform: none; font-stretch: 90%; letter-spacing
 .brand-mark svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .brand-mark svg .acc { stroke: var(--red); }
 .brand-word { font-stretch: 80%; font-weight: 800; font-size: 1.25rem; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1; display: flex; flex-direction: column; }
-.brand-word small { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.14em; color: var(--steel); font-weight: 400; margin-top: 0.25rem; }
+.brand-word small { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.14em; color: var(--steel); font-weight: 400; margin-top: 0.25rem; }
 .top .nav { gap: 1.6rem; }
-.top .nav a { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+.top .nav a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
 .top .nav a i { font-style: normal; color: var(--red); margin-right: 0.35rem; }
 .top .nav a:hover { color: var(--red); }
 .top .nav a.nav-phone { border: 1.5px solid var(--ink); padding: 0.55rem 0.9rem; }
@@ -165,12 +165,12 @@ h3 { font-size: 1.35rem; text-transform: none; font-stretch: 90%; letter-spacing
 .sheet .field:focus { outline: none; border-bottom-color: var(--red); }
 .upload { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; padding: 0.8rem 1rem; border: 1.5px dashed var(--ink); cursor: pointer; position: relative; }
 .upload input { position: absolute; width: 1px; height: 1px; opacity: 0; }
-.upload-btn { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.8rem; background: var(--ink); color: #fff; }
+.upload-btn { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.8rem; background: var(--ink); color: #fff; }
 .consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.85rem; color: var(--color-text-muted); }
 .consent input { margin-top: 0.25rem; }
 .consent a { text-decoration: underline; }
 .sheet .btn-full { margin-top: 0.5rem; }
-.form-note { padding: 0.9rem 1.25rem 1.25rem; margin: 0; text-transform: none; letter-spacing: 0; font-size: 0.72rem; }
+.form-note { padding: 0.9rem 1.25rem 1.25rem; margin: 0; text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
 .form-feedback { margin: 0 1.25rem 1.25rem; padding: 1rem 1.2rem; border: 2px solid var(--ink); font-weight: 500; }
 .form-feedback[hidden] { display: none; }
 
@@ -224,7 +224,7 @@ h3 { font-size: 1.35rem; text-transform: none; font-stretch: 90%; letter-spacing
   .top .nav a.nav-phone { text-align: center; }
 }
 @media (max-width: 760px) {
-  .demo-ribbon { position: static; font-size: 0.78rem; }
+  .demo-ribbon { position: static; font-size: 0.8rem; }
   .brand-word { font-size: 1.1rem; }
   .split-text { padding: 2rem 1.25rem 2.25rem; }
   .split h1 { font-size: 2.6rem; }
@@ -255,7 +255,7 @@ h3 { font-size: 1.35rem; text-transform: none; font-stretch: 90%; letter-spacing
   body.has-appbar { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   .cookie-banner { bottom: calc(88px + env(safe-area-inset-bottom)); }
   .appbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; background: #fff; border-top: 1.5px solid var(--ink); padding: 0.45rem 0.5rem calc(0.55rem + env(safe-area-inset-bottom)); }
-  .appbar a { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); padding: 0.3rem 0.2rem; min-height: 52px; justify-content: flex-end; }
+  .appbar a { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); padding: 0.3rem 0.2rem; min-height: 52px; justify-content: flex-end; }
   .appbar a.is-active { color: var(--red); }
   .appbar svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
   .appbar-main { color: var(--ink); }
@@ -270,3 +270,8 @@ h3 { font-size: 1.35rem; text-transform: none; font-stretch: 90%; letter-spacing
 .page-header { border-bottom: 1.5px solid var(--ink); padding: 1rem 0; }
 .page-header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .narrow { width: min(100% - 2 * clamp(1.25rem, 4vw, 3rem), 760px); margin-inline: auto; }
+
+/* audit */
+.form-note, .idx-body p { max-width: 72ch; }
+.top .nav a { padding: 0.6rem 0.1rem; }
+.brand-word small { font-size: 0.8rem; }
