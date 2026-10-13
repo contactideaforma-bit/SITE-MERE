@@ -1,6 +1,6 @@
 # MyEasyDev — Site vitrine + book de démonstration
 
-Site vitrine "mère" présentant IDEA, avec 3 sites de démonstration factices pour montrer
+Site vitrine "mère" présentant MyEasyDev, avec 3 sites de démonstration factices pour montrer
 le savoir-faire à des prospects (petits commerçants, artisans).
 
 Aucune dépendance, aucun outil de build : HTML / CSS / JS natifs. Ouvre, modifie, déploie.
@@ -9,7 +9,7 @@ Aucune dépendance, aucun outil de build : HTML / CSS / JS natifs. Ouvre, modifi
 
 ```
 index.html                     → Site MyEasyDev (offre, tarifs, réalisations, contact) — Newsreader + Familjen Grotesk via Google Fonts
-mentions-legales.html          → Mentions légales du site IDEA (à compléter : SIRET, adresse...)
+mentions-legales.html          → Mentions légales du site MyEasyDev (à compléter : SIRET, adresse...)
 confidentialite.html           → Politique de confidentialité / cookies
 robots.txt / sitemap.xml       → SEO de base (le dossier /demos/ est exclu de l'indexation)
 404.html                       → Page d'erreur personnalisée
@@ -57,7 +57,7 @@ demos/
 ```
 
 Chaque démo a son propre header/footer et sa propre identité (police, couleurs), et affiche un
-bandeau rappelant qu'il s'agit d'un site fictif, avec un lien de retour vers le site IDEA.
+bandeau rappelant qu'il s'agit d'un site fictif, avec un lien de retour vers le site MyEasyDev.
 
 ## Avant mise en ligne publique
 
