@@ -6,5 +6,6 @@ Disallow: /mairie-le-rove/
 Disallow: /sushi-tys/
 Disallow: /auberge-du-merou/
 Disallow: /pizza-maracana/
+Disallow: /ecurie-du-faraon/
 
 Sitemap: https://myeasydev.vercel.app/sitemap.xml

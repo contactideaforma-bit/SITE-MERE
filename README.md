@@ -34,6 +34,8 @@ auberge-du-merou/              → Maquette client : Auberge du Mérou (calanque
                                  index.html + merou.css + merou.js + mentions-legales.html
 pizza-maracana/                → Maquette client : Pizza Maracana (chemin de Gibbes, Marseille 14e), non indexée
                                  index.html + maracana.css + maracana.js + mentions-legales.html
+ecurie-du-faraon/              → Maquette client : Écurie du Faraon (centre équestre, Gignac-la-Nerthe), non indexée
+                                 index.html + faraon.css + faraon.js + mentions-legales.html
 
 demos/
   carrosserie-roc-blanc/         → Démo : carrosserie indépendante fictive (devis photo, sinistre, avant/après)
