@@ -171,3 +171,11 @@ h1,h2,h3{font-family:var(--font-heading);font-weight:900;letter-spacing:.01em;li
   .map iframe{height:220px}
   .foot-inner{flex-direction:column}
 }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.link, .phone a, .foot a, .bar-brand small { display:inline-flex; align-items:center; }
+.link, .phone a, .foot a { min-height:44px; }
+.bar-brand small { font-size:.8rem; display:block; }
+.consent input { width:24px; height:24px; min-width:24px; }
+

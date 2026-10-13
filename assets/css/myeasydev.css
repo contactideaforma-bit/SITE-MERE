@@ -503,3 +503,11 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--blue); width: 
   .app--myta .app__media--phone { order: -1; }
   .app__facts li { grid-template-columns: 1fr; gap: .1rem; }
 }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.hero__kicker, .work__tag, .app__kind, .store__small { font-size: .8rem; }
+.filters button { min-height: 44px; }
+.app__note a, .foot nav a, .legal__back, .contact__direct a { display: inline-block; padding: .5rem 0; }
+.form input[type=checkbox] { width: 22px; height: 22px; }
+

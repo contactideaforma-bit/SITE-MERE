@@ -88,3 +88,8 @@ body { background: var(--color-bg); }
 .section-alt { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 
 h1, h2, h3, h4 { font-weight: 400; }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.logo, .nav a, .footer-legal a, .footer-col a { min-height:44px; display:inline-flex; align-items:center; }
+

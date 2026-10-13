@@ -453,3 +453,8 @@ body { overflow-x: hidden; }
 .menu-note, .gallery-note { max-width: 72ch; }
 html { overflow-x: hidden; }
 .marquee { transform: rotate(-1.2deg); }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.logo, .link-arrow, .cat-nav a { min-height:44px; display:inline-flex; align-items:center; }
+

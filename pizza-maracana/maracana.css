@@ -392,3 +392,9 @@ body.scrolled .top .nav a.nav-call { background: var(--verde); color: #fff; }
   .mstrip a small { font-size: 0.76rem; }
   .legend { gap: 0.6rem 1rem; }
 }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.brand, .foot a, .reglette a { min-height:44px; display:inline-flex; align-items:center; }
+small { font-size: max(.8rem, 12.8px); }
+

@@ -149,3 +149,10 @@ h2{font-size:clamp(2rem,1.3rem+2.4vw,3.2rem);margin-bottom:1rem}
   .float-date::after{content:"";position:absolute;inset:4px;border:1px solid rgba(255,255,255,.55)}
   .cookie-banner{bottom:80px}
 }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.eyebrow, .cap-scale, .placeholder-flag { font-size: max(.8rem, 12.8px); }
+.social a, .foot a, .acces .btn-line { display:inline-flex; align-items:center; min-height:44px; }
+.consent input { width:24px; height:24px; }
+

@@ -339,3 +339,10 @@ h2 { font-size: clamp(1.8rem, 1.1rem + 2.3vw, 2.9rem); }
   .tag-essai::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,255,255,0.6); }
   .cookie-banner { bottom: 1rem; }
 }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.link-arrow, .gate-phone, .contact-phone a, .foot-legal a { display:inline-flex; align-items:center; min-height:44px; }
+.offer-price small, .row-price, .placeholder-flag { font-size: max(.8rem, 12.8px); }
+.consent input { width: 24px; height: 24px; }
+

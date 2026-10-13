@@ -133,3 +133,10 @@ h2{font-size:clamp(1.9rem,1.3rem+2.2vw,3rem);margin-bottom:.8rem}
   .datebar .btn-sea{padding:.6rem .9rem;min-height:40px;box-shadow:none}
   .cookie-banner{bottom:100px}
 }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+@media (max-width:1024px){ .top-menu{ width:46px; min-width:46px; } }
+.phone a, .foot a, .btn-txt { display:inline-flex; align-items:center; min-height:44px; }
+.consent input { width:24px; height:24px; }
+

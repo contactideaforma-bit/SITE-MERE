@@ -264,3 +264,9 @@ h2 em, h3 em, h1 em { font-style: italic; color: var(--sea); }
 /* audit */
 .form-note { max-width: 72ch; }
 .cover .nav a { padding: 0.6rem 0.1rem; }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.kicker { font-size: .8rem; }
+.social-list a, .big-phone a, .foot-legal a, .cover-meta a { display:inline-flex; align-items:center; min-height:44px; }
+

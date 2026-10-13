@@ -155,3 +155,10 @@ h1,h2,h3{font-family:var(--font-heading);font-weight:400;letter-spacing:-.01em;l
   .float-call svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .cookie-banner{bottom:90px}
 }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.big-tel a, .foot a, .mail { display:inline-flex; align-items:center; min-height:44px; }
+.docs input, .consent input { width:24px; height:24px; }
+.placeholder-flag { font-size: max(.8rem, 12.8px); }
+

@@ -386,3 +386,8 @@ select.in { appearance: none; -webkit-appearance: none; background-image: url("d
 .legal-page h2 { font-size: 1.6rem; margin: 2.2rem 0 0.5rem; }
 .legal-page p, .legal-page li { max-width: 70ch; }
 .legal-page a { text-decoration: underline; color: var(--blue); }
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+.foot a, .footer a, a.phone { min-height:44px; display:inline-flex; align-items:center; }
+
