@@ -1,52 +1,66 @@
 /* Écurie du Faraon — interactions spécifiques
-   - sélecteur « Trouvez votre formule » (onglets accessibles, clavier compris)
-   - lien de navigation actif selon la section visible
-   - formulaire de cours d'essai : pas de backend, validation côté client
-     puis message de confirmation (à brancher sur Netlify Forms / Formspree)
+   - menu mobile plein écran
+   - tableau des cours : la photo épinglée change au survol / au focus d'une ligne
+   - portes de box dessinées sur le plan du domaine
+   - fiche de cours d'essai : validation côté client, confirmation (aucun envoi réel)
    Aucune dépendance, aucun traceur. */
 (function () {
   "use strict";
 
-  /* ---------- Onglets « pour qui ? » ---------- */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll(".picker [role=tab]"));
-  var panels = Array.prototype.slice.call(document.querySelectorAll(".panel[role=tabpanel]"));
-  function select(tab, focus) {
-    tabs.forEach(function (t) {
-      var on = t === tab;
-      t.setAttribute("aria-selected", on ? "true" : "false");
-      t.tabIndex = on ? 0 : -1;
-    });
-    panels.forEach(function (p) {
-      p.hidden = p.id !== tab.getAttribute("aria-controls");
-    });
-    if (focus) tab.focus();
+  /* ---------- Menu mobile ---------- */
+  var burger = document.querySelector(".burger");
+  var menu = document.getElementById("mobile-menu");
+  if (burger && menu) {
+    function setMenu(open) {
+      menu.hidden = !open;
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+      document.body.classList.toggle("menu-open", open);
+    }
+    burger.addEventListener("click", function () { setMenu(menu.hidden); });
+    menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) setMenu(false); });
   }
-  tabs.forEach(function (tab, i) {
-    tab.addEventListener("click", function () { select(tab, false); });
-    tab.addEventListener("keydown", function (e) {
-      var next = null;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") next = tabs[(i + 1) % tabs.length];
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = tabs[(i - 1 + tabs.length) % tabs.length];
-      if (e.key === "Home") next = tabs[0];
-      if (e.key === "End") next = tabs[tabs.length - 1];
-      if (next) { e.preventDefault(); select(next, true); }
-    });
+
+  /* ---------- Photo épinglée du tableau des cours ---------- */
+  var rows = Array.prototype.slice.call(document.querySelectorAll(".menu-board .row[data-photo]"));
+  var pin = document.querySelector(".board-photo");
+  var pinImg = pin ? pin.querySelector("img") : null;
+  var pinCap = pin ? pin.querySelector("figcaption") : null;
+  var swapTimer = null;
+  function showRow(row) {
+    rows.forEach(function (r) { r.classList.toggle("is-on", r === row); });
+    if (!pinImg) return;
+    var src = row.getAttribute("data-photo");
+    if (pinImg.getAttribute("src") === src) return;
+    pin.classList.add("is-swapping");
+    clearTimeout(swapTimer);
+    swapTimer = setTimeout(function () {
+      pinImg.setAttribute("src", src);
+      pinImg.onload = function () { pin.classList.remove("is-swapping"); };
+      if (pinCap) pinCap.textContent = row.querySelector("h3").childNodes[0].textContent.trim();
+    }, 250);
+  }
+  rows.forEach(function (row) {
+    row.setAttribute("tabindex", "0");
+    row.addEventListener("mouseenter", function () { showRow(row); });
+    row.addEventListener("focus", function () { showRow(row); });
   });
+  if (rows.length) showRow(rows[0]);
 
-  /* ---------- Lien actif dans la navigation ---------- */
-  var links = Array.prototype.slice.call(document.querySelectorAll(".nav a[href^='#']"));
-  var sections = links.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
-  if ("IntersectionObserver" in window && sections.length) {
-    var current = null;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) current = en.target.id; });
-      links.forEach(function (a) { a.classList.toggle("is-active", a.getAttribute("href") === "#" + current); });
-    }, { rootMargin: "-40% 0px -50% 0px" });
-    sections.forEach(function (s) { io.observe(s); });
+  /* ---------- Portes de box sur le plan ---------- */
+  var doors = document.querySelector(".m-box-doors");
+  if (doors) {
+    var ns = "http://www.w3.org/2000/svg";
+    for (var i = 0; i < 22; i++) {
+      var r = document.createElementNS(ns, "rect");
+      r.setAttribute("x", 386 + i * 13.6); r.setAttribute("y", 334); r.setAttribute("width", 10); r.setAttribute("height", 10);
+      doors.appendChild(r);
+    }
   }
 
-  /* ---------- Formulaire de cours d'essai ---------- */
-  var form = document.querySelector(".essai-form");
+  /* ---------- Fiche de cours d'essai ---------- */
+  var form = document.querySelector(".sheet-form");
   if (form) {
     var msg = form.querySelector(".form-msg");
     form.addEventListener("submit", function (e) {
@@ -59,10 +73,13 @@
         msg.textContent = "Merci d'indiquer votre nom, un numéro de téléphone valide et de cocher la case de consentement.";
         return;
       }
-      /* Maquette : aucune donnée n'est envoyée. En production, remplacer par
-         l'envoi vers Netlify Forms, Formspree ou une fonction serverless. */
-      msg.textContent = "Merci " + nom + " ! Demande bien notée (maquette : aucun envoi réel). L'écurie vous rappelle au " + form.tel.value.trim() + ".";
+      /* Maquette : aucune donnée n'est envoyée. En production, brancher Netlify Forms,
+         Formspree ou une fonction serverless. */
+      msg.textContent = "Merci " + nom + ", demande bien notée (maquette : aucun envoi réel). L'écurie vous rappelle au " + form.tel.value.trim() + ".";
       form.reset();
     });
   }
+
+  /* ---------- Année ---------- */
+  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
