@@ -36,6 +36,16 @@ pizza-maracana/                → Maquette client : Pizza Maracana (chemin de G
                                  index.html + maracana.css + maracana.js + mentions-legales.html
 ecurie-du-faraon/              → Maquette client : Écurie du Faraon (centre équestre, Gignac-la-Nerthe), non indexée
                                  index.html + faraon.css + faraon.js + mentions-legales.html
+pas-des-lanciers/              → Maquette client : Centre Équestre Pas des Lanciers (Marignane), non indexée
+                                 index.html + lanciers.css + lanciers.js + mentions-legales.html
+espace-gala/                   → Maquette client : Espace Gala, salle de réception (Gignac-la-Nerthe / Marignane), non indexée
+                                 index.html + gala.css + gala.js + mentions-legales.html
+gites-du-resquiadou/           → Maquette client : Gîtes du Resquiadou (Le Rove, Côte Bleue), non indexée
+                                 index.html + resquiadou.css + resquiadou.js + mentions-legales.html
+gignac-conduite/               → Maquette client : Auto-École Gignac Conduite (Gignac-la-Nerthe), non indexée
+                                 index.html + gignac.css + gignac.js + mentions-legales.html
+sud-carrosserie/               → Maquette client : Sud Carrosserie (Marignane), non indexée
+                                 index.html + sud.css + sud.js + mentions-legales.html
 
 demos/
   carrosserie-roc-blanc/         → Démo : carrosserie indépendante fictive (devis photo, sinistre, avant/après)

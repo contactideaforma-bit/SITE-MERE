@@ -7,5 +7,10 @@ Disallow: /sushi-tys/
 Disallow: /auberge-du-merou/
 Disallow: /pizza-maracana/
 Disallow: /ecurie-du-faraon/
+Disallow: /sud-carrosserie/
+Disallow: /gignac-conduite/
+Disallow: /gites-du-resquiadou/
+Disallow: /espace-gala/
+Disallow: /pas-des-lanciers/
 
 Sitemap: https://myeasydev.vercel.app/sitemap.xml
