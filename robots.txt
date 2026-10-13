@@ -8,6 +8,7 @@ Disallow: /auberge-du-merou/
 Disallow: /pizza-maracana/
 Disallow: /ecurie-du-faraon/
 Disallow: /sud-carrosserie/
+Disallow: /kalm-by-night/
 Disallow: /gignac-conduite/
 Disallow: /gites-du-resquiadou/
 Disallow: /espace-gala/

@@ -45,6 +45,7 @@ gites-du-resquiadou/           → Maquette client : Gîtes du Resquiadou (Le Ro
 gignac-conduite/               → Maquette client : Auto-École Gignac Conduite (Gignac-la-Nerthe), non indexée
                                  index.html + gignac.css + gignac.js + mentions-legales.html
 sud-carrosserie/               → Maquette client : Sud Carrosserie (Marignane), non indexée
+kalm-by-night/                 → Maquette client : Kalm by Night (livraison de nuit, Vitrolles / Marseille), non indexée
                                  index.html + sud.css + sud.js + mentions-legales.html
 
 demos/

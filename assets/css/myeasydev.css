@@ -279,6 +279,7 @@ del { color: var(--ink-soft); text-decoration-thickness: 2px; }
 .work--sea { --card: #1B6E8E; }
 .work--road { --card: #0B4EA2; }
 .work--shop { --card: #F05A28; }
+.work--night { --card: #6E1E73; }
 .work--lime { --card: #9BC53D; }
 .work--blue > a { background: var(--blue); color: var(--white); }
 .work--ink > a { background: var(--white); color: var(--ink); border: 1px solid var(--ink); }
