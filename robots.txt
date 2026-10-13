@@ -13,4 +13,4 @@ Disallow: /gites-du-resquiadou/
 Disallow: /espace-gala/
 Disallow: /pas-des-lanciers/
 
-Sitemap: https://myeasydev.vercel.app/sitemap.xml
+Sitemap: https://myeasydev-studio.fr/sitemap.xml
