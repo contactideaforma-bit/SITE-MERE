@@ -41,7 +41,8 @@
 }
 
 html { background: var(--paper); }
-body { background: var(--paper); color: var(--ink); font-size: 1.15rem; line-height: 1.6; overflow-x: hidden; }
+/* Motif ton sur ton : fers à cheval en quinconce, très discret */
+body { background: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27160%27%20height=%27160%27%20viewBox=%270%200%20160%20160%27%3E%3Cg%20fill=%27none%27%20stroke=%27%235A3A1E%27%20stroke-opacity=%270.085%27%20stroke-width=%271.3%27%20stroke-linejoin=%27round%27%3E%3Cpath%20transform=%27translate(40%2040)%20rotate(-14)%27%20d=%27M0-13a10%2010%200%200%201%2010%200v12c0%201.6-1%202.6-2.6%202.6h-1c-1.6%200-2.6-1-2.6-2.6v-11a3.8%203.8%200%200%200-7.6%200v11c0%201.6-1%202.6-2.6%202.6h-1C-8.4%201.6-9.4.6-9.4-1z%27/%3E%3Cpath%20transform=%27translate(120%20120)%20rotate(11)%27%20d=%27M0-13a10%2010%200%200%201%2010%200v12c0%201.6-1%202.6-2.6%202.6h-1c-1.6%200-2.6-1-2.6-2.6v-11a3.8%203.8%200%200%200-7.6%200v11c0%201.6-1%202.6-2.6%202.6h-1C-8.4%201.6-9.4.6-9.4-1z%27/%3E%3C/g%3E%3C/svg%3E") 0 0 / 160px 160px, var(--paper); color: var(--ink); font-size: 1.15rem; line-height: 1.6; overflow-x: hidden; }
 h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; letter-spacing: 0; line-height: 1.1; }
 h2 { font-size: clamp(1.8rem, 1.1rem + 2.3vw, 2.9rem); }
 .paper { width: min(1200px, 100% - 3rem); margin-inline: auto; }
@@ -334,7 +335,7 @@ h2 { font-size: clamp(1.8rem, 1.1rem + 2.3vw, 2.9rem); }
   .map iframe { height: 200px; }
   .foot-inner { flex-direction: column; align-items: flex-start; }
 
-  .tag-essai { display: block; position: fixed; right: 0; top: 55%; z-index: 60; writing-mode: vertical-rl; transform: rotate(180deg); background: var(--rust); color: #fff; font-family: var(--font-sign); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 1.1rem 0.7rem; box-shadow: 0 6px 18px rgba(35,26,18,0.3); border-right: 3px solid var(--leather); }
+  .tag-essai { display: block; position: fixed; right: 0; top: 62%; z-index: 60; writing-mode: vertical-rl; transform: rotate(180deg); background: var(--rust); color: #fff; font-family: var(--font-sign); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 1.1rem 0.7rem; box-shadow: 0 6px 18px rgba(35,26,18,0.3); border-right: 3px solid var(--leather); }
   .tag-essai::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,255,255,0.6); }
   .cookie-banner { bottom: 1rem; }
 }
