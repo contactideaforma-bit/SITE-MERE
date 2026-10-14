@@ -45,6 +45,7 @@ gites-du-resquiadou/           → Maquette client : Gîtes du Resquiadou (Le Ro
 gignac-conduite/               → Maquette client : Auto-École Gignac Conduite (Gignac-la-Nerthe), non indexée
                                  index.html + gignac.css + gignac.js + mentions-legales.html
 sud-carrosserie/               → Maquette client : Sud Carrosserie (Marignane), non indexée
+garage-septemes/               → Maquette client : Garage Septèmes (carrosserie & peinture, Septèmes-les-Vallons), non indexée
 kalm-by-night/                 → Maquette client : Kalm by Night (livraison de nuit, Vitrolles / Marseille), non indexée
                                  index.html + sud.css + sud.js + mentions-legales.html
 
@@ -156,3 +157,10 @@ a sa propre construction :
   Mobile : pas de barre d'onglets — réglette à deux boutons (Appeler / Uber Eats), carte en accordéon par
   catégorie, étapes en frise verticale, chiffres clés en rangée qui défile.
 - **Pizza al dente** — carte de pizzeria : liste à points de conduite, filtres, bandeau d'infos.
+- **Garage Septèmes** — « le coffret noir » : fond noir laqué assumé (identité noir & or du prospect), filets d'or,
+  chapitres en chiffres romains, poussière d'or animée (canvas) au premier écran, titre à reflet, bandeau défilant des
+  prestations, trois plaques numérotées (Réparer · Protéger · Sublimer), carte de l'atelier en lignes pointillées
+  dépliables, sceaux ronds (franchise, prêt, remorquage), comparateur avant / après à poignée d'or, frise sinistre en
+  4 temps, avis Google, plan OSM sépia, devis photo avec immatriculation mise en forme. Photos Pexels d'illustration.
+  Mobile : menu plein écran numéroté, pastille d'or fixe qui s'ouvre en éventail (Appeler / Devis photo / Itinéraire),
+  frise verticale, pas de barre d'onglets.

@@ -13,5 +13,6 @@ Disallow: /gignac-conduite/
 Disallow: /gites-du-resquiadou/
 Disallow: /espace-gala/
 Disallow: /pas-des-lanciers/
+Disallow: /garage-septemes/
 
 Sitemap: https://myeasydev-studio.fr/sitemap.xml
