@@ -47,6 +47,8 @@ gignac-conduite/               → Maquette client : Auto-École Gignac Conduite
 sud-carrosserie/               → Maquette client : Sud Carrosserie (Marignane), non indexée
 garage-septemes/               → Maquette client : Garage Septèmes (carrosserie & peinture, Septèmes-les-Vallons), non indexée
 kalm-by-night/                 → Maquette client : Kalm by Night (livraison de nuit, Vitrolles / Marseille), non indexée
+auto-roussillon/               → Maquette client : Auto Roussillon (garage & carrosserie AD, Cabestany / Perpignan), non indexée
+                                 index.html + roussillon.css + roussillon.js + mentions-legales.html
                                  index.html + sud.css + sud.js + mentions-legales.html
 
 demos/
