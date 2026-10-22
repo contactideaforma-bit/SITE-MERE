@@ -15,5 +15,6 @@ Disallow: /espace-gala/
 Disallow: /pas-des-lanciers/
 Disallow: /garage-septemes/
 Disallow: /auto-roussillon/
+Disallow: /trinapoli-marseille/
 
 Sitemap: https://myeasydev-studio.fr/sitemap.xml
