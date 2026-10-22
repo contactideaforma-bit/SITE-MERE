@@ -125,7 +125,7 @@ chargé depuis Google Fonts, pour un rendu travaillé et reconnaissable.
 | Démo Pizzeria Lou Soleï    | Marcellus       | Figtree          |
 | Démo Pizzeria Da Enzo      | Bodoni Moda     | Work Sans        |
 | Démo Salon Émeraude        | Italiana        | Jost             |
-| Trinapoli Marseille        | Gloock (+ Antonio) | Schibsted Grotesk |
+| Trinapoli Marseille        | Forum (+ Mrs Saint Delafield) | Albert Sans |
 
 Règle pour une nouvelle maquette : choisir un couple non encore utilisé, angles sobres (6–14 px, pas de
 pilule), étiquettes en petites capitales espacées, filets fins plutôt que bordures épaisses.
@@ -153,13 +153,13 @@ a sa propre construction :
   en mini-plaques, étapes sinistre numérotées, comparateur à poignée-vis, formulaire photo, atelier + plan.
   Mobile : bandes à l'horizontale (titre en haut, info en bas), plaque d'action fixe en bas (Appeler | statut |
   Devis photo), pas de barre d'onglets. Contexte Impeccable : demos/carrosserie-roc-blanc/PRODUCT.md et DESIGN.md.
-- **Trinapoli Marseille** — « la vitrine » + appli de commande installable (PWA : manifest, service worker, icônes) :
-  enseigne crème à double filet vert/or, four SVG animé (la pala sort un pain fumant, tampon « Sfornato »),
-  compte à rebours de fournée, carte en tableau à pointillés + photo qui suit le survol, étagère de bouteilles,
-  fiche produit, panier en 3 étapes (sac → fournée → suivi), fidélité. comptoir.html = écran commerçant relié
-  en direct (localStorage + BroadcastChannel), offre.html = proposition chiffrée avec simulateur de commission.
-  Photos produits hébergées sur trinapoli59.fr (à rapatrier dans le dossier à la signature).
-  Mobile : pala-panier fixe en bas, menu plein écran numéroté.
+- **Trinapoli Marseille** — trattoria vert & rose + appli de commande installable (PWA : manifest, service worker, icônes) :
+  bandeau plein écran sur photo de panuozzo (voile vert à gauche, fondu blanc en bas), en-tête transparent qui devient
+  crème au défilement (logo crème → logo vert), capitales Forum espacées, signature manuscrite, tirets vert/rose,
+  4 tuiles photo à cartouche, commande en fiches photo + prix, collage photo sur aplat vert pastel, bande photo
+  « Benvenuti », contact en 3 colonnes vert pastel / blanc / rose. comptoir.html = écran commerçant relié en direct
+  (localStorage + BroadcastChannel), offre.html = proposition chiffrée avec simulateur de commission.
+  Photos hébergées sur trinapoli59.fr (à rapatrier à la signature). Mobile : widget de commande vert pastel en bas.
 - **Mairie du Rove** — portail civique : recherche en tête, accès rapides, démarches en vignettes, météo.
 - **Pizza Maracana** — Brésil photographique : bannière plein écran (Pain de Sucre), en-tête transparent qui devient
   plein au défilement, bandeau drapeau « Vem comer ! », section commande sur photo voilée de vert, pizzas en « tickets »

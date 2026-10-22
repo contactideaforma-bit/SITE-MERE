@@ -1,5 +1,5 @@
 /* Trinapoli Marseille — appli de commande (maquette)
-   Panier, fiche produit, créneaux de fournée, suivi de commande,
+   Panier, fiche produit, créneaux de retrait, suivi de commande,
    fidélité, installation PWA. Les commandes passent par le
    navigateur (localStorage + BroadcastChannel) pour être vues en
    direct par l'espace comptoir : aucune donnée n'est envoyée. */
@@ -66,24 +66,23 @@
 
   /* ================== RENDU DE LA CARTE ================== */
   function renderBoard() {
-    var ol = $("[data-list='panuozzi']"); if (!ol) return;
-    ol.innerHTML = PANUOZZI.map(function (p) {
+    var ul = $("[data-list='panuozzi']"); if (!ul) return;
+    ul.innerHTML = PANUOZZI.map(function (p) {
       var out = isOut(p.id);
-      return '<li class="dish' + (out ? " is-out" : "") + (p.n === 1 ? " is-active" : "") + '" data-id="' + p.id + '" tabindex="0">' +
-        '<span class="dish-n">N°' + p.n + '</span>' +
-        '<img class="dish-thumb" src="' + p.img + '" alt="" loading="lazy" width="88" height="88">' +
-        '<div class="dish-main"><h3>' + p.name + (p.tag ? ' <span class="dish-tag">' + p.tag + '</span>' : "") + '</h3>' +
-        '<p class="dish-ing">' + p.ing.join(", ") + (p.note ? ' <span class="placeholder-flag">' + p.note + '</span>' : "") + '</p></div>' +
-        '<div class="dish-side"><span class="price">' + euro(p.price) + '</span>' +
-        (out ? '<span class="out-flag">Épuisé aujourd\'hui</span>' : '<button class="add" type="button" data-add="' + p.id + '" aria-label="Composer ' + p.name + '">Ajouter</button>') + '</div></li>';
+      return '<li class="dish' + (out ? " is-out" : "") + '" data-id="' + p.id + '" tabindex="0">' +
+        '<img class="dish-img" src="' + p.img + '" alt="" loading="lazy" width="150" height="170">' +
+        '<div class="dish-body"><h3>' + p.name + (p.tag ? '<span class="dish-tag">' + p.tag + '</span>' : "") + '</h3>' +
+        '<p class="dish-ing">' + p.ing.join(", ") + (p.note ? ' <span class="placeholder-flag">' + p.note + '</span>' : "") + '</p>' +
+        '<div class="dish-foot"><span class="price">' + euro(p.price) + '</span>' +
+        (out ? '<span class="out-flag">Épuisé aujourd\'hui</span>' : '<button class="add" type="button" data-add="' + p.id + '" aria-label="Composer ' + p.name + '">Ajouter</button>') + '</div></div></li>';
     }).join("");
   }
   function renderFormules() {
     var el = $("[data-panel='formules']"); if (!el) return;
     el.innerHTML =
-      '<article class="formule"><span class="save">La plus prise</span><h3>Formule Trinapoli</h3><p>Le panuozzo de ton choix, une bouteille italienne et un dessert maison.</p><span class="price">Panuozzo + ' + euro(FORMULE_PRICE) + '</span><button class="btn-tomato" type="button" data-formule="truffe">Composer ma formule</button></article>' +
+      '<article class="formule"><span class="save">La plus prise</span><h3>Formule Trinapoli</h3><p>Le panuozzo de votre choix, une bouteille italienne et un dessert maison.</p><span class="price">Panuozzo + ' + euro(FORMULE_PRICE) + '</span><button class="btn-rose" type="button" data-formule="truffe">Composer ma formule</button></article>' +
       '<article class="formule"><span class="save">Pour deux</span><h3>Duo à partager</h3><p>Deux panuozzi au choix, deux boissons : idéal pour la pause du midi au bureau.</p><span class="price">dès ' + euro(2 * 10.9 + 2 * 3.2 - 2) + '</span><button class="btn-line" type="button" data-tab-go="panuozzi">Choisir mes panuozzi</button></article>' +
-      '<article class="formule"><span class="save">Équipes &amp; événements</span><h3>Plateau bureau</h3><p>Panuozzi coupés en bouchées, livrés prêts à partager pour 8 à 20 personnes.</p><span class="price"><span class="placeholder-flag">sur devis</span></span><a class="btn-line" href="mailto:trinapoli59@gmail.com?subject=Plateau%20bureau%20Marseille">Demander un devis</a></article>';
+      '<article class="formule"><span class="save">Équipes &amp; événements</span><h3>Plateau bureau</h3><p>Panuozzi coupés en bouchées, préparés à l\'avance, prêts à partager pour 8 à 20 personnes.</p><span class="price"><span class="placeholder-flag">sur devis</span></span><a class="btn-line" href="mailto:trinapoli59@gmail.com?subject=Plateau%20bureau%20Marseille">Demander un devis</a></article>';
   }
   function renderShelf() {
     var ul = $("[data-list='bevande']"); if (!ul) return;
@@ -128,7 +127,7 @@
     sheetBody.innerHTML =
       '<div class="sheet-photo"><img src="' + p.img + '" alt="' + p.name + ', photo Trinapoli" width="600" height="600"></div>' +
       '<form class="sheet-form" data-sheet-form>' +
-      '<h2 id="sheet-title">' + p.name + '</h2><p class="lede">Pain sorti du four, ouvert à la main et garni minute. ' + (p.note ? '<span class="placeholder-flag">' + p.note + '</span>' : "") + '</p>' +
+      '<h2 id="sheet-title">' + p.name + '</h2><p class="lede">Pain sorti du four, ouvert à la main et garni à la commande. ' + (p.note ? '<span class="placeholder-flag">' + p.note + '</span>' : "") + '</p>' +
       '<div class="group"><p>Sans… <small>touchez pour retirer</small></p><div class="chips">' +
       p.ing.map(function (i) { return '<button type="button" class="chip minus" aria-pressed="false" data-minus="' + i + '">' + i + '</button>'; }).join("") + '</div></div>' +
       '<div class="group"><p>En plus <small>options à valider</small></p><div class="chips">' +
@@ -138,7 +137,7 @@
       '<div class="field"><label for="pick-drink">Boisson</label><select id="pick-drink" data-drink>' + BEV.map(function (b) { return '<option value="' + b.id + '">' + b.name + '</option>'; }).join("") + '</select></div>' +
       '<div class="field"><label for="pick-dessert">Dessert</label><select id="pick-dessert" data-dessert>' + DOL.map(function (d) { return '<option value="' + d.id + '">' + d.name + '</option>'; }).join("") + '</select></div></div>' +
       '<div class="sheet-foot"><div class="qty"><button type="button" data-q="-1" aria-label="Moins">−</button><output data-qty>1</output><button type="button" data-q="1" aria-label="Plus">+</button></div>' +
-      '<button class="btn-tomato" type="submit" data-sheet-add>Ajouter · ' + euro(p.price) + '</button></div></form>';
+      '<button class="btn-rose" type="submit" data-sheet-add>Ajouter · ' + euro(p.price) + '</button></div></form>';
     sheet.hidden = false; document.body.style.overflow = "hidden";
     updateSheetPrice();
     setTimeout(function () { var x = $(".sheet-panel .x"); if (x) x.focus(); }, 30);
@@ -181,16 +180,16 @@
   function totalOf() { return cart.reduce(function (s, l) { return s + unitOf(l) * l.qty; }, 0); }
   function countOf() { return cart.reduce(function (s, l) { return s + l.qty; }, 0); }
   function addLine(line, fromImg) {
-    if (isPaused()) { toast("Le comptoir a mis les commandes en pause quelques minutes (rush). Réessaie très vite."); return; }
+    if (isPaused()) { toast("Le restaurant a mis les commandes en ligne en pause quelques minutes. Réessayez très vite."); return; }
     line.minus = line.minus || []; line.plus = line.plus || [];
     var k = key(line), found = null;
     cart.forEach(function (l) { if (key(l) === k) found = l; });
     if (found) found.qty += line.qty; else cart.push(line);
     saveCart(); fly(fromImg);
-    toast(ALL[line.id].name + " ajouté à ta fournée");
+    toast(ALL[line.id].name + " ajouté à votre commande");
   }
   function fly(img) {
-    var target = window.innerWidth <= 900 ? $(".pala-bread") : $(".sign-bag");
+    var target = window.innerWidth <= 960 ? $(".widget-btn") : $(".top-bag");
     if (!img || !target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) { bump(); return; }
     var a = img.getBoundingClientRect(), b = target.getBoundingClientRect();
     var f = document.createElement("img"); f.src = img.src; f.className = "flyer"; f.alt = "";
@@ -201,15 +200,14 @@
     }); });
     setTimeout(function () { f.remove(); bump(); }, 720);
   }
-  function bump() { var s = $(".sign-bag"); if (s) { s.classList.remove("bump"); void s.offsetWidth; s.classList.add("bump"); } }
+  function bump() { var s = $(".top-bag"); if (s) { s.classList.remove("bump"); void s.offsetWidth; s.classList.add("bump"); } }
   function refreshBadges() {
     var c = countOf(), t = totalOf();
     $$("[data-cart-count]").forEach(function (el) { el.textContent = c; });
     var pala = $("[data-pala]"); if (!pala) return;
     pala.classList.toggle("has-items", c > 0);
-    $("[data-pala-title]").textContent = c ? (c > 1 ? c + " articles dans ta fournée" : "1 article dans ta fournée") : "Ta fournée est vide";
-    $("[data-pala-sub]").textContent = c ? "Créneau à choisir à l'étape suivante" : "Choisis un panuozzo";
-    $("[data-pala-total]").textContent = c ? euro(t) + " →" : "La carte";
+    $("[data-pala-title]").textContent = c ? (c > 1 ? c + " articles · " + euro(t) : "1 article · " + euro(t)) : "Votre commande est vide";
+    $("[data-pala-total]").textContent = c ? "Commander" : "La carte";
   }
   function describe(l) {
     var bits = [];
@@ -230,7 +228,7 @@
     setTimeout(function () { var x = $(".cart-head .x"); if (x) x.focus(); }, 30);
   }
   function closeCart() { cartEl.hidden = true; document.body.style.overflow = ""; if (checkout.step === "done") { checkout.step = "bag"; } if (lastFocus) lastFocus.focus(); }
-  function stepsBar(n) { var s = ["Mon sac", "Ma fournée", "Suivi"]; return '<div class="steps-bar">' + s.map(function (x, i) { return '<span class="' + (i <= n ? "on" : "") + '">' + x + '</span>'; }).join("") + '</div>'; }
+  function stepsBar(n) { var s = ["Ma commande", "Retrait", "Suivi"]; return '<div class="steps-bar">' + s.map(function (x, i) { return '<span class="' + (i <= n ? "on" : "") + '">' + x + '</span>'; }).join("") + '</div>'; }
 
   function slotsList() {
     var now = new Date(), base = new Date(now.getTime() + 15 * 60000);
@@ -247,7 +245,7 @@
   function renderCart() {
     var s = checkout.step;
     if (s === "bag") {
-      cartTitle.textContent = "Mon sac";
+      cartTitle.textContent = "Ma commande";
       var hasFormule = cart.some(function (l) { return l.formule; });
       var hasDrink = cart.some(function (l) { return ALL[l.id].cat === "bevande"; });
       cartBody.innerHTML = stepsBar(0) + cart.map(function (l, i) {
@@ -256,15 +254,15 @@
           '<div class="qty"><button type="button" data-line="' + i + '" data-d="-1" aria-label="Retirer un">−</button><output>' + l.qty + '</output><button type="button" data-line="' + i + '" data-d="1" aria-label="Ajouter un">+</button></div></div>' +
           '<span class="line-price">' + euro(unitOf(l) * l.qty) + '</span></div>';
       }).join("") +
-      (!hasFormule && !hasDrink ? '<div class="upsell"><img src="' + BEV[0].img + '" alt=""><p>Une <b>Cedrata</b> bien fraîche avec ça ?</p><button class="add" type="button" data-quick="cedrata">+ ' + euro(3.2) + '</button></div>' : "") +
+      (!hasFormule && !hasDrink ? '<div class="upsell"><img src="' + BEV[0].img + '" alt=""><p>Une <b>Cedrata</b> bien fraîche avec votre commande ?</p><button class="add" type="button" data-quick="cedrata">+ ' + euro(3.2) + '</button></div>' : "") +
       '<div class="totals"><div><span>Articles</span><span>' + countOf() + '</span></div><div class="grand"><span>Total</span><span>' + euro(totalOf()) + '</span></div><div><small>Prix de démonstration, à confirmer · commission plateforme : 0 €</small></div></div>' +
-      '<div class="cart-actions"><button class="btn-tomato" type="button" data-next>Choisir ma fournée</button><button class="linkish" type="button" data-close-cart>Continuer mes choix</button></div>';
+      '<div class="cart-actions"><button class="btn-rose" type="button" data-next>Choisir mon heure de retrait</button><button class="linkish" type="button" data-close-cart>Continuer mes choix</button></div>';
     } else if (s === "details") {
-      cartTitle.textContent = "Ma fournée";
+      cartTitle.textContent = "Retrait";
       var sl = slotsList(); if (!checkout.slot) { sl.some(function (x) { if (x.left) { checkout.slot = x.t; return true; } return false; }); }
       cartBody.innerHTML = stepsBar(1) +
         '<div class="group"><p>Sur place ou à emporter</p><div class="seg"><button type="button" data-mode="emporter" aria-pressed="' + (checkout.mode === "emporter") + '">À emporter</button><button type="button" data-mode="place" aria-pressed="' + (checkout.mode === "place") + '">Sur place</button></div></div>' +
-        '<div class="group"><p>Ma fournée <small>places restantes</small></p><div class="slots">' + sl.map(function (x) {
+        '<div class="group"><p>Heure de retrait <small>places restantes</small></p><div class="slots">' + sl.map(function (x) {
           return '<button type="button" class="slot" data-slot="' + x.t + '" aria-pressed="' + (checkout.slot === x.t) + '"' + (x.left ? "" : " disabled") + '><b>' + x.t + '</b><small>' + (x.left ? x.left + " place" + (x.left > 1 ? "s" : "") : "complet") + '</small></button>';
         }).join("") + '</div></div>' +
         '<form data-details novalidate class="group" style="display:grid;gap:.8rem"><p>Mes coordonnées</p>' +
@@ -276,7 +274,7 @@
         '<label class="consent"><input type="checkbox" name="consent" required><span>J\'accepte que mon prénom et mon téléphone servent uniquement au traitement de cette commande. <a href="mentions-legales.html#donnees">En savoir plus</a></span></label>' +
         '<p class="form-msg err" data-err hidden tabindex="-1"></p>' +
         '<div class="totals"><div class="grand"><span>À régler</span><span>' + euro(totalOf()) + '</span></div></div>' +
-        '<div class="cart-actions"><button class="btn-tomato" type="submit">Envoyer ma commande au four</button><button class="linkish" type="button" data-back>← Revenir au sac</button></div></form>';
+        '<div class="cart-actions"><button class="btn-rose" type="submit">Envoyer ma commande</button><button class="linkish" type="button" data-back>← Revenir au sac</button></div></form>';
     } else if (s === "done") {
       renderTracking();
     }
@@ -303,13 +301,13 @@
     if (!e.target.matches("[data-details]")) return;
     e.preventDefault(); keepFields();
     var f = e.target, err = $("[data-err]"), problems = [];
-    f.name.classList.toggle("invalid", !checkout.name.trim()); if (!checkout.name.trim()) problems.push("ton prénom");
+    f.name.classList.toggle("invalid", !checkout.name.trim()); if (!checkout.name.trim()) problems.push("votre prénom");
     var okPhone = /^(\+33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/.test(checkout.phone.trim());
     f.phone.classList.toggle("invalid", !okPhone); if (!okPhone) problems.push("un numéro de téléphone français valide");
-    if (!f.consent.checked) problems.push("ton accord pour l'utilisation de tes coordonnées");
-    if (!checkout.slot) problems.push("un créneau de fournée");
+    if (!f.consent.checked) problems.push("votre accord pour l'utilisation de vos coordonnées");
+    if (!checkout.slot) problems.push("une heure de retrait");
     if (problems.length) { err.hidden = false; err.textContent = "Il manque " + problems.join(", ") + "."; err.focus(); return; }
-    if (isPaused()) { err.hidden = false; err.textContent = "Le comptoir a mis les commandes en pause (rush). Réessaie dans quelques minutes."; err.focus(); return; }
+    if (isPaused()) { err.hidden = false; err.textContent = "Le restaurant a mis les commandes en ligne en pause. Réessayez dans quelques minutes."; err.focus(); return; }
     placeOrder();
   });
 
@@ -342,10 +340,10 @@
     var id = currentOrderId(), o = null; orders().forEach(function (x) { if (x.id === id) o = x; });
     if (!o) return;
     cartTitle.textContent = "Ma commande";
-    var idx = STATUS.indexOf(o.status), labels = ["Reçue", "Au four", "Prête"];
+    var idx = STATUS.indexOf(o.status), labels = ["Reçue", "En préparation", "Prête"];
     var stamps = (store.get("trinapoli-stamps", 0) || 0) % 10;
     cartBody.innerHTML = stepsBar(2) +
-      '<div class="ticket"><small>Commande envoyée au four</small><div class="num">' + o.id + '</div><p><b>' + esc(o.name) + '</b> · fournée de <b>' + o.slot + '</b> · ' + (o.mode === "place" ? "sur place" : "à emporter") + '</p><p>' + euro(o.total) + ' · ' + (o.pay === "carte" ? "payé en ligne (maquette)" : "à régler au comptoir") + '</p>' +
+      '<div class="ticket"><small>Commande envoyée</small><div class="num">' + o.id + '</div><p><b>' + esc(o.name) + '</b> · retrait à <b>' + o.slot + '</b> · ' + (o.mode === "place" ? "sur place" : "à emporter") + '</p><p>' + euro(o.total) + ' · ' + (o.pay === "carte" ? "payé en ligne (maquette)" : "à régler au comptoir") + '</p>' +
       '<ol class="track">' + labels.map(function (l, i) { return '<li class="' + (i < idx || o.status === "remise" ? "done" : i === idx ? "now" : "") + '"><i></i>' + l + '</li>'; }).join("") + '</ol></div>' +
       '<p class="hint">Maquette : aucune commande réelle n\'est envoyée. Le statut avance quand le commerçant clique dans <a href="comptoir.html" target="_blank" rel="noopener">l\'espace comptoir</a> (ouvrez-le dans un autre onglet), ou <button class="linkish" type="button" data-sim style="min-height:0;padding:0">simulez l\'étape suivante</button>.</p>' +
       '<div class="loyal"><p>Ma carte fidélité · ' + stamps + '/10</p><div class="stamps">' + [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (i) { return '<i class="' + (i === 9 ? "gift" : i < stamps ? "on" : "") + '"></i>'; }).join("") + '</div></div>' +
@@ -386,24 +384,18 @@
 
   /* ================== MENU MOBILE ================== */
   var burger = $(".tn-burger"), menu = $("#tn-menu");
-  function toggleMenu(open) { if (!menu) return; menu.hidden = !open; burger.setAttribute("aria-expanded", open); burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu"); document.body.style.overflow = open ? "hidden" : ""; }
+  function toggleMenu(open) { if (!menu) return; menu.hidden = !open; burger.setAttribute("aria-expanded", open); burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu"); document.body.style.overflow = open ? "hidden" : ""; document.body.classList.toggle("menu-open", open); }
   if (burger) burger.addEventListener("click", function () { toggleMenu(menu.hidden); });
   if (menu) menu.addEventListener("click", function (e) { if (e.target.closest("a")) toggleMenu(false); });
 
-  /* ================== FOURNÉE : compte à rebours + animation ================== */
-  var hero = $(".hero"), cd = $("[data-batch-countdown]"), sf = $("[data-sfornato]"), places = $("[data-batch-places]");
-  function bake() { if (!hero) return; hero.classList.remove("is-baking"); void hero.offsetWidth; hero.classList.add("is-baking"); if (sf) sf.textContent = hhmm(new Date()); }
-  function tick() {
-    var now = new Date(), next = new Date(now); next.setSeconds(0, 0); next.setMinutes(Math.floor(now.getMinutes() / 10) * 10 + 10);
-    var s = Math.max(0, Math.round((next - now) / 1000));
-    if (cd) cd.textContent = pad(Math.floor(s / 60)) + ":" + pad(s % 60);
-    if (places) { var left = 2 + (next.getMinutes() / 10 + next.getHours()) % 5; places.textContent = left + " places dans la fournée de " + hhmm(next); }
-    if (s === 0) bake();
+  /* ================== EN-TÊTE : transparent puis crème ================== */
+  var top = $("[data-top]"), ribbon = $(".demo-ribbon");
+  function placeTop() {
+    var rh = ribbon ? ribbon.offsetHeight : 0, y = window.scrollY || 0;
+    if (y > rh) { top.classList.add("solid"); top.style.position = "fixed"; top.style.top = "0px"; }
+    else { top.classList.remove("solid"); top.style.position = "absolute"; top.style.top = rh + "px"; }
   }
-  tick(); setInterval(tick, 1000);
-  window.addEventListener("load", function () { setTimeout(bake, 150); });
-  if (document.readyState === "complete") setTimeout(bake, 150);
-  var replay = $("[data-replay]"); if (replay) replay.addEventListener("click", bake);
+  if (top) { placeTop(); window.addEventListener("scroll", placeTop, { passive: true }); window.addEventListener("resize", placeTop); }
 
   /* la pala se cache quand la carte de pied de page est visible */
   var pala = $("[data-pala]"), foot = $(".foot");
@@ -418,7 +410,7 @@
     var msg = wl.querySelector("[data-msg]"), ok = wl.name.value.trim() && wl.contact.value.trim().length > 5 && wl.consent.checked;
     wl.name.classList.toggle("invalid", !wl.name.value.trim()); wl.contact.classList.toggle("invalid", wl.contact.value.trim().length <= 5);
     msg.hidden = false; msg.classList.toggle("err", !ok);
-    msg.textContent = ok ? "Merci " + wl.name.value.trim() + " ! Tu seras prévenu(e) de l'ouverture. (Maquette : aucun envoi réel.)" : "Merci de renseigner ton prénom, un contact et de cocher la case d'accord.";
+    msg.textContent = ok ? "Merci " + wl.name.value.trim() + " ! Vous serez prévenu(e) de l'ouverture. (Maquette : aucun envoi réel.)" : "Merci de renseigner votre prénom, un contact et de cocher la case d'accord.";
     msg.focus(); if (ok) wl.reset();
   });
 
@@ -441,10 +433,10 @@
 
   /* « mon habituel » : la dernière commande se refait en une touche */
   function habituel() {
-    var h = store.get("trinapoli-habituel", null), zone = $(".hero-cta"); if (!h || !h.length || !zone || $("[data-habituel]")) return;
-    var b = document.createElement("button"); b.type = "button"; b.className = "btn-line"; b.setAttribute("data-habituel", "");
+    var h = store.get("trinapoli-habituel", null), zone = $(".banner-cta"); if (!h || !h.length || !zone || $("[data-habituel]")) return;
+    var b = document.createElement("button"); b.type = "button"; b.className = "btn-ghost-w"; b.setAttribute("data-habituel", "");
     b.textContent = "Recommander mon habituel"; zone.appendChild(b);
-    b.addEventListener("click", function () { h.forEach(function (l) { cart.push(JSON.parse(JSON.stringify(l))); }); saveCart(); toast("Ton habituel est dans le sac"); openCart(); });
+    b.addEventListener("click", function () { h.forEach(function (l) { cart.push(JSON.parse(JSON.stringify(l))); }); saveCart(); toast("Votre habituel est dans la commande"); openCart(); });
   }
 
   /* ================== INIT ================== */

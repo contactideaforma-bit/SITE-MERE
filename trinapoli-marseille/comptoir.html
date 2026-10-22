@@ -9,7 +9,7 @@
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Antonio:wght@500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Mrs+Saint+Delafield&family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/base.css">
 <link rel="stylesheet" href="trinapoli.css">
 <style>
@@ -91,14 +91,14 @@
 
   <div class="cpt-tabs" role="tablist">
     <button role="tab" aria-selected="true" data-show="recue">Reçues</button>
-    <button role="tab" aria-selected="false" data-show="four">Au four</button>
+    <button role="tab" aria-selected="false" data-show="four">En prépa</button>
     <button role="tab" aria-selected="false" data-show="prete">Prêtes</button>
     <button role="tab" aria-selected="false" data-show="stock">Stock</button>
   </div>
 
   <div class="board3">
     <section class="col show" data-col="recue"><h2>Reçues <span data-n="recue">0</span></h2><ul data-list="recue"></ul></section>
-    <section class="col" data-col="four"><h2>Au four <span data-n="four">0</span></h2><ul data-list="four"></ul></section>
+    <section class="col" data-col="four"><h2>En préparation <span data-n="four">0</span></h2><ul data-list="four"></ul></section>
     <section class="col" data-col="prete"><h2>Prêtes <span data-n="prete">0</span></h2><ul data-list="prete"></ul></section>
     <section class="col stock" data-col="stock"><h2 style="padding:.7rem .9rem;margin:0;border-bottom:1px solid var(--verde)">Épuisé aujourd'hui</h2>
       <p class="muted intro">Cochez un produit : il passe aussitôt en « épuisé » sur l'appli client.</p>
@@ -130,7 +130,7 @@
   var esc = function (v) { return String(v || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var PRODUCTS = [["trinapoli", "Le Trinapoli"], ["portofino", "Le Portofino"], ["truffe", "Le Truffé"], ["veau", "Le Veau"], ["mortadella", "La Mortadella pistache"], ["pastrami", "Le Pastrami"], ["tiramisu", "Tiramisu fait maison"], ["cedrata", "Cedrata"]];
   var NEXT = { recue: "four", four: "prete", prete: "remise" };
-  var LABEL = { recue: "Lancer au four", four: "Marquer prête", prete: "Remise au client" };
+  var LABEL = { recue: "Lancer la préparation", four: "Marquer prête", prete: "Remise au client" };
   var seen = store.get("trinapoli-seen", []) || [];
 
   function orders() { return store.get("trinapoli-orders", []) || []; }
@@ -143,7 +143,7 @@
       $("[data-n='" + st + "']").textContent = items.length;
       $("[data-list='" + st + "']").innerHTML = items.length ? items.map(function (o) {
         var isNew = seen.indexOf(o.id) < 0; if (isNew) fresh.push(o.id);
-        return '<li class="tk' + (isNew ? " new" : "") + '"><div class="tk-top"><b>' + o.id + '</b><span>fournée ' + o.slot + '</span></div>' +
+        return '<li class="tk' + (isNew ? " new" : "") + '"><div class="tk-top"><b>' + o.id + '</b><span>retrait ' + o.slot + '</span></div>' +
           '<p><b>' + esc(o.name) + '</b> · ' + (o.mode === "place" ? "sur place" : "à emporter") + ' · <a href="tel:' + esc(o.phone.replace(/\s/g, "")) + '">' + esc(o.phone) + '</a></p>' +
           '<ul>' + o.lines.map(function (l) { return '<li>' + l.qty + ' × ' + esc(l.name) + (l.detail ? '<small>' + esc(l.detail) + '</small>' : "") + '</li>'; }).join("") + '</ul>' +
           (o.note ? '<p class="note">« ' + esc(o.note) + ' »</p>' : "") +
