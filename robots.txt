@@ -1,20 +1,6 @@
+# Les maquettes clients et les démos portent une balise meta robots "noindex" :
+# Google doit pouvoir les explorer pour la lire, donc aucun Disallow ici.
 User-agent: *
 Allow: /
-Disallow: /demos/
-Disallow: /pizza-al-dente/
-Disallow: /mairie-le-rove/
-Disallow: /sushi-tys/
-Disallow: /auberge-du-merou/
-Disallow: /pizza-maracana/
-Disallow: /ecurie-du-faraon/
-Disallow: /sud-carrosserie/
-Disallow: /kalm-by-night/
-Disallow: /gignac-conduite/
-Disallow: /gites-du-resquiadou/
-Disallow: /espace-gala/
-Disallow: /pas-des-lanciers/
-Disallow: /garage-septemes/
-Disallow: /auto-roussillon/
-Disallow: /trinapoli-marseille/
 
 Sitemap: https://myeasydev-studio.fr/sitemap.xml
