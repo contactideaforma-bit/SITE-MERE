@@ -33,6 +33,17 @@
       "has": [
         {
           "type": "host",
+          "value": "www.myeasydev-studio.fr"
+        }
+      ],
+      "destination": "https://myeasydev-studio.fr/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
           "value": "myeasydev.vercel.app"
         }
       ],
