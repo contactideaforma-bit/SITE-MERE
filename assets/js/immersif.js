@@ -31,33 +31,31 @@
         float asp = r.x / r.y;
         vec2 q = vec2((uv.x - 0.5) * asp, uv.y - 0.5);
         float tt = t * 0.05;
-        vec3 ink = vec3(0.043, 0.051, 0.075);
-        vec3 col = ink;
+        vec3 col = vec3(0.0);
 
         /* Projecteur principal : halo chaud en haut, légèrement décalé vers la souris */
         vec2 key = vec2(0.18 + (m.x - 0.5) * 0.25, 0.72 + s * 0.15 + (m.y - 0.5) * 0.1);
         float dk = length(q - vec2((key.x) * asp - 0.5 * asp, key.y - 0.5));
         float keyL = exp(-dk * dk * 2.2);
-        col += vec3(0.95, 0.78, 0.52) * keyL * 0.30;
+        col += vec3(0.95, 0.78, 0.52) * keyL * 0.26;
 
         /* Contre-jour bleu froid à droite */
         vec2 rim = vec2(0.86 - (m.x - 0.5) * 0.15, 0.35 - s * 0.2);
         float dr = length(q - vec2(rim.x * asp - 0.5 * asp, rim.y - 0.5));
         float rimL = exp(-dr * dr * 1.6);
-        col += vec3(0.33, 0.42, 1.0) * rimL * 0.22;
+        col += vec3(0.33, 0.42, 1.0) * rimL * 0.2;
 
         /* Cyclorama : le sol se relève doucement, comme un fond de studio */
-        float floorL = smoothstep(0.55, 0.0, uv.y) * 0.08;
+        float floorL = smoothstep(0.55, 0.0, uv.y) * 0.05;
         col += vec3(0.86, 0.80, 0.70) * floorL;
 
         /* Volutes de brume très douces */
         float n = fbm(q * 1.6 + vec2(tt * 0.5, -tt * 0.3));
         col += vec3(0.6, 0.62, 0.78) * smoothstep(0.55, 0.95, n) * 0.06;
 
-        /* Vignette */
         float v = length(vec2(q.x / asp, q.y));
-        col *= 1.0 - smoothstep(0.3, 0.9, v) * 0.55;
-        col += (hash(gl_FragCoord.xy + t) - 0.5) * 0.012;
+        col *= 1.0 - smoothstep(0.3, 0.9, v) * 0.5;
+        col += (hash(gl_FragCoord.xy + t) - 0.5) * 0.01;
         gl_FragColor = vec4(col, 1.0);
       }`;
     const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return gl.getShaderParameter(o, gl.COMPILE_STATUS) ? o : null; };
@@ -100,7 +98,30 @@
     requestAnimationFrame(frame);
     return state;
   };
-  if (!initSky() && sky) sky.style.background = "radial-gradient(70% 55% at 18% 10%, rgba(242,180,92,0.22), transparent 60%), radial-gradient(60% 60% at 88% 60%, rgba(93,109,255,0.2), transparent 60%), #0b0d13";
+  if (!initSky() && sky) sky.style.background = "radial-gradient(70% 55% at 18% 10%, rgba(242,180,92,0.22), transparent 60%), radial-gradient(60% 60% at 88% 60%, rgba(93,109,255,0.2), transparent 60%), #000";
+
+  /* ---------- Photo de studio : locale si présente, sinon Unsplash ; parallaxe lente ---------- */
+  const photo = document.getElementById("photo");
+  if (photo) {
+    const LOCAL = "/assets/img/studio.jpg";
+    const REMOTE = "https://images.unsplash.com/photo-1761998535969-11ca31e89f78?ixlib=rb-4.1.0&q=78&fm=jpg&w=2400&fit=max";
+    const show = (src) => { photo.style.backgroundImage = `url("${src}")`; photo.classList.add("is-ready"); };
+    const probe = new Image();
+    probe.onload = () => show(LOCAL);
+    probe.onerror = () => { const r = new Image(); r.onload = () => show(REMOTE); r.src = REMOTE; };
+    probe.src = LOCAL;
+    if (!reduceMotion) {
+      let px = 0, py = 0, tx = 0, ty = 0;
+      window.addEventListener("pointermove", (e) => { tx = (e.clientX / innerWidth - 0.5) * 14; ty = (e.clientY / innerHeight - 0.5) * 10; }, { passive: true });
+      const loop = () => {
+        px += (tx - px) * 0.03; py += (ty - py) * 0.03;
+        const sc = Math.min(1, (window.scrollY || 0) / Math.max(1, document.documentElement.scrollHeight - innerHeight));
+        photo.style.transform = `translate3d(${px}px, ${py - sc * 40}px, 0) scale(${1.04 + sc * 0.06})`;
+        requestAnimationFrame(loop);
+      };
+      loop();
+    }
+  }
 
   /* ---------- Curseur ---------- */
   const cursor = document.querySelector(".cursor");
