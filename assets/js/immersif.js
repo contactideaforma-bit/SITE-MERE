@@ -289,6 +289,13 @@
 
   /* ---------- Applications : révélation en rideau + zoom ---------- */
   gsap.utils.toArray(".app__visual").forEach((v) => {
+    const site = v.querySelector(".window--static");
+    if (site) {
+      gsap.to(site, { clipPath: "inset(0 0 0% 0 round 12px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: v, start: "top 78%" } });
+      const mascot = v.querySelector(".mascot");
+      if (mascot) gsap.fromTo(mascot, { scale: 0, rotate: -30 }, { scale: 1, rotate: -6, duration: 1.2, ease: "back.out(1.7)", scrollTrigger: { trigger: v, start: "top 60%" } });
+      return;
+    }
     const phone = v.querySelector(".phone");
     if (phone) {
       gsap.to(phone, { clipPath: "inset(0 0 0% 0 round 40px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: v, start: "top 78%" } });

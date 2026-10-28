@@ -229,7 +229,12 @@ main { position: relative; z-index: 2; }
 .app__visual--phone { aspect-ratio: auto; background: none; border: 0; clip-path: none; overflow: visible; display: grid; place-items: center; padding: 30px 0 10px; }
 .phone { position: relative; margin: 0; width: min(300px, 70%); aspect-ratio: 9 / 19; border-radius: 40px; padding: 10px; background: #0a0b10; border: 1px solid rgba(236, 228, 212, 0.28); box-shadow: 0 60px 110px -40px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06); clip-path: inset(0 0 100% 0 round 40px); }
 .app__visual--phone .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 31px; transform: none; }
-html.no-gsap .phone { clip-path: none; }
+html.no-gsap .phone, html.no-gsap .window--static { clip-path: none; }
+.app__visual--site { aspect-ratio: auto; background: none; border: 0; clip-path: none; overflow: visible; padding: 10px 0 40px 0; }
+.app__visual--site .window--static { position: relative; left: auto; right: auto; top: auto; height: auto; margin: 0; transform: none; opacity: 1; filter: none; transition: none; clip-path: inset(0 0 100% 0 round 12px); }
+.app__visual--site .window--static img { width: 100%; height: auto; display: block; transform: none; object-fit: contain; }
+.app__visual--site .mascot { position: absolute; left: -4%; bottom: -6%; width: clamp(120px, 17vw, 190px); height: auto; object-fit: contain; transform: rotate(-6deg); filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.55)); }
+@media (max-width: 860px) { .app__visual--site .mascot { left: 0; width: 30vw; } }
 .app__visual--phone .waty { position: absolute; left: 6%; bottom: 2%; width: clamp(130px, 22vw, 210px); height: auto; object-fit: contain; transform: rotate(-8deg); filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.55)); }
 @media (max-width: 860px) { .app__visual--phone .waty { left: 2%; width: 34vw; } }
 .app__kind { color: var(--amber-soft); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -391,7 +396,7 @@ html.no-gsap .phone { clip-path: none; }
 .rule { height: 1px; background: var(--line-strong); transform-origin: left; transform: scaleX(0); }
 
 @media (prefers-reduced-motion: reduce) {
-  .phone { clip-path: none; }
+  .phone, .window--static { clip-path: none; }
   .reveal { opacity: 1; transform: none; }
   .hero__title .line > span, .lines .line > span, .intro__word span { transform: none; }
   .app__visual { clip-path: none; }
