@@ -1,32 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Création de site web commerces &amp; restaurants | MyEasyDev</title>
   <meta name="description" content="Création de sites internet pour les commerces de proximité, restaurants, artisans et collectivités de la région marseillaise. Tarifs clairs, offre de lancement à -15 %.">
-  <meta name="theme-color" content="#3044FF">
+  <meta name="theme-color" content="#07090e">
   <link rel="canonical" href="https://myeasydev-studio.fr/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="MyEasyDev | Des sites qui font entrer les clients">
   <meta property="og:description" content="Sites vitrines, menus en ligne, réservation et commande pour les commerces de proximité. Offre de lancement : -15 % sur la création.">
   <meta property="og:url" content="https://myeasydev-studio.fr/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="/assets/css/myeasydev.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/immersif.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "MyEasyDev",
-    "description": "Création de sites internet pour commerces, restaurants, artisans et collectivités.",
     "url": "https://myeasydev-studio.fr/",
     "email": "webidea@gmail.com",
-    "telephone": "+33626161393",
-    "address": { "@type": "PostalAddress", "streetAddress": "144 avenue Charles de Gaulle", "postalCode": "92200", "addressLocality": "Neuilly-sur-Seine", "addressCountry": "FR" },
-    "identifier": "SIREN 130 993 348",
+    "description": "Création de sites internet et d'applications pour les commerces de proximité, région marseillaise.",
     "areaServed": "Provence-Alpes-Côte d'Azur",
     "priceRange": "€€"
   }
@@ -34,68 +32,71 @@
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <div class="intro" aria-hidden="true">
+    <div class="intro__word"><span>myeasy<i>dev</i></span></div>
+    <div class="intro__count">000</div>
+  </div>
+
+  <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
 
   <header class="top" id="top">
-    <div class="wrap top__inner">
-      <a class="brand" href="/" aria-label="MyEasyDev, accueil">my<span>easy</span>dev</a>
-      <button class="top__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
-      <nav class="top__nav" id="menu" aria-label="Navigation principale">
-        <a href="#realisations">Sites</a>
-        <a href="#applications">Applications</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#methode">Méthode</a>
-        <a class="btn btn--small" href="#contact">Demander un devis</a>
-      </nav>
-    </div>
+    <a class="brand" href="/">myeasy<i>dev</i></a>
+    <button class="top__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="top__nav" id="menu" aria-label="Navigation principale">
+      <a href="#realisations">Sites</a>
+      <a href="#applications">Applications</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#methode">Méthode</a>
+      <a class="top__cta" href="#contact">Demander un devis</a>
+    </nav>
   </header>
 
   <main id="contenu">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__text">
-          <p class="hero__kicker">Sites internet pour les commerces de proximité, de Marseille à toute la Provence</p>
-          <h1 class="hero__title">Des sites qui font <em>entrer</em> les clients.</h1>
-          <p class="hero__lead">Restaurants, salons, artisans, boutiques, mairies : je crée votre site sur mesure, à vos couleurs, pensé d'abord pour le téléphone et conforme à la loi. Vous gardez un interlocuteur unique, du premier appel au suivi.</p>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__inner">
+        <h1 class="hero__title">
+          <span class="line"><span>Des sites qui</span></span>
+          <span class="line"><span>font <em>entrer</em></span></span>
+          <span class="line"><span>les clients.</span></span>
+        </h1>
+        <div class="hero__stage" aria-label="Aperçu de sites réalisés">
+          <figure class="window window--a">
+            <div class="window__bar"><span>Maquette · restaurant de bord de mer</span></div>
+            <div class="preview" data-src="/auberge-du-merou/"></div>
+          </figure>
+          <figure class="window window--b">
+            <div class="window__bar"><span>Maquette · mairie</span></div>
+            <div class="preview" data-src="/mairie-le-rove/"></div>
+          </figure>
+          <figure class="window window--c">
+            <div class="window__bar"><span>Démonstration · carrosserie</span></div>
+            <div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div>
+          </figure>
+          <a class="sticker" href="#tarifs" aria-label="Offre de lancement : moins 15 % sur la création, jusqu'au 31 décembre 2026">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+              <text><textPath href="#ring" textLength="476" lengthAdjust="spacing">offre de lancement jusqu'au 31 décembre 2026 </textPath></text>
+            </svg>
+            <strong>-15 %</strong>
+          </a>
+        </div>
+      </div>
+      <div class="hero__below">
+        <div>
+          <p class="hero__lead"><strong>Sites internet pour les commerces de proximité, de Marseille à toute la Provence.</strong> Restaurants, salons, artisans, boutiques, mairies : je crée votre site sur mesure, à vos couleurs, pensé d'abord pour le téléphone et conforme à la loi. Vous gardez un interlocuteur unique, du premier appel au suivi.</p>
           <div class="hero__actions">
-            <a class="btn" href="#tarifs">Voir les tarifs</a>
+            <a class="btn" href="#tarifs">Voir les tarifs <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5"/></svg></a>
             <a class="btn btn--ghost" href="#realisations">Parcourir les réalisations</a>
           </div>
         </div>
-
-        <div class="hero__stage" aria-label="Aperçu de sites réalisés">
-          <div class="stage">
-            <span class="stage__block stage__block--a" aria-hidden="true"></span>
-            <span class="stage__block stage__block--b" aria-hidden="true"></span>
-            <span class="stage__block stage__block--c" aria-hidden="true"></span>
-
-            <figure class="window" data-pos="0">
-              <div class="window__bar"><span>Maquette · restaurant de bord de mer</span></div>
-              <div class="preview" data-src="/auberge-du-merou/"></div>
-            </figure>
-            <figure class="window" data-pos="1">
-              <div class="window__bar"><span>Maquette · mairie</span></div>
-              <div class="preview" data-src="/mairie-le-rove/"></div>
-            </figure>
-            <figure class="window" data-pos="2">
-              <div class="window__bar"><span>Démonstration · carrosserie</span></div>
-              <div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div>
-            </figure>
-
-            <a class="sticker" href="#tarifs" aria-label="Offre de lancement : moins 15 % sur la création, jusqu'au 31 décembre 2026">
-              <svg viewBox="0 0 200 200" aria-hidden="true">
-                <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-                <text><textPath href="#ring" textLength="476" lengthAdjust="spacing">offre de lancement jusqu'au 31 décembre 2026 </textPath></text>
-              </svg>
-              <strong>-15 %</strong>
-            </a>
-          </div>
-          <div class="stage__tabs" role="group" aria-label="Choisir l'aperçu affiché">
-            <button type="button" data-show="0" aria-pressed="true">Restaurant de bord de mer</button>
-            <button type="button" data-show="1" aria-pressed="false">Mairie</button>
-            <button type="button" data-show="2" aria-pressed="false">Carrosserie</button>
-          </div>
+        <div class="hero__meta">
+          <span class="cue"><span class="cue__bar" aria-hidden="true"></span> Faites défiler</span>
+          <span>Entreprise individuelle · région marseillaise</span>
         </div>
       </div>
     </section>
@@ -107,244 +108,167 @@
       </div>
     </div>
 
-    <!-- REALISATIONS -->
-    <section class="section" id="realisations" aria-labelledby="real-title">
-      <div class="wrap">
-        <div class="section__head">
-          <h2 id="real-title">Sites internet</h2>
-          <p>Des sites en ligne, des maquettes proposées à des commerces de la région et des démonstrations. Tout s'ouvre : cliquez, naviguez, testez sur votre téléphone. Les applications et logiciels sont présentés <a href="#applications">plus bas</a>.</p>
+    <!-- ===================== MANIFESTE ===================== -->
+    <section class="manifesto" aria-label="Ce que je fais">
+      <p>Un site qui se lit sur le téléphone, qui donne envie de pousser la porte, et qui <em>vous appartient</em> : nom de domaine, textes, photos et code, tout est à vous.</p>
+    </section>
+
+    <!-- ===================== RÉALISATIONS ===================== -->
+    <section class="chapter gallery" id="realisations" aria-labelledby="real-title">
+      <div class="gallery__pin">
+        <div class="chapter__head">
+          <h2 class="chapter__title lines" id="real-title"><span class="line"><span>Sites</span></span><span class="line"><span><em>internet</em></span></span></h2>
+          <div class="reveal">
+            <p class="chapter__lead">Des sites en ligne, des maquettes proposées à des commerces de la région et des démonstrations. Tout s'ouvre : cliquez, naviguez, testez sur votre téléphone. Les applications et logiciels sont présentés <a href="#applications">plus bas</a>.</p>
+            <div class="filters" role="group" aria-label="Filtrer les réalisations" style="margin-top:22px">
+              <button type="button" data-filter="tous" aria-pressed="true">Tout voir</button>
+              <button type="button" data-filter="restaurant" aria-pressed="false">Restaurants</button>
+              <button type="button" data-filter="commerce" aria-pressed="false">Commerces et services</button>
+              <button type="button" data-filter="collectivite" aria-pressed="false">Collectivités</button>
+            </div>
+          </div>
         </div>
 
-        <div class="filters" role="group" aria-label="Filtrer les réalisations">
-          <button type="button" data-filter="tous" aria-pressed="true">Tout voir</button>
-          <button type="button" data-filter="restaurant" aria-pressed="false">Restaurants</button>
-          <button type="button" data-filter="commerce" aria-pressed="false">Commerces et services</button>
-          <button type="button" data-filter="collectivite" aria-pressed="false">Collectivités</button>
-        </div>
+        <ul class="gallery__track" style="margin-left:calc(-1 * var(--gutter));margin-right:calc(-1 * var(--gutter))">
+          <li class="work work--wide" data-cat="restaurant"><a href="/trinapoli-marseille/">
+            <div class="work__frame"><div class="preview" data-src="/trinapoli-marseille/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Trattoria street food vert &amp; rose</h3>
+              <p class="work__desc">Maquette proposée à une enseigne de panuozzi de Roubaix pour son ouverture à Marseille : site et appli de commande installable sur le téléphone. Bandeau plein écran sur une photo de panuozzo, grandes capitales fines, signature manuscrite et tirets vert / rose, tuiles photo à cartouche (panuozzi, formules, boissons, desserts), commande en ligne avec fiche produit (sans… / en plus / formule), heure de retrait à places limitées, suivi de commande et fidélité, collage photo pour l'appli, colonnes de contact en aplats vert, blanc et rose. Widget de commande flottant vert pastel, espace comptoir en temps réel et page de proposition chiffrée.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
-        <ul class="works">
-          <li class="work work--wide work--trinapoli" data-cat="restaurant">
-            <a href="/trinapoli-marseille/">
-              <div class="preview" data-src="/trinapoli-marseille/"></div>
-              <div class="work__text">
-                <h3>Trattoria street food vert &amp; rose</h3>
-                <p>Maquette proposée à une enseigne de panuozzi de Roubaix pour son ouverture à Marseille : site et appli de commande installable sur le téléphone. Bandeau plein écran sur une photo de panuozzo, grandes capitales fines, signature manuscrite et tirets vert / rose, tuiles photo à cartouche (panuozzi, formules, boissons, desserts), commande en ligne avec fiche produit (sans… / en plus / formule), heure de retrait à places limitées, suivi de commande et fidélité, collage photo pour l'appli, colonnes de contact en aplats vert, blanc et rose. Widget de commande flottant vert pastel, espace comptoir en temps réel et page de proposition chiffrée.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--carnet" data-cat="commerce">
-            <a href="/auto-roussillon/">
-              <div class="preview" data-src="/auto-roussillon/"></div>
-              <div class="work__text">
-                <h3>Garage « carnet d'entretien »</h3>
-                <p>Maquette proposée à un garage-carrosserie AD de Cabestany, aux portes de Perpignan : le site se lit comme le carnet de bord d'un atelier installé depuis vingt-quatre ans. Papier crème, ruban sang et or du Roussillon, fiches numérotées, sommaire réglé, prestations sur lignes pointillées, parcours sinistre en quatre tampons qui s'impriment au défilement, onglets d'index sur la tranche, indicateur ouvert / fermé calculé en direct. Mobile : menu plein écran façon sommaire et signet sang et or qui descend du haut de l'écran (Appeler / Itinéraire / Rendez-vous).</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--onyx" data-cat="commerce">
-            <a href="/garage-septemes/">
-              <div class="preview" data-src="/garage-septemes/"></div>
-              <div class="work__text">
-                <h3>Carrosserie noir &amp; or</h3>
-                <p>Maquette proposée à une carrosserie de Septèmes-les-Vallons, présentée comme un écrin : noir laqué et filets d'or, poussière d'or animée au premier écran, chapitres en chiffres romains, plaques numérotées « Réparer · Protéger · Sublimer », carte de l'atelier à lignes pointillées, sceaux dorés (franchise, prêt, remorquage), comparateur avant / après à poignée d'or. Mobile : menu plein écran, pastille d'or qui s'ouvre en éventail (Appeler / Devis / Itinéraire).</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--sky" data-cat="restaurant">
-            <a href="/auberge-du-merou/">
-              <div class="preview" data-src="/auberge-du-merou/"></div>
-              <div class="work__text">
-                <h3>Restaurant de bord de mer</h3>
-                <p>Maquette proposée à un restaurant de poissons d'une calanque de la côte bleue : menus et carte illustrés, réservation, avis et version mobile avec bouton Réserver central.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--club" data-cat="commerce">
-            <a href="/pas-des-lanciers/">
-              <div class="preview" data-src="/pas-des-lanciers/"></div>
-              <div class="work__text">
-                <h3>Centre équestre de compétition</h3>
-                <p>Maquette proposée à un club de Marignane, esprit club sportif : photo coupée en biais, trois disciplines en panneaux, planning type de la semaine, tableau de pension, réservation des reprises en ligne.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--gala" data-cat="commerce">
-            <a href="/espace-gala/">
-              <div class="preview" data-src="/espace-gala/"></div>
-              <div class="work__text">
-                <h3>Salle de réception</h3>
-                <p>Maquette proposée à une salle de mariage de 60 à 500 invités : carton d'invitation à doubles filets, curseur du nombre d'invités, formules, mosaïque de photos, demande de date.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--sea" data-cat="commerce">
-            <a href="/gites-du-resquiadou/">
-              <div class="preview" data-src="/gites-du-resquiadou/"></div>
-              <div class="work__text">
-                <h3>Gîtes en bord de mer</h3>
-                <p>Maquette proposée à des cabanons de la Côte Bleue : carte postale et timbre, gîtes en bande qui défile, calanque privée, frise d'histoire, réservation directe sans commission et barre de dates sur mobile.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--road" data-cat="commerce">
-            <a href="/gignac-conduite/">
-              <div class="preview" data-src="/gignac-conduite/"></div>
-              <div class="work__text">
-                <h3>Auto-école</h3>
-                <p>Maquette proposée à une auto-école de Gignac-la-Nerthe : panneaux de signalisation, chevrons, parcours en quatre étapes, taux de réussite, horaires du jour, pré-inscription avec la liste des pièces.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--shop" data-cat="commerce">
-            <a href="/sud-carrosserie/">
-              <div class="preview" data-src="/sud-carrosserie/"></div>
-              <div class="work__text">
-                <h3>Carrossier indépendant</h3>
-                <p>Maquette proposée à une carrosserie de Marignane notée 5/5 : ordre de réparation en guise d'accueil, tampon des avis, travaux en liste cochée, devis sur trois photos prises depuis le téléphone.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--night" data-cat="restaurant">
-            <a href="/kalm-by-night/">
-              <div class="preview" data-src="/kalm-by-night/"></div>
-              <div class="work__text">
-                <h3>Livraison de nuit</h3>
-                <p>Maquette proposée à un service de livraison nocturne de Vitrolles et Marseille : cadran 24 h avec statut d'ouverture en direct, carte à pointillés, composeur de commande qui écrit le SMS à la place du client.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--gold" data-cat="commerce">
-            <a href="/ecurie-du-faraon/">
-              <div class="preview" data-src="/ecurie-du-faraon/"></div>
-              <div class="work__text">
-                <h3>Centre équestre</h3>
-                <p>Maquette proposée à une écurie de Gignac-la-Nerthe, style ranch : photo plein écran et enseigne à tampon, chapitres numérotés, tableau des cours avec photo épinglée, tarifs sur panneau de bois, plan dessiné du domaine, fiche d'essai sur lignes de cahier.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--plate" data-cat="commerce">
-            <a href="/demos/carrosserie-roc-blanc/">
-              <div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div>
-              <div class="work__text">
-                <h3>Carrosserie</h3>
-                <p>Démonstration pour une carrosserie indépendante, construite sur la plaque d'immatriculation : on tape sa plaque dans une plaque géante, trois photos, devis sous 24 h. Sections-plaques, avant / après au curseur, plaque d'action fixe sur mobile.</p>
-                <span class="work__tag">Démonstration</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--yellow" data-cat="restaurant">
-            <a href="/pizza-maracana/">
-              <div class="preview" data-src="/pizza-maracana/"></div>
-              <div class="work__text">
-                <h3>Pizzeria de quartier</h3>
-                <p>Maquette proposée à une pizzeria du soir des quartiers nord de Marseille : thème Brésil plein de peps, vagues de Copacabana, carte en tickets numérotés, appel en un geste.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--pink" data-cat="restaurant">
-            <a href="/sushi-tys/">
-              <div class="preview" data-src="/sushi-tys/"></div>
-              <div class="work__text">
-                <h3>Restaurant de sushis</h3>
-                <p>Maquette proposée à un restaurant des Bouches-du-Rhône : menu illustré, avis, lien de commande et version mobile façon application.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--yellow" data-cat="collectivite">
-            <a href="/mairie-le-rove/">
-              <div class="preview" data-src="/mairie-le-rove/"></div>
-              <div class="work__text">
-                <h3>Mairie</h3>
-                <p>Proposition de refonte du site d'une commune du littoral marseillais : démarches, actualités, météo locale et accès rapide sur mobile.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--orange" data-cat="restaurant">
-            <a href="/pizza-al-dente/">
-              <div class="preview" data-src="/pizza-al-dente/"></div>
-              <div class="work__text">
-                <h3>Pizzeria</h3>
-                <p>Maquette proposée à une pizzeria de la côte bleue : carte claire, horaires et appel en un geste.</p>
-                <span class="work__tag">Maquette proposée</span>
-              </div>
-            </a>
-          </li>
-                    <li class="work work--mint" data-cat="commerce">
-            <a href="/demos/salon-esthetique/">
-              <div class="preview" data-src="/demos/salon-esthetique/"></div>
-              <div class="work__text">
-                <h3>Salon Émeraude</h3>
-                <p>Institut de beauté : prestations, tarifs et prise de rendez-vous.</p>
-                <span class="work__tag">Démonstration</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--wide work--sky" data-cat="commerce">
-            <a href="https://ideaforma.fr" target="_blank" rel="noopener">
-              <div class="preview"><img src="/assets/img/realisations/ideaforma.jpg" width="1280" height="800" alt="Page d'accueil d'Ideaforma" loading="lazy" decoding="async"></div>
-              <div class="work__text">
-                <h3>Ideaforma</h3>
-                <p>Site et plateforme d'un organisme de formation certifié Qualiopi : catalogue, demandes de devis et espace stagiaire.</p>
-                <span class="work__tag">Site en ligne</span>
-              </div>
-            </a>
-          </li>
-          <li class="work work--yellow" data-cat="restaurant">
-            <a href="/demos/pizzeria-provencale/">
-              <div class="preview" data-src="/demos/pizzeria-provencale/"></div>
-              <div class="work__text">
-                <h3>Pizzeria Lou Soleï</h3>
-                <p>Une pizzeria à l'accent provençal, lavande et ocre.</p>
-                <span class="work__tag">Démonstration</span>
-              </div>
-            </a>
-          </li>
-                    <li class="work work--pink" data-cat="restaurant">
-            <a href="/demos/pizzeria-italienne/">
-              <div class="preview" data-src="/demos/pizzeria-italienne/"></div>
-              <div class="work__text">
-                <h3>Pizzeria Da Enzo</h3>
-                <p>L'esprit trattoria : carte, histoire de la maison, réservation.</p>
-                <span class="work__tag">Démonstration</span>
-              </div>
-            </a>
-          </li>
+          <li class="work work--wide" data-cat="commerce"><a href="/auto-roussillon/">
+            <div class="work__frame"><div class="preview" data-src="/auto-roussillon/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Garage « carnet d'entretien »</h3>
+              <p class="work__desc">Maquette proposée à un garage-carrosserie AD de Cabestany, aux portes de Perpignan : le site se lit comme le carnet de bord d'un atelier installé depuis vingt-quatre ans. Papier crème, ruban sang et or du Roussillon, fiches numérotées, sommaire réglé, prestations sur lignes pointillées, parcours sinistre en quatre tampons qui s'impriment au défilement, onglets d'index sur la tranche, indicateur ouvert / fermé calculé en direct. Mobile : menu plein écran façon sommaire et signet sang et or qui descend du haut de l'écran (Appeler / Itinéraire / Rendez-vous).</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work work--wide" data-cat="commerce"><a href="/garage-septemes/">
+            <div class="work__frame"><div class="preview" data-src="/garage-septemes/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Carrosserie noir &amp; or</h3>
+              <p class="work__desc">Maquette proposée à une carrosserie de Septèmes-les-Vallons, présentée comme un écrin : noir laqué et filets d'or, poussière d'or animée au premier écran, chapitres en chiffres romains, plaques numérotées « Réparer · Protéger · Sublimer », carte de l'atelier à lignes pointillées, sceaux dorés (franchise, prêt, remorquage), comparateur avant / après à poignée d'or. Mobile : menu plein écran, pastille d'or qui s'ouvre en éventail (Appeler / Devis / Itinéraire).</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work work--wide" data-cat="restaurant"><a href="/auberge-du-merou/">
+            <div class="work__frame"><div class="preview" data-src="/auberge-du-merou/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Restaurant de bord de mer</h3>
+              <p class="work__desc">Maquette proposée à un restaurant de poissons d'une calanque de la côte bleue : menus et carte illustrés, réservation, avis et version mobile avec bouton Réserver central.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="commerce"><a href="/pas-des-lanciers/">
+            <div class="work__frame"><div class="preview" data-src="/pas-des-lanciers/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Centre équestre de compétition</h3>
+              <p class="work__desc">Maquette proposée à un club de Marignane, esprit club sportif : photo coupée en biais, trois disciplines en panneaux, planning type de la semaine, tableau de pension, réservation des reprises en ligne.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="commerce"><a href="/espace-gala/">
+            <div class="work__frame"><div class="preview" data-src="/espace-gala/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Salle de réception</h3>
+              <p class="work__desc">Maquette proposée à une salle de mariage de 60 à 500 invités : carton d'invitation à doubles filets, curseur du nombre d'invités, formules, mosaïque de photos, demande de date.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="commerce"><a href="/gites-du-resquiadou/">
+            <div class="work__frame"><div class="preview" data-src="/gites-du-resquiadou/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Gîtes en bord de mer</h3>
+              <p class="work__desc">Maquette proposée à des cabanons de la Côte Bleue : carte postale et timbre, gîtes en bande qui défile, calanque privée, frise d'histoire, réservation directe sans commission et barre de dates sur mobile.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="commerce"><a href="/gignac-conduite/">
+            <div class="work__frame"><div class="preview" data-src="/gignac-conduite/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Auto-école</h3>
+              <p class="work__desc">Maquette proposée à une auto-école de Gignac-la-Nerthe : panneaux de signalisation, chevrons, parcours en quatre étapes, taux de réussite, horaires du jour, pré-inscription avec la liste des pièces.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work work--wide" data-cat="commerce"><a href="/sud-carrosserie/">
+            <div class="work__frame"><div class="preview" data-src="/sud-carrosserie/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Carrossier indépendant</h3>
+              <p class="work__desc">Maquette proposée à une carrosserie de Marignane notée 5/5 : ordre de réparation en guise d'accueil, tampon des avis, travaux en liste cochée, devis sur trois photos prises depuis le téléphone.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work work--wide" data-cat="restaurant"><a href="/kalm-by-night/">
+            <div class="work__frame"><div class="preview" data-src="/kalm-by-night/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Livraison de nuit</h3>
+              <p class="work__desc">Maquette proposée à un service de livraison nocturne de Vitrolles et Marseille : cadran 24 h avec statut d'ouverture en direct, carte à pointillés, composeur de commande qui écrit le SMS à la place du client.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work work--wide" data-cat="commerce"><a href="/ecurie-du-faraon/">
+            <div class="work__frame"><div class="preview" data-src="/ecurie-du-faraon/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Centre équestre</h3>
+              <p class="work__desc">Maquette proposée à une écurie de Gignac-la-Nerthe, style ranch : photo plein écran et enseigne à tampon, chapitres numérotés, tableau des cours avec photo épinglée, tarifs sur panneau de bois, plan dessiné du domaine, fiche d'essai sur lignes de cahier.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work work--wide" data-cat="commerce"><a href="/demos/carrosserie-roc-blanc/">
+            <div class="work__frame"><div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__body"><h3 class="work__title">Carrosserie</h3>
+              <p class="work__desc">Démonstration pour une carrosserie indépendante, construite sur la plaque d'immatriculation : on tape sa plaque dans une plaque géante, trois photos, devis sous 24 h. Sections-plaques, avant / après au curseur, plaque d'action fixe sur mobile.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="restaurant"><a href="/pizza-maracana/">
+            <div class="work__frame"><div class="preview" data-src="/pizza-maracana/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Pizzeria de quartier</h3>
+              <p class="work__desc">Maquette proposée à une pizzeria du soir des quartiers nord de Marseille : thème Brésil plein de peps, vagues de Copacabana, carte en tickets numérotés, appel en un geste.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="restaurant"><a href="/sushi-tys/">
+            <div class="work__frame"><div class="preview" data-src="/sushi-tys/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Restaurant de sushis</h3>
+              <p class="work__desc">Maquette proposée à un restaurant des Bouches-du-Rhône : menu illustré, avis, lien de commande et version mobile façon application.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="collectivite"><a href="/mairie-le-rove/">
+            <div class="work__frame"><div class="preview" data-src="/mairie-le-rove/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Mairie</h3>
+              <p class="work__desc">Proposition de refonte du site d'une commune du littoral marseillais : démarches, actualités, météo locale et accès rapide sur mobile.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="restaurant"><a href="/pizza-al-dente/">
+            <div class="work__frame"><div class="preview" data-src="/pizza-al-dente/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__body"><h3 class="work__title">Pizzeria</h3>
+              <p class="work__desc">Maquette proposée à une pizzeria de la côte bleue : carte claire, horaires et appel en un geste.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="commerce"><a href="/demos/salon-esthetique/">
+            <div class="work__frame"><div class="preview" data-src="/demos/salon-esthetique/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__body"><h3 class="work__title">Salon Émeraude</h3>
+              <p class="work__desc">Institut de beauté : prestations, tarifs et prise de rendez-vous.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work work--wide" data-cat="commerce"><a href="https://ideaforma.fr" rel="noopener">
+            <div class="work__frame"><img src="/assets/img/realisations/ideaforma.jpg" alt="Page d'accueil du site ideaforma.fr" loading="lazy" style="width:100%;height:100%;object-fit:cover"><span class="work__tag work__tag--live">Site en ligne</span></div>
+            <div class="work__body"><h3 class="work__title">Ideaforma</h3>
+              <p class="work__desc">Site et plateforme d'un organisme de formation certifié Qualiopi : catalogue, demandes de devis et espace stagiaire.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="restaurant"><a href="/demos/pizzeria-provencale/">
+            <div class="work__frame"><div class="preview" data-src="/demos/pizzeria-provencale/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__body"><h3 class="work__title">Pizzeria Lou Soleï</h3>
+              <p class="work__desc">Une pizzeria à l'accent provençal, lavande et ocre.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
+
+          <li class="work" data-cat="restaurant"><a href="/demos/pizzeria-italienne/">
+            <div class="work__frame"><div class="preview" data-src="/demos/pizzeria-italienne/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__body"><h3 class="work__title">Pizzeria Da Enzo</h3>
+              <p class="work__desc">L'esprit trattoria : carte, histoire de la maison, réservation.</p>
+              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
         </ul>
+        <div class="gallery__hint" aria-hidden="true"><span>Faites défiler pour traverser la galerie</span><span class="gallery__progress"><i></i></span></div>
       </div>
     </section>
 
+    <!-- ===================== APPLICATIONS ===================== -->
+    <section class="chapter" id="applications" aria-labelledby="apps-title">
+      <div class="chapter__head">
+        <h2 class="chapter__title lines" id="apps-title"><span class="line"><span>Applications</span></span><span class="line"><span>et <em>logiciels</em></span></span></h2>
+        <p class="chapter__lead reveal">Au-delà des sites vitrines, MyEasyDev conçoit et fait tourner des applications complètes : des outils métier avec comptes, données, paiement et rôles, et des applications mobiles publiées sur les boutiques d'applications. Deux produits en service aujourd'hui.</p>
+      </div>
 
-    <!-- APPLICATIONS -->
-    <section class="section section--apps" id="applications" aria-labelledby="apps-title">
-      <div class="wrap">
-        <div class="section__head">
-          <h2 id="apps-title">Applications et logiciels</h2>
-          <p>Au-delà des sites vitrines, MyEasyDev conçoit et fait tourner des applications complètes : des outils métier avec comptes, données, paiement et rôles, et des applications mobiles publiées sur les boutiques d'applications. Deux produits en service aujourd'hui.</p>
-        </div>
-
-        <article class="app app--mea">
-          <div class="app__media">
-            <img src="/assets/img/realisations/my-easy-auto.jpg" width="1280" height="800" alt="Tableau de bord de My Easy Auto" loading="lazy" decoding="async">
-          </div>
-          <div class="app__body">
+      <div class="apps">
+        <article class="app">
+          <div class="app__visual"><img src="/assets/img/realisations/my-easy-auto.jpg" alt="Tableau de bord du logiciel My Easy Auto" loading="lazy"></div>
+          <div class="reveal">
             <p class="app__kind">Logiciel métier · en service · abonnement</p>
-            <h3>My Easy Auto</h3>
+            <h3 class="app__title">My Easy Auto</h3>
             <p class="app__lead">Le logiciel de gestion des sinistres des carrosseries indépendantes. Pas une vitrine : un outil complet que les ateliers utilisent chaque jour.</p>
-            <ul class="app__facts">
+            <ul class="app__list">
               <li><b>Dossiers sinistres</b><span>de la prise en charge à la facturation, avec pièces, photos et rapports d'expertise</span></li>
               <li><b>Experts et assureurs</b><span>échanges, relances et suivi des impayés au même endroit</span></li>
               <li><b>Comptes et rôles</b><span>gérant, secrétariat, carrossiers, expert partenaire, chacun avec ses droits</span></li>
@@ -352,119 +276,116 @@
             </ul>
             <p class="app__stack">Développé sur mesure, maintenu et hébergé par MyEasyDev. Démonstration sur rendez-vous.</p>
             <div class="app__actions">
-              <a class="btn" href="https://myeasyauto.fr" target="_blank" rel="noopener">Découvrir My Easy Auto</a>
+              <a class="btn" href="https://myeasyauto.fr" rel="noopener">Découvrir My Easy Auto <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5"/></svg></a>
               <a class="btn btn--ghost" href="#contact">Demander une démonstration</a>
             </div>
           </div>
         </article>
 
-        <article class="app app--myta">
-          <div class="app__body">
+        <article class="app app--flip">
+          <div class="app__visual"><img src="/assets/img/realisations/myta.jpg" alt="Écrans de l'application My Twin App" loading="lazy"></div>
+          <div class="reveal">
             <p class="app__kind">Application mobile · App Store et Google Play</p>
-            <h3>My Twin App</h3>
+            <h3 class="app__title">My Twin App</h3>
             <p class="app__lead">Une application de coaching santé avec un coach IA, Waty : nutrition, sport, sommeil, suivi au quotidien et abonnement en ligne. Disponible sur iPhone et Android.</p>
-            <ul class="app__facts">
+            <ul class="app__list">
               <li><b>Coach IA</b><span>programmes et conseils personnalisés, conversation en français</span></li>
               <li><b>Suivi</b><span>objectifs, habitudes, progression, rappels</span></li>
               <li><b>Abonnement</b><span>essai puis paiement sécurisé, gestion du compte dans l'application</span></li>
             </ul>
-            <div class="stores">
-              <a class="store" href="https://mytwinapp.fr" data-store="apple" target="_blank" rel="noopener" aria-label="Télécharger My Twin App sur l'App Store"><span class="store__small">Télécharger sur</span><span class="store__big">App Store</span></a>
-              <a class="store" href="https://mytwinapp.fr" data-store="google" target="_blank" rel="noopener" aria-label="Télécharger My Twin App sur Google Play"><span class="store__small">Disponible sur</span><span class="store__big">Google Play</span></a>
-              <a class="btn btn--ghost btn--small" href="https://mytwinapp.fr" target="_blank" rel="noopener">mytwinapp.fr</a>
+            <div class="app__actions">
+              <a class="store" href="https://mytwinapp.fr" rel="noopener" data-store="apple"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.2 1-4.1 2.5-1.8 3-.5 7.6 1.3 10.1.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.9-4.1zM14 5.2c.7-.8 1.2-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.5 2.9-1.3z"/></svg><span><small>Télécharger sur</small><b>App Store</b></span></a>
+              <a class="store" href="https://mytwinapp.fr" rel="noopener" data-store="google"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4c-.3.3-.4.7-.4 1.2v16.8c0 .5.1.9.4 1.2l.1.1 9.4-9.4v-.2L3.7 2.3l-.1.1z"/><path d="M16.2 15.4l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.7 2.1-.1-.1z" opacity=".8"/><path d="M16.3 15.3L13.1 12 3.6 21.6c.4.4.9.4 1.6 0l11.1-6.3" opacity=".6"/><path d="M16.3 8.7L5.2 2.4c-.7-.4-1.2-.3-1.6 0L13.1 12l3.2-3.3z" opacity=".9"/></svg><span><small>Disponible sur</small><b>Google Play</b></span></a>
+              <a class="btn btn--ghost" href="https://mytwinapp.fr" rel="noopener">mytwinapp.fr</a>
             </div>
           </div>
-          <div class="app__media app__media--phone">
-            <img src="/assets/img/realisations/myta.jpg" width="1280" height="800" alt="Écran de My Twin App" loading="lazy" decoding="async">
-          </div>
         </article>
-
-        <p class="app__note">Vous avez un métier avec des dossiers, des clients et des documents à suivre ? Un logiciel sur mesure se chiffre sur devis après un rendez-vous de cadrage. <a href="#contact">Parlons-en</a>.</p>
       </div>
+
+      <p class="app__note reveal">Vous avez un métier avec des dossiers, des clients et des documents à suivre ? Un logiciel sur mesure se chiffre sur devis après un rendez-vous de cadrage. <a href="#contact">Parlons-en</a>.</p>
     </section>
 
-    <!-- TARIFS -->
-    <section class="section section--tint" id="tarifs" aria-labelledby="tarifs-title">
-      <div class="wrap">
-        <div class="section__head">
-          <h2 id="tarifs-title">Tarifs</h2>
-          <p>Trois formules de base, des options à la carte, un prix connu d'avance. Pour l'ouverture de MyEasyDev, la création de votre site et les options sont à -15 %.</p>
-        </div>
+    <!-- ===================== TARIFS ===================== -->
+    <section class="chapter" id="tarifs" aria-labelledby="tarifs-title">
+      <div class="chapter__head">
+        <h2 class="chapter__title lines" id="tarifs-title"><span class="line"><span>Un prix connu</span></span><span class="line"><span><em>d'avance</em></span></span></h2>
+        <p class="chapter__lead reveal">Trois formules de base, des options à la carte, un prix connu d'avance. Pour l'ouverture de MyEasyDev, la création de votre site et les options sont à -15 %.</p>
+      </div>
 
-        <div class="launch" role="note">
-          <strong>Offre de lancement</strong>
-          <p>-15 % sur la création du site et les options ponctuelles, pour tout devis signé jusqu'au 31 décembre 2026. Les abonnements mensuels ne sont pas concernés. Prix nets, TVA non applicable (art. 293 B du CGI) : le prix affiché est le prix payé. Détail des engagements dans les <a href="/cgv.html">conditions générales de vente</a>.</p>
-        </div>
+      <div class="launch reveal" role="note">
+        <strong>-15 %</strong>
+        <p><b>Offre de lancement.</b> -15 % sur la création du site et les options ponctuelles, pour tout devis signé jusqu'au 31 décembre 2026. Les abonnements mensuels ne sont pas concernés. Prix nets, TVA non applicable (art. 293 B du CGI) : le prix affiché est le prix payé. Détail des engagements dans les <a href="/cgv.html">conditions générales de vente</a>.</p>
+      </div>
 
-        <div class="plans">
-          <article class="plan" data-plan="vitrine">
-            <h3>Vitrine</h3>
-            <p class="plan__for">Pour être trouvé, rassurer et donner envie de venir. Je m'occupe de tout, vous n'avez rien à gérer.</p>
-            <p class="plan__price"><del>1 000 €</del> <span>850 €</span></p>
-            <p class="plan__month">puis 39 € par mois</p>
-            <ul class="plan__list">
-              <li>Jusqu'à 5 pages à vos couleurs</li>
-              <li>Menu, carte ou prestations illustrés</li>
-              <li>Galerie photos et avis clients</li>
-              <li>Plan d'accès, horaires, appel en un geste</li>
-              <li>Liens vers vos réseaux, Uber Eats ou Planity</li>
-              <li>Mensualité : hébergement, nom de domaine, sauvegardes et vos mises à jour faites par moi</li>
-            </ul>
-            <button class="btn btn--ghost plan__pick" type="button" data-pick="vitrine">Composer à partir de cette formule</button>
-          </article>
+      <div class="plans reveal">
+        <article class="plan">
+          <h3 class="plan__name">Vitrine</h3>
+          <p class="plan__for">Pour être trouvé, rassurer et donner envie de venir. Je m'occupe de tout, vous n'avez rien à gérer.</p>
+          <p class="plan__price"><del>1 000 €</del> 850 €</p>
+          <p class="plan__month">puis 39 € par mois</p>
+          <ul class="plan__list">
+            <li>Jusqu'à 5 pages à vos couleurs</li>
+            <li>Menu, carte ou prestations illustrés</li>
+            <li>Galerie photos et avis clients</li>
+            <li>Plan d'accès, horaires, appel en un geste</li>
+            <li>Liens vers vos réseaux, Uber Eats ou Planity</li>
+            <li>Mensualité : hébergement, nom de domaine, sauvegardes et vos mises à jour faites par moi</li>
+          </ul>
+          <button class="btn btn--ghost plan__pick" type="button" data-pick="vitrine">Composer à partir de cette formule</button>
+        </article>
 
-          <article class="plan plan--feature" data-plan="autonome">
-            <p class="plan__badge">Le meilleur équilibre</p>
-            <h3>Vitrine autonome</h3>
-            <p class="plan__for">Tout le site Vitrine, plus un espace de gestion simple pour changer vous-même vos prix, plats, photos et horaires.</p>
-            <p class="plan__price"><del>1 600 €</del> <span>1 360 €</span></p>
-            <p class="plan__month">puis 29 € par mois</p>
-            <ul class="plan__list">
-              <li>Tout le contenu de la formule Vitrine</li>
-              <li>Espace de gestion sécurisé, utilisable sur téléphone</li>
-              <li>Modification du menu et des prix en quelques secondes</li>
-              <li>Annonces : fermeture exceptionnelle, plat du jour, événement</li>
-              <li>Prise en main accompagnée d'une heure</li>
-              <li>Mensualité : hébergement, nom de domaine, sauvegardes et assistance technique</li>
-            </ul>
-            <button class="btn plan__pick" type="button" data-pick="autonome">Composer à partir de cette formule</button>
-          </article>
+        <article class="plan plan--best">
+          <p class="plan__badge">Le meilleur équilibre</p>
+          <h3 class="plan__name">Vitrine autonome</h3>
+          <p class="plan__for">Tout le site Vitrine, plus un espace de gestion simple pour changer vous-même vos prix, plats, photos et horaires.</p>
+          <p class="plan__price"><del>1 600 €</del> 1 360 €</p>
+          <p class="plan__month">puis 29 € par mois</p>
+          <ul class="plan__list">
+            <li>Tout le contenu de la formule Vitrine</li>
+            <li>Espace de gestion sécurisé, utilisable sur téléphone</li>
+            <li>Modification du menu et des prix en quelques secondes</li>
+            <li>Annonces : fermeture exceptionnelle, plat du jour, événement</li>
+            <li>Prise en main accompagnée d'une heure</li>
+            <li>Mensualité : hébergement, nom de domaine, sauvegardes et assistance technique</li>
+          </ul>
+          <button class="btn plan__pick" type="button" data-pick="autonome">Composer à partir de cette formule</button>
+        </article>
 
-          <article class="plan" data-plan="commerce">
-            <h3>Commerce connecté</h3>
-            <p class="plan__for">Pour vendre en direct : commande en ligne, espace client et fidélité, sans commission sur vos ventes.</p>
-            <p class="plan__price"><del>2 800 €</del> <span>2 380 €</span></p>
-            <p class="plan__month">puis 49 € par mois</p>
-            <ul class="plan__list">
-              <li>Tout le contenu de la formule Vitrine autonome</li>
-              <li>Commande en ligne avec paiement sécurisé</li>
-              <li>Espace client : historique et commandes favorites</li>
-              <li>Programme de fidélité à points</li>
-              <li>Tableau des commandes en temps réel</li>
-              <li>Mensualité : hébergement, nom de domaine, sauvegardes, assistance et maintenance du paiement</li>
-            </ul>
-            <button class="btn btn--ghost plan__pick" type="button" data-pick="commerce">Composer à partir de cette formule</button>
-          </article>
-        </div>
+        <article class="plan">
+          <h3 class="plan__name">Commerce connecté</h3>
+          <p class="plan__for">Pour vendre en direct : commande en ligne, espace client et fidélité, sans commission sur vos ventes.</p>
+          <p class="plan__price"><del>2 800 €</del> 2 380 €</p>
+          <p class="plan__month">puis 49 € par mois</p>
+          <ul class="plan__list">
+            <li>Tout le contenu de la formule Vitrine autonome</li>
+            <li>Commande en ligne avec paiement sécurisé</li>
+            <li>Espace client : historique et commandes favorites</li>
+            <li>Programme de fidélité à points</li>
+            <li>Tableau des commandes en temps réel</li>
+            <li>Mensualité : hébergement, nom de domaine, sauvegardes, assistance et maintenance du paiement</li>
+          </ul>
+          <button class="btn btn--ghost plan__pick" type="button" data-pick="commerce">Composer à partir de cette formule</button>
+        </article>
+      </div>
 
-        <!-- Options + simulateur -->
-        <div class="builder" id="composer">
-          <div class="builder__options">
-            <h3>Options à la carte</h3>
-            <p class="builder__hint">Cochez ce qui vous intéresse : le total se met à jour à côté.</p>
+      <div class="builder" id="composer">
+        <div class="reveal">
+          <h3 class="builder__title">Options à la carte</h3>
+          <p class="builder__hint">Cochez ce qui vous intéresse : le total se met à jour à côté.</p>
 
-            <fieldset class="field-plans">
-              <legend>Formule de base</legend>
+          <fieldset>
+            <legend>Formule de base</legend>
+            <div class="choice">
               <label><input type="radio" name="plan" value="vitrine"> Vitrine</label>
               <label><input type="radio" name="plan" value="autonome" checked> Vitrine autonome</label>
               <label><input type="radio" name="plan" value="commerce"> Commerce connecté</label>
-            </fieldset>
+            </div>
+          </fieldset>
 
-            <table class="options">
-              <caption class="sr-only">Options ponctuelles et leurs prix, avec et sans remise de lancement</caption>
-              <thead>
-                <tr><th scope="col">Option</th><th scope="col">Prix normal</th><th scope="col">Lancement</th></tr>
-              </thead>
+          <fieldset>
+            <table class="opts">
+              <caption>Options ponctuelles et leurs prix, avec et sans remise de lancement</caption>
+              <thead><tr><th scope="col">Option</th><th scope="col">Prix normal</th><th scope="col">Lancement</th></tr></thead>
               <tbody>
                 <tr><td><label><input type="checkbox" data-opt="page" data-price="120"> Page supplémentaire</label></td><td><del>120 €</del></td><td>102 €</td></tr>
                 <tr><td><label><input type="checkbox" data-opt="resa" data-price="400"> Réservation ou prise de rendez-vous en ligne</label></td><td><del>400 €</del></td><td>340 €</td></tr>
@@ -476,101 +397,84 @@
                 <tr><td><label><input type="checkbox" data-opt="photos" data-price="120"> Retouche et optimisation de 30 photos</label></td><td><del>120 €</del></td><td>102 €</td></tr>
               </tbody>
             </table>
+          </fieldset>
 
-            <div class="recurring">
-              <label for="mails">Adresses e-mail professionnelles (5 € par mois et par adresse)</label>
-              <input id="mails" type="number" min="0" max="20" step="1" value="0" inputmode="numeric">
-            </div>
-            <p class="builder__more">Gestion de vos réseaux sociaux, application métier ou site sur mesure : sur devis, après un premier échange.</p>
+          <div class="mails">
+            <label for="mails">Adresses e-mail professionnelles (5 € par mois et par adresse)</label>
+            <input type="number" id="mails" min="0" max="20" value="0" inputmode="numeric">
           </div>
 
-          <aside class="summary" aria-live="polite">
-            <h3>Votre estimation</h3>
-            <dl>
-              <div><dt>Formule</dt><dd id="s-plan">Vitrine autonome</dd></div>
-              <div><dt>Création et options, prix normal</dt><dd id="s-gross">1 600 €</dd></div>
-              <div class="summary__off"><dt>Remise de lancement -15 %</dt><dd id="s-off">-240 €</dd></div>
-              <div class="summary__total"><dt>À régler pour la création</dt><dd id="s-total">1 360 €</dd></div>
-              <div><dt>Ensuite, chaque mois</dt><dd id="s-month">29 €</dd></div>
-            </dl>
-            <p class="summary__legal">Prix nets. TVA non applicable, article 293 B du CGI. Estimation indicative, confirmée par un devis écrit gratuit.</p>
-            <a class="btn" href="#contact" id="s-send">Demander le devis de cette sélection</a>
-          </aside>
+          <p class="builder__more">Gestion de vos réseaux sociaux, application métier ou site sur mesure : sur devis, après un premier échange.</p>
         </div>
+
+        <aside class="summary" aria-live="polite">
+          <h3 class="summary__title">Votre estimation</h3>
+          <dl>
+            <div><dt>Formule</dt><dd id="s-plan">Vitrine autonome</dd></div>
+            <div><dt>Création et options, prix normal</dt><dd id="s-gross">1 600 €</dd></div>
+            <div class="summary__off"><dt>Remise de lancement -15 %</dt><dd id="s-off">-240 €</dd></div>
+            <div class="summary__total"><dt>À régler pour la création</dt><dd id="s-total">1 360 €</dd></div>
+            <div><dt>Ensuite, chaque mois</dt><dd id="s-month">29 €</dd></div>
+          </dl>
+          <p class="summary__legal">Prix nets. TVA non applicable, article 293 B du CGI. Estimation indicative, confirmée par un devis écrit gratuit.</p>
+          <a class="btn" href="#contact" id="s-send">Demander le devis de cette sélection</a>
+        </aside>
       </div>
     </section>
 
-    <!-- INCLUS -->
-    <section class="section" aria-labelledby="inclus-title">
-      <div class="wrap inclus">
-        <h2 id="inclus-title">Ce qui est compris dans chaque site, sans supplément</h2>
-        <div class="inclus__grid">
-          <div><h3>Vous restez propriétaire</h3><p>Le nom de domaine est enregistré à votre nom. Vos textes, vos photos et le code du site vous appartiennent à la livraison. Vous recevez tous les accès administrateur.</p></div>
-          <div><h3>Libre de partir</h3><p>Abonnement de douze mois puis résiliable avec un mois de préavis. Si vous partez, je vous remets les fichiers, les données et le domaine sans frais de sortie, sous trente jours.</p></div>
-          <div><h3>Un devis écrit, un délai écrit</h3><p>Prix net sans TVA, nombre de pages, options et délai figurent sur le devis. Maquette sous sept jours, mise en ligne sous trente jours après réception de vos contenus.</p></div>
-          <div><h3>Conforme à la loi</h3><p>Mentions légales, politique de confidentialité et gestion des cookies conformes aux recommandations de la CNIL. Pas de traceur publicitaire installé dans votre dos.</p></div>
-          <div><h3>Entretenu et sauvegardé</h3><p>La mensualité couvre l'hébergement, le certificat HTTPS, le domaine, les sauvegardes quotidiennes, les mises à jour de sécurité et, selon la formule, vos mises à jour de contenu.</p></div>
-          <div><h3>Trouvable sur Google</h3><p>Site pensé d'abord pour le téléphone, titres et descriptions soignés, données structurées, aide à la fiche Google : votre commerce ressort quand on cherche votre activité près de chez vous.</p></div>
-        </div>
+    <!-- ===================== INCLUS ===================== -->
+    <section class="chapter" aria-labelledby="inclus-title">
+      <div class="chapter__head">
+        <h2 class="chapter__title lines" id="inclus-title"><span class="line"><span>Compris dans</span></span><span class="line"><span>chaque site, <em>sans</em></span></span><span class="line"><span><em>supplément</em></span></span></h2>
       </div>
+      <ul class="included">
+        <li class="reveal"><h3>Vous restez propriétaire</h3><p>Le nom de domaine est enregistré à votre nom. Vos textes, vos photos et le code du site vous appartiennent à la livraison. Vous recevez tous les accès administrateur.</p></li>
+        <li class="reveal"><h3>Libre de partir</h3><p>Abonnement de douze mois puis résiliable avec un mois de préavis. Si vous partez, je vous remets les fichiers, les données et le domaine sans frais de sortie, sous trente jours.</p></li>
+        <li class="reveal"><h3>Un devis écrit, un délai écrit</h3><p>Prix net sans TVA, nombre de pages, options et délai figurent sur le devis. Maquette sous sept jours, mise en ligne sous trente jours après réception de vos contenus.</p></li>
+        <li class="reveal"><h3>Conforme à la loi</h3><p>Mentions légales, politique de confidentialité et gestion des cookies conformes aux recommandations de la CNIL. Pas de traceur publicitaire installé dans votre dos.</p></li>
+        <li class="reveal"><h3>Entretenu et sauvegardé</h3><p>La mensualité couvre l'hébergement, le certificat HTTPS, le domaine, les sauvegardes quotidiennes, les mises à jour de sécurité et, selon la formule, vos mises à jour de contenu.</p></li>
+        <li class="reveal"><h3>Trouvable sur Google</h3><p>Site pensé d'abord pour le téléphone, titres et descriptions soignés, données structurées, aide à la fiche Google : votre commerce ressort quand on cherche votre activité près de chez vous.</p></li>
+      </ul>
     </section>
 
-    <!-- METHODE -->
-    <section class="section section--blue" id="methode" aria-labelledby="methode-title">
-      <div class="wrap">
-        <div class="section__head">
-          <h2 id="methode-title">Comment ça se passe</h2>
-          <p>Quatre étapes, un seul interlocuteur. Vous validez chaque étape avant la suivante.</p>
-        </div>
-        <ol class="steps">
-          <li><h3>On en parle</h3><p>Un appel ou un rendez-vous dans votre commerce. Je note vos besoins, vos clients, ce qui vous distingue. Gratuit et sans engagement.</p></li>
-          <li><h3>Vous voyez votre maquette</h3><p>Une première version cliquable à vos couleurs, en général sous 7 jours. Vous la testez sur votre téléphone et on ajuste ensemble.</p></li>
-          <li><h3>Mise en ligne</h3><p>Je branche le nom de domaine, les mentions légales, Google, vos réseaux. Votre site est en ligne et vous recevez vos accès.</p></li>
-          <li><h3>Je reste là</h3><p>Mises à jour, nouveaux plats, horaires d'été, questions : vous m'écrivez, c'est pris en charge.</p></li>
+    <!-- ===================== MÉTHODE ===================== -->
+    <section class="chapter" id="methode" aria-labelledby="methode-title">
+      <div class="chapter__head">
+        <h2 class="chapter__title lines" id="methode-title"><span class="line"><span>Comment</span></span><span class="line"><span>ça <em>se passe</em></span></span></h2>
+        <p class="chapter__lead reveal">Quatre étapes, un seul interlocuteur. Vous validez chaque étape avant la suivante.</p>
+      </div>
+      <div class="steps">
+        <div class="steps__left" aria-hidden="true"><div class="steps__counter"><b>01</b><small>/ 04</small></div></div>
+        <ol class="steps__right">
+          <li class="step" data-n="01"><h3>On en parle</h3><p>Un appel ou un rendez-vous dans votre commerce. Je note vos besoins, vos clients, ce qui vous distingue. Gratuit et sans engagement.</p></li>
+          <li class="step" data-n="02"><h3>Vous voyez votre maquette</h3><p>Une première version cliquable à vos couleurs, en général sous 7 jours. Vous la testez sur votre téléphone et on ajuste ensemble.</p></li>
+          <li class="step" data-n="03"><h3>Mise en ligne</h3><p>Je branche le nom de domaine, les mentions légales, Google, vos réseaux. Votre site est en ligne et vous recevez vos accès.</p></li>
+          <li class="step" data-n="04"><h3>Je reste là</h3><p>Mises à jour, nouveaux plats, horaires d'été, questions : vous m'écrivez, c'est pris en charge.</p></li>
         </ol>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="wrap contact">
-        <div class="contact__intro">
-          <h2 id="contact-title">Parlons de <em>votre</em> site</h2>
-          <p>Décrivez votre commerce en quelques mots. Je vous réponds sous 48 heures ouvrées avec une première idée et un devis gratuit.</p>
-          <p class="contact__direct">Vous préférez écrire directement ? <a href="mailto:webidea@gmail.com">webidea@gmail.com</a></p>
+    <!-- ===================== CONTACT ===================== -->
+    <section class="chapter" id="contact" aria-labelledby="contact-title">
+      <div class="contact">
+        <div>
+          <h2 class="contact__big lines" id="contact-title"><span class="line"><span>Parlons de</span></span><span class="line"><span><em>votre</em> site</span></span></h2>
+          <p class="chapter__lead reveal" style="margin-top:28px">Décrivez votre commerce en quelques mots. Je vous réponds sous 48 heures ouvrées avec une première idée et un devis gratuit.</p>
+          <p class="contact__direct reveal">Vous préférez écrire directement ? <a href="mailto:webidea@gmail.com">webidea@gmail.com</a></p>
         </div>
-
-        <form class="form" id="form" novalidate>
+        <form class="form reveal" id="form" novalidate>
           <div class="form__row">
-            <div class="form__field">
-              <label for="f-nom">Nom et prénom</label>
-              <input id="f-nom" name="nom" type="text" autocomplete="name" required>
-            </div>
-            <div class="form__field">
-              <label for="f-commerce">Commerce ou structure</label>
-              <input id="f-commerce" name="commerce" type="text" autocomplete="organization" required>
-            </div>
+            <div class="field"><label for="f-nom">Nom et prénom</label><input id="f-nom" name="nom" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="f-commerce">Commerce ou structure</label><input id="f-commerce" name="commerce" type="text" autocomplete="organization" required></div>
           </div>
           <div class="form__row">
-            <div class="form__field">
-              <label for="f-mail">E-mail</label>
-              <input id="f-mail" name="mail" type="email" autocomplete="email" required>
-            </div>
-            <div class="form__field">
-              <label for="f-tel">Téléphone <span class="opt">(facultatif)</span></label>
-              <input id="f-tel" name="tel" type="tel" autocomplete="tel">
-            </div>
+            <div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="mail" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="f-tel">Téléphone (facultatif)</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
           </div>
-          <div class="form__field">
-            <label for="f-msg">Votre projet</label>
-            <textarea id="f-msg" name="message" rows="6" required></textarea>
-          </div>
-          <div class="form__check">
-            <input id="f-rgpd" type="checkbox" required>
-            <label for="f-rgpd">J'accepte que mes informations soient utilisées uniquement pour répondre à ma demande. Voir la <a href="/confidentialite.html">politique de confidentialité</a>.</label>
-          </div>
+          <div class="field"><label for="f-msg">Votre projet</label><textarea id="f-msg" name="message" required placeholder="Mon commerce, ce que j'aimerais sur le site, quand j'aimerais être en ligne…"></textarea></div>
+          <label class="form__check"><input type="checkbox" id="f-rgpd" name="rgpd" required><span>J'accepte que mes informations soient utilisées uniquement pour répondre à ma demande. Voir la <a href="/confidentialite.html">politique de confidentialité</a>.</span></label>
           <p class="form__error" id="f-error" role="alert" hidden></p>
-          <button class="btn" type="submit">Préparer mon message</button>
+          <div><button class="btn btn--amber" type="submit">Préparer mon message <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5"/></svg></button></div>
           <p class="form__note">Le bouton ouvre votre messagerie avec votre message déjà rédigé : vous l'envoyez vous-même. Rien n'est enregistré sur ce site.</p>
         </form>
       </div>
@@ -578,18 +482,25 @@
   </main>
 
   <footer class="foot">
-    <div class="wrap foot__inner">
-      <p class="brand brand--foot">my<span>easy</span>dev</p>
-      <p>Création de sites internet et services numériques, région marseillaise. MyEasyDev, entreprise individuelle, SIREN 130 993 348.</p>
-      <nav aria-label="Informations légales">
+    <p class="foot__giant" aria-hidden="true">myeasydev</p>
+    <div class="foot__grid">
+      <div>
+        <p class="brand">myeasy<i>dev</i></p>
+        <p class="foot__about" style="margin-top:14px">Création de sites internet et services numériques, région marseillaise. MyEasyDev, entreprise individuelle, SIREN 130 993 348.</p>
+      </div>
+      <nav class="foot__links" aria-label="Pages légales">
         <a href="/mentions-legales.html">Mentions légales</a>
         <a href="/cgv.html">Conditions générales de vente</a>
         <a href="/confidentialite.html">Confidentialité</a>
       </nav>
-      <p class="foot__small">Ce site n'utilise aucun cookie ni outil de mesure d'audience. &copy; <span id="year">2026</span> MyEasyDev</p>
     </div>
+    <p class="foot__small"><span>Ce site n'utilise aucun cookie ni outil de mesure d'audience.</span><span>© <span id="year">2026</span> MyEasyDev</span></p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
   <script src="/assets/js/myeasydev.js" defer></script>
+  <script src="/assets/js/immersif.js" defer></script>
 </body>
 </html>
