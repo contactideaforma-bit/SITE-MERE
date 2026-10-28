@@ -15,7 +15,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap">
   <link rel="stylesheet" href="/assets/css/immersif.css">
   <script type="application/ld+json">
   {
@@ -40,6 +40,7 @@
   </div>
 
   <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <div class="studio" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="top" id="top">
@@ -65,25 +66,25 @@
           <span class="line"><span>les clients.</span></span>
         </h1>
         <div class="hero__stage" aria-label="Aperçu de sites réalisés">
-          <figure class="window window--a">
-            <div class="window__bar"><span>Maquette · restaurant de bord de mer</span></div>
-            <div class="preview" data-src="/auberge-du-merou/"></div>
-          </figure>
-          <figure class="window window--b">
-            <div class="window__bar"><span>Maquette · mairie</span></div>
-            <div class="preview" data-src="/mairie-le-rove/"></div>
-          </figure>
-          <figure class="window window--c">
-            <div class="window__bar"><span>Démonstration · carrosserie</span></div>
-            <div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div>
-          </figure>
-          <a class="sticker" href="#tarifs" aria-label="Offre de lancement : moins 15 % sur la création, jusqu'au 31 décembre 2026">
-            <svg viewBox="0 0 200 200" aria-hidden="true">
-              <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-              <text><textPath href="#ring" textLength="476" lengthAdjust="spacing">offre de lancement jusqu'au 31 décembre 2026 </textPath></text>
-            </svg>
-            <strong>-15 %</strong>
-          </a>
+          <div class="stage">
+            <figure class="window" data-pos="0">
+              <div class="window__bar"><span>Maquette · restaurant de bord de mer</span></div>
+              <div class="preview" data-src="/auberge-du-merou/"></div>
+            </figure>
+            <figure class="window" data-pos="1">
+              <div class="window__bar"><span>Maquette · mairie</span></div>
+              <div class="preview" data-src="/mairie-le-rove/"></div>
+            </figure>
+            <figure class="window" data-pos="2">
+              <div class="window__bar"><span>Démonstration · carrosserie</span></div>
+              <div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div>
+            </figure>
+          </div>
+          <div class="stage__tabs" role="group" aria-label="Choisir l'aperçu affiché">
+            <button type="button" data-show="0" aria-pressed="true">Restaurant</button>
+            <button type="button" data-show="1" aria-pressed="false">Mairie</button>
+            <button type="button" data-show="2" aria-pressed="false">Carrosserie</button>
+          </div>
         </div>
       </div>
       <div class="hero__below">
@@ -92,6 +93,7 @@
           <div class="hero__actions">
             <a class="btn" href="#tarifs">Voir les tarifs <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5"/></svg></a>
             <a class="btn btn--ghost" href="#realisations">Parcourir les réalisations</a>
+            <a class="promo" href="#tarifs"><strong>-15 %</strong><span>Offre de lancement<br>jusqu'au 31 décembre 2026</span></a>
           </div>
         </div>
         <div class="hero__meta">
@@ -115,7 +117,7 @@
 
     <!-- ===================== RÉALISATIONS ===================== -->
     <section class="chapter gallery" id="realisations" aria-labelledby="real-title">
-      <div class="gallery__pin">
+      <div class="gallery__wrap">
         <div class="chapter__head">
           <h2 class="chapter__title lines" id="real-title"><span class="line"><span>Sites</span></span><span class="line"><span><em>internet</em></span></span></h2>
           <div class="reveal">
@@ -129,128 +131,132 @@
           </div>
         </div>
 
-        <ul class="gallery__track" style="margin-left:calc(-1 * var(--gutter));margin-right:calc(-1 * var(--gutter))">
+        <div class="gallery__nav" aria-hidden="true">
+          <button type="button" class="gallery__arrow" data-dir="-1" aria-label="Précédent"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8H3M7 3L2 8l5 5"/></svg></button>
+          <button type="button" class="gallery__arrow" data-dir="1" aria-label="Suivant"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 3l5 5-5 5"/></svg></button>
+        </div>
+        <ul class="gallery__track" data-lenis-prevent>
           <li class="work work--wide" data-cat="restaurant"><a href="/trinapoli-marseille/">
-            <div class="work__frame"><div class="preview" data-src="/trinapoli-marseille/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Trattoria street food vert &amp; rose</span></div><div class="preview" data-src="/trinapoli-marseille/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Trattoria street food vert &amp; rose</h3>
               <p class="work__desc">Maquette proposée à une enseigne de panuozzi de Roubaix pour son ouverture à Marseille : site et appli de commande installable sur le téléphone. Bandeau plein écran sur une photo de panuozzo, grandes capitales fines, signature manuscrite et tirets vert / rose, tuiles photo à cartouche (panuozzi, formules, boissons, desserts), commande en ligne avec fiche produit (sans… / en plus / formule), heure de retrait à places limitées, suivi de commande et fidélité, collage photo pour l'appli, colonnes de contact en aplats vert, blanc et rose. Widget de commande flottant vert pastel, espace comptoir en temps réel et page de proposition chiffrée.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="commerce"><a href="/auto-roussillon/">
-            <div class="work__frame"><div class="preview" data-src="/auto-roussillon/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Garage « carnet d'entretien »</span></div><div class="preview" data-src="/auto-roussillon/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Garage « carnet d'entretien »</h3>
               <p class="work__desc">Maquette proposée à un garage-carrosserie AD de Cabestany, aux portes de Perpignan : le site se lit comme le carnet de bord d'un atelier installé depuis vingt-quatre ans. Papier crème, ruban sang et or du Roussillon, fiches numérotées, sommaire réglé, prestations sur lignes pointillées, parcours sinistre en quatre tampons qui s'impriment au défilement, onglets d'index sur la tranche, indicateur ouvert / fermé calculé en direct. Mobile : menu plein écran façon sommaire et signet sang et or qui descend du haut de l'écran (Appeler / Itinéraire / Rendez-vous).</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="commerce"><a href="/garage-septemes/">
-            <div class="work__frame"><div class="preview" data-src="/garage-septemes/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Carrosserie noir &amp; or</span></div><div class="preview" data-src="/garage-septemes/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Carrosserie noir &amp; or</h3>
               <p class="work__desc">Maquette proposée à une carrosserie de Septèmes-les-Vallons, présentée comme un écrin : noir laqué et filets d'or, poussière d'or animée au premier écran, chapitres en chiffres romains, plaques numérotées « Réparer · Protéger · Sublimer », carte de l'atelier à lignes pointillées, sceaux dorés (franchise, prêt, remorquage), comparateur avant / après à poignée d'or. Mobile : menu plein écran, pastille d'or qui s'ouvre en éventail (Appeler / Devis / Itinéraire).</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="restaurant"><a href="/auberge-du-merou/">
-            <div class="work__frame"><div class="preview" data-src="/auberge-du-merou/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Restaurant de bord de mer</span></div><div class="preview" data-src="/auberge-du-merou/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Restaurant de bord de mer</h3>
               <p class="work__desc">Maquette proposée à un restaurant de poissons d'une calanque de la côte bleue : menus et carte illustrés, réservation, avis et version mobile avec bouton Réserver central.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="commerce"><a href="/pas-des-lanciers/">
-            <div class="work__frame"><div class="preview" data-src="/pas-des-lanciers/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Centre équestre de compétition</span></div><div class="preview" data-src="/pas-des-lanciers/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Centre équestre de compétition</h3>
               <p class="work__desc">Maquette proposée à un club de Marignane, esprit club sportif : photo coupée en biais, trois disciplines en panneaux, planning type de la semaine, tableau de pension, réservation des reprises en ligne.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="commerce"><a href="/espace-gala/">
-            <div class="work__frame"><div class="preview" data-src="/espace-gala/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Salle de réception</span></div><div class="preview" data-src="/espace-gala/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Salle de réception</h3>
               <p class="work__desc">Maquette proposée à une salle de mariage de 60 à 500 invités : carton d'invitation à doubles filets, curseur du nombre d'invités, formules, mosaïque de photos, demande de date.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="commerce"><a href="/gites-du-resquiadou/">
-            <div class="work__frame"><div class="preview" data-src="/gites-du-resquiadou/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Gîtes en bord de mer</span></div><div class="preview" data-src="/gites-du-resquiadou/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Gîtes en bord de mer</h3>
               <p class="work__desc">Maquette proposée à des cabanons de la Côte Bleue : carte postale et timbre, gîtes en bande qui défile, calanque privée, frise d'histoire, réservation directe sans commission et barre de dates sur mobile.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="commerce"><a href="/gignac-conduite/">
-            <div class="work__frame"><div class="preview" data-src="/gignac-conduite/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Auto-école</span></div><div class="preview" data-src="/gignac-conduite/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Auto-école</h3>
               <p class="work__desc">Maquette proposée à une auto-école de Gignac-la-Nerthe : panneaux de signalisation, chevrons, parcours en quatre étapes, taux de réussite, horaires du jour, pré-inscription avec la liste des pièces.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="commerce"><a href="/sud-carrosserie/">
-            <div class="work__frame"><div class="preview" data-src="/sud-carrosserie/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Carrossier indépendant</span></div><div class="preview" data-src="/sud-carrosserie/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Carrossier indépendant</h3>
               <p class="work__desc">Maquette proposée à une carrosserie de Marignane notée 5/5 : ordre de réparation en guise d'accueil, tampon des avis, travaux en liste cochée, devis sur trois photos prises depuis le téléphone.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="restaurant"><a href="/kalm-by-night/">
-            <div class="work__frame"><div class="preview" data-src="/kalm-by-night/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Livraison de nuit</span></div><div class="preview" data-src="/kalm-by-night/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Livraison de nuit</h3>
               <p class="work__desc">Maquette proposée à un service de livraison nocturne de Vitrolles et Marseille : cadran 24 h avec statut d'ouverture en direct, carte à pointillés, composeur de commande qui écrit le SMS à la place du client.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="commerce"><a href="/ecurie-du-faraon/">
-            <div class="work__frame"><div class="preview" data-src="/ecurie-du-faraon/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Centre équestre</span></div><div class="preview" data-src="/ecurie-du-faraon/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Centre équestre</h3>
               <p class="work__desc">Maquette proposée à une écurie de Gignac-la-Nerthe, style ranch : photo plein écran et enseigne à tampon, chapitres numérotés, tableau des cours avec photo épinglée, tarifs sur panneau de bois, plan dessiné du domaine, fiche d'essai sur lignes de cahier.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="commerce"><a href="/demos/carrosserie-roc-blanc/">
-            <div class="work__frame"><div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Carrosserie</span></div><div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div><span class="work__tag">Démonstration</span></div>
             <div class="work__body"><h3 class="work__title">Carrosserie</h3>
               <p class="work__desc">Démonstration pour une carrosserie indépendante, construite sur la plaque d'immatriculation : on tape sa plaque dans une plaque géante, trois photos, devis sous 24 h. Sections-plaques, avant / après au curseur, plaque d'action fixe sur mobile.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="restaurant"><a href="/pizza-maracana/">
-            <div class="work__frame"><div class="preview" data-src="/pizza-maracana/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Pizzeria de quartier</span></div><div class="preview" data-src="/pizza-maracana/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Pizzeria de quartier</h3>
               <p class="work__desc">Maquette proposée à une pizzeria du soir des quartiers nord de Marseille : thème Brésil plein de peps, vagues de Copacabana, carte en tickets numérotés, appel en un geste.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="restaurant"><a href="/sushi-tys/">
-            <div class="work__frame"><div class="preview" data-src="/sushi-tys/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Restaurant de sushis</span></div><div class="preview" data-src="/sushi-tys/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Restaurant de sushis</h3>
               <p class="work__desc">Maquette proposée à un restaurant des Bouches-du-Rhône : menu illustré, avis, lien de commande et version mobile façon application.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="collectivite"><a href="/mairie-le-rove/">
-            <div class="work__frame"><div class="preview" data-src="/mairie-le-rove/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Mairie</span></div><div class="preview" data-src="/mairie-le-rove/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Mairie</h3>
               <p class="work__desc">Proposition de refonte du site d'une commune du littoral marseillais : démarches, actualités, météo locale et accès rapide sur mobile.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="restaurant"><a href="/pizza-al-dente/">
-            <div class="work__frame"><div class="preview" data-src="/pizza-al-dente/"></div><span class="work__tag">Maquette proposée</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Pizzeria</span></div><div class="preview" data-src="/pizza-al-dente/"></div><span class="work__tag">Maquette proposée</span></div>
             <div class="work__body"><h3 class="work__title">Pizzeria</h3>
               <p class="work__desc">Maquette proposée à une pizzeria de la côte bleue : carte claire, horaires et appel en un geste.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="commerce"><a href="/demos/salon-esthetique/">
-            <div class="work__frame"><div class="preview" data-src="/demos/salon-esthetique/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Salon Émeraude</span></div><div class="preview" data-src="/demos/salon-esthetique/"></div><span class="work__tag">Démonstration</span></div>
             <div class="work__body"><h3 class="work__title">Salon Émeraude</h3>
               <p class="work__desc">Institut de beauté : prestations, tarifs et prise de rendez-vous.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work work--wide" data-cat="commerce"><a href="https://ideaforma.fr" rel="noopener">
-            <div class="work__frame"><img src="/assets/img/realisations/ideaforma.jpg" alt="Page d'accueil du site ideaforma.fr" loading="lazy" style="width:100%;height:100%;object-fit:cover"><span class="work__tag work__tag--live">Site en ligne</span></div>
+            <div class="work__frame"><div class="window__bar"><span>ideaforma.fr</span></div><img src="/assets/img/realisations/ideaforma.jpg" alt="Page d'accueil du site ideaforma.fr" loading="lazy" style="width:100%;height:100%;object-fit:cover"><span class="work__tag work__tag--live">Site en ligne</span></div>
             <div class="work__body"><h3 class="work__title">Ideaforma</h3>
               <p class="work__desc">Site et plateforme d'un organisme de formation certifié Qualiopi : catalogue, demandes de devis et espace stagiaire.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="restaurant"><a href="/demos/pizzeria-provencale/">
-            <div class="work__frame"><div class="preview" data-src="/demos/pizzeria-provencale/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Pizzeria Lou Soleï</span></div><div class="preview" data-src="/demos/pizzeria-provencale/"></div><span class="work__tag">Démonstration</span></div>
             <div class="work__body"><h3 class="work__title">Pizzeria Lou Soleï</h3>
               <p class="work__desc">Une pizzeria à l'accent provençal, lavande et ocre.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="restaurant"><a href="/demos/pizzeria-italienne/">
-            <div class="work__frame"><div class="preview" data-src="/demos/pizzeria-italienne/"></div><span class="work__tag">Démonstration</span></div>
+            <div class="work__frame"><div class="window__bar"><span>Pizzeria Da Enzo</span></div><div class="preview" data-src="/demos/pizzeria-italienne/"></div><span class="work__tag">Démonstration</span></div>
             <div class="work__body"><h3 class="work__title">Pizzeria Da Enzo</h3>
               <p class="work__desc">L'esprit trattoria : carte, histoire de la maison, réservation.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
         </ul>
-        <div class="gallery__hint" aria-hidden="true"><span>Faites défiler pour traverser la galerie</span><span class="gallery__progress"><i></i></span></div>
+        <div class="gallery__hint" aria-hidden="true"><span>Faites glisser ou utilisez les flèches</span><span class="gallery__progress"><i></i></span></div>
       </div>
     </section>
 

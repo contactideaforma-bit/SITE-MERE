@@ -28,22 +28,36 @@
       float fbm(vec2 p){ float v = 0.0, a = 0.5; for (int k = 0; k < 4; k++) { v += a * noise(p); p = p * 2.03 + 11.7; a *= 0.5; } return v; }
       void main(){
         vec2 uv = gl_FragCoord.xy / r;
-        vec2 q = uv; q.x *= r.x / r.y;
-        float tt = t * 0.06;
-        vec2 drift = vec2(tt * 0.6, -tt * 0.4) + (m - 0.5) * 0.35;
-        float n1 = fbm(q * 1.4 + drift);
-        float n2 = fbm(q * 2.2 - drift * 1.3 + n1 * 1.5);
-        vec3 ink = vec3(0.027, 0.035, 0.055);
-        vec3 blue = vec3(0.36, 0.43, 1.0);
-        vec3 amber = vec3(0.95, 0.70, 0.36);
-        float glow = smoothstep(0.35, 0.95, n2);
-        float warm = smoothstep(0.55, 0.98, n1 + 0.15 * sin(tt * 3.0));
+        float asp = r.x / r.y;
+        vec2 q = vec2((uv.x - 0.5) * asp, uv.y - 0.5);
+        float tt = t * 0.05;
+        vec3 ink = vec3(0.043, 0.051, 0.075);
         vec3 col = ink;
-        col += blue * glow * 0.32;
-        col += amber * warm * 0.22;
-        float v = length(uv - vec2(0.5, 0.45 - s * 0.25));
-        col *= 1.0 - smoothstep(0.35, 1.15, v) * 0.75;
-        col += (hash(gl_FragCoord.xy + t) - 0.5) * 0.015;
+
+        /* Projecteur principal : halo chaud en haut, légèrement décalé vers la souris */
+        vec2 key = vec2(0.18 + (m.x - 0.5) * 0.25, 0.72 + s * 0.15 + (m.y - 0.5) * 0.1);
+        float dk = length(q - vec2((key.x) * asp - 0.5 * asp, key.y - 0.5));
+        float keyL = exp(-dk * dk * 2.2);
+        col += vec3(0.95, 0.78, 0.52) * keyL * 0.30;
+
+        /* Contre-jour bleu froid à droite */
+        vec2 rim = vec2(0.86 - (m.x - 0.5) * 0.15, 0.35 - s * 0.2);
+        float dr = length(q - vec2(rim.x * asp - 0.5 * asp, rim.y - 0.5));
+        float rimL = exp(-dr * dr * 1.6);
+        col += vec3(0.33, 0.42, 1.0) * rimL * 0.22;
+
+        /* Cyclorama : le sol se relève doucement, comme un fond de studio */
+        float floorL = smoothstep(0.55, 0.0, uv.y) * 0.08;
+        col += vec3(0.86, 0.80, 0.70) * floorL;
+
+        /* Volutes de brume très douces */
+        float n = fbm(q * 1.6 + vec2(tt * 0.5, -tt * 0.3));
+        col += vec3(0.6, 0.62, 0.78) * smoothstep(0.55, 0.95, n) * 0.06;
+
+        /* Vignette */
+        float v = length(vec2(q.x / asp, q.y));
+        col *= 1.0 - smoothstep(0.3, 0.9, v) * 0.55;
+        col += (hash(gl_FragCoord.xy + t) - 0.5) * 0.012;
         gl_FragColor = vec4(col, 1.0);
       }`;
     const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return gl.getShaderParameter(o, gl.COMPILE_STATUS) ? o : null; };
@@ -86,21 +100,50 @@
     requestAnimationFrame(frame);
     return state;
   };
-  if (!initSky() && sky) sky.style.background = "radial-gradient(60% 50% at 50% 35%, #1a2140 0%, #07090e 70%)";
+  if (!initSky() && sky) sky.style.background = "radial-gradient(70% 55% at 18% 10%, rgba(242,180,92,0.22), transparent 60%), radial-gradient(60% 60% at 88% 60%, rgba(93,109,255,0.2), transparent 60%), #0b0d13";
 
   /* ---------- Curseur ---------- */
   const cursor = document.querySelector(".cursor");
   if (cursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     let cx = -100, cy = -100, x = -100, y = -100;
     window.addEventListener("pointermove", (e) => { cx = e.clientX; cy = e.clientY; document.body.classList.add("has-cursor"); }, { passive: true });
-    const loop = () => { x += (cx - x) * 0.22; y += (cy - y) * 0.22; cursor.style.transform = `translate(${x}px, ${y}px)${cursor.classList.contains("is-link") ? " scale(2.2)" : cursor.classList.contains("is-drag") ? " scale(6)" : ""}`; requestAnimationFrame(loop); };
+    const loop = () => { x += (cx - x) * 0.22; y += (cy - y) * 0.22; cursor.style.transform = `translate(${x}px, ${y}px)${cursor.classList.contains("is-link") ? " scale(2.2)" : ""}`; requestAnimationFrame(loop); };
     loop();
     document.addEventListener("pointerover", (e) => {
-      const t = e.target.closest("a, button, label, input, textarea, .gallery__pin");
-      cursor.classList.toggle("is-drag", !!(t && t.classList.contains("gallery__pin") && isDesktop()));
-      cursor.classList.toggle("is-link", !!(t && !t.classList.contains("gallery__pin")));
+      cursor.classList.toggle("is-link", !!e.target.closest("a, button, label, input, textarea"));
     });
     document.addEventListener("pointerleave", () => document.body.classList.remove("has-cursor"));
+  }
+
+  /* ---------- Galerie horizontale : défilement natif, glisser, flèches ---------- */
+  const gtrack = document.querySelector(".gallery__track");
+  if (gtrack) {
+    const gbar = document.querySelector(".gallery__progress i");
+    const arrows = document.querySelectorAll(".gallery__arrow");
+    const update = () => {
+      const max = gtrack.scrollWidth - gtrack.clientWidth;
+      if (gbar) gbar.style.transform = `scaleX(${max > 0 ? gtrack.scrollLeft / max : 1})`;
+      arrows.forEach((a) => { const d = Number(a.dataset.dir); a.disabled = d < 0 ? gtrack.scrollLeft <= 2 : gtrack.scrollLeft >= max - 2; });
+    };
+    gtrack.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+    arrows.forEach((a) => a.addEventListener("click", () => {
+      const card = gtrack.querySelector(".work:not([hidden])");
+      const step = card ? card.getBoundingClientRect().width + 28 : gtrack.clientWidth * 0.6;
+      gtrack.scrollBy({ left: Number(a.dataset.dir) * step, behavior: reduceMotion ? "auto" : "smooth" });
+    }));
+    /* Molette verticale sur la galerie : on laisse la page défiler (pas de piège) ; glisser à la souris */
+    let down = false, startX = 0, startLeft = 0, moved = false;
+    gtrack.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") return; down = true; moved = false; startX = e.clientX; startLeft = gtrack.scrollLeft; });
+    window.addEventListener("pointermove", (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) { moved = true; gtrack.classList.add("is-dragging"); }
+      if (moved) gtrack.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener("pointerup", () => { down = false; setTimeout(() => gtrack.classList.remove("is-dragging"), 50); });
+    document.querySelectorAll(".filters button").forEach((b) => b.addEventListener("click", () => { gtrack.scrollTo({ left: 0 }); requestAnimationFrame(update); }));
   }
 
   /* ---------- Smooth scroll ---------- */
@@ -154,8 +197,7 @@
   heroTl
     .to(".hero__title .line > span", { y: 0, duration: 1.4, stagger: 0.09 }, 0)
     .fromTo(".hero__lead, .hero__actions, .hero__meta", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: 0.08 }, 0.35)
-    .fromTo(".window", { y: 80, rotateX: 18, opacity: 0 }, { y: 0, rotateX: 0, opacity: 1, duration: 1.8, stagger: 0.12 }, 0.2)
-    .fromTo(".sticker", { scale: 0, rotate: -30 }, { scale: 1, rotate: 0, duration: 1.2, ease: "back.out(1.6)" }, 0.9)
+    .fromTo(".hero__stage", { y: 70, rotateX: 14, opacity: 0, transformPerspective: 1200 }, { y: 0, rotateX: 0, opacity: 1, duration: 1.8 }, 0.25)
     .fromTo(".top", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 0.4);
 
   let played = null;
@@ -175,15 +217,14 @@
   }
 
   /* Parallaxe souris sur la scène */
-  const stage = document.querySelector(".hero__stage");
+  const stage = document.querySelector(".stage");
   if (stage && isDesktop()) {
-    const wins = gsap.utils.toArray(".window");
-    const qx = wins.map((w) => gsap.quickTo(w, "x", { duration: 1.2, ease: "power3" }));
-    const qy = wins.map((w) => gsap.quickTo(w, "y", { duration: 1.2, ease: "power3" }));
-    const qr = wins.map((w) => gsap.quickTo(w, "rotateY", { duration: 1.2, ease: "power3" }));
+    const qrx = gsap.quickTo(stage, "rotateX", { duration: 1.4, ease: "power3" });
+    const qry = gsap.quickTo(stage, "rotateY", { duration: 1.4, ease: "power3" });
+    gsap.set(stage, { transformPerspective: 1600, transformOrigin: "50% 60%" });
     window.addEventListener("pointermove", (e) => {
       const nx = e.clientX / innerWidth - 0.5, ny = e.clientY / innerHeight - 0.5;
-      wins.forEach((w, i) => { const d = (i + 1) * 9; qx[i](nx * d * 1.6); qy[i](ny * d); qr[i](-nx * 6); });
+      qry(nx * 7); qrx(-ny * 5);
     }, { passive: true });
   }
   gsap.to(".hero__inner, .hero__below", { yPercent: -12, opacity: 0.2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
@@ -225,31 +266,6 @@
   gsap.utils.toArray(".rule").forEach((el) => {
     gsap.to(el, { scaleX: 1, duration: 1.6, scrollTrigger: { trigger: el, start: "top 92%" } });
   });
-
-  /* ---------- Galerie horizontale épinglée ---------- */
-  const gallery = document.querySelector(".gallery");
-  const gtrack = document.querySelector(".gallery__track");
-  const gbar = document.querySelector(".gallery__progress i");
-  const mm = gsap.matchMedia();
-  mm.add("(min-width: 861px)", () => {
-    if (!gallery || !gtrack) return;
-    const getDist = () => Math.max(0, gtrack.scrollWidth - innerWidth);
-    const tween = gsap.to(gtrack, {
-      x: () => -getDist(), ease: "none",
-      scrollTrigger: {
-        trigger: gallery, start: "top 12%", end: () => "+=" + getDist(), pin: ".gallery__pin", scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1,
-        onUpdate: (self) => { if (gbar) gbar.style.transform = `scaleX(${self.progress})`; }
-      }
-    });
-    const cards = gsap.utils.toArray(".work__frame");
-    cards.forEach((c) => {
-      gsap.fromTo(c, { rotateY: 10, scale: 0.96 }, { rotateY: -4, scale: 1, ease: "none", scrollTrigger: { trigger: c, containerAnimation: tween, start: "left right", end: "right left", scrub: true } });
-    });
-    return () => { gsap.set(gtrack, { x: 0 }); };
-  });
-  document.querySelectorAll(".filters button").forEach((b) => b.addEventListener("click", () => {
-    requestAnimationFrame(() => { ST.refresh(); if (gallery) scrollTo(gallery, { offset: -40 }); });
-  }));
 
   /* ---------- Applications : révélation en rideau + zoom ---------- */
   gsap.utils.toArray(".app__visual").forEach((v) => {
