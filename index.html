@@ -32,7 +32,6 @@
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
-  <div class="cursor" aria-hidden="true"></div>
 
   <div class="intro" aria-hidden="true">
     <div class="intro__word"><span>myeasy<i>dev</i></span></div>
@@ -77,8 +76,8 @@
               <div class="preview" data-src="/mairie-le-rove/"></div>
             </figure>
             <figure class="window" data-pos="2">
-              <div class="window__bar"><span>Démonstration · carrosserie</span></div>
-              <div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div>
+              <div class="window__bar"><span>Maquette · carrosserie</span></div>
+              <div class="preview" data-src="/garage-septemes/"></div>
             </figure>
           </div>
           <div class="stage__tabs" role="group" aria-label="Choisir l'aperçu affiché">
@@ -203,11 +202,6 @@
               <p class="work__desc">Maquette proposée à une écurie de Gignac-la-Nerthe, style ranch : photo plein écran et enseigne à tampon, chapitres numérotés, tableau des cours avec photo épinglée, tarifs sur panneau de bois, plan dessiné du domaine, fiche d'essai sur lignes de cahier.</p>
               <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
-          <li class="work work--wide" data-cat="commerce"><a href="/demos/carrosserie-roc-blanc/">
-            <div class="work__frame"><div class="window__bar"><span>Carrosserie</span></div><div class="preview" data-src="/demos/carrosserie-roc-blanc/"></div><span class="work__tag">Démonstration</span></div>
-            <div class="work__body"><h3 class="work__title">Carrosserie</h3>
-              <p class="work__desc">Démonstration pour une carrosserie indépendante, construite sur la plaque d'immatriculation : on tape sa plaque dans une plaque géante, trois photos, devis sous 24 h. Sections-plaques, avant / après au curseur, plaque d'action fixe sur mobile.</p>
-              <span class="work__open">Ouvrir le site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div></a></li>
 
           <li class="work" data-cat="restaurant"><a href="/pizza-maracana/">
             <div class="work__frame"><div class="window__bar"><span>Pizzeria de quartier</span></div><div class="preview" data-src="/pizza-maracana/"></div><span class="work__tag">Maquette proposée</span></div>
@@ -290,7 +284,10 @@
         </article>
 
         <article class="app app--flip">
-          <div class="app__visual"><img src="/assets/img/realisations/myta.jpg" alt="Écrans de l'application My Twin App" loading="lazy"></div>
+          <div class="app__visual app__visual--phone">
+            <figure class="phone"><img src="/assets/img/realisations/myta-journal.jpg" alt="Écran Journal de l'application My Twin App : calories du jour, macronutriments, conseil de Waty" loading="lazy"></figure>
+            <img class="waty" src="/assets/img/realisations/waty.png" alt="Waty, la mascotte pastèque de My Twin App" loading="lazy">
+          </div>
           <div class="reveal">
             <p class="app__kind">Application mobile · App Store et Google Play</p>
             <h3 class="app__title">My Twin App</h3>

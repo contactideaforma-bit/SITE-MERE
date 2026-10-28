@@ -123,19 +123,6 @@
     }
   }
 
-  /* ---------- Curseur ---------- */
-  const cursor = document.querySelector(".cursor");
-  if (cursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    let cx = -100, cy = -100, x = -100, y = -100;
-    window.addEventListener("pointermove", (e) => { cx = e.clientX; cy = e.clientY; document.body.classList.add("has-cursor"); }, { passive: true });
-    const loop = () => { x += (cx - x) * 0.22; y += (cy - y) * 0.22; cursor.style.transform = `translate(${x}px, ${y}px)${cursor.classList.contains("is-link") ? " scale(2.2)" : ""}`; requestAnimationFrame(loop); };
-    loop();
-    document.addEventListener("pointerover", (e) => {
-      cursor.classList.toggle("is-link", !!e.target.closest("a, button, label, input, textarea"));
-    });
-    document.addEventListener("pointerleave", () => document.body.classList.remove("has-cursor"));
-  }
-
   /* ---------- Galerie horizontale : défilement natif, glisser, flèches ---------- */
   const gtrack = document.querySelector(".gallery__track");
   if (gtrack) {
@@ -165,6 +152,18 @@
     });
     window.addEventListener("pointerup", () => { down = false; setTimeout(() => gtrack.classList.remove("is-dragging"), 50); });
     document.querySelectorAll(".filters button").forEach((b) => b.addEventListener("click", () => { gtrack.scrollTo({ left: 0 }); requestAnimationFrame(update); }));
+  }
+
+  /* ---------- En-tête : se cache en descendant, revient en remontant ---------- */
+  const top = document.getElementById("top");
+  if (top) {
+    let last = window.scrollY || 0;
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY || 0;
+      if (y > 140 && y > last + 4) top.classList.add("is-hidden");
+      else if (y < last - 4 || y <= 140) top.classList.remove("is-hidden");
+      last = y;
+    }, { passive: true });
   }
 
   /* ---------- Smooth scroll ---------- */
@@ -290,6 +289,14 @@
 
   /* ---------- Applications : révélation en rideau + zoom ---------- */
   gsap.utils.toArray(".app__visual").forEach((v) => {
+    const phone = v.querySelector(".phone");
+    if (phone) {
+      gsap.to(phone, { clipPath: "inset(0 0 0% 0 round 40px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: v, start: "top 78%" } });
+      gsap.fromTo(phone, { y: 40 }, { y: -40, ease: "none", scrollTrigger: { trigger: v, start: "top bottom", end: "bottom top", scrub: true } });
+      const waty = v.querySelector(".waty");
+      if (waty) gsap.fromTo(waty, { scale: 0, rotate: -30 }, { scale: 1, rotate: -8, duration: 1.2, ease: "back.out(1.7)", scrollTrigger: { trigger: v, start: "top 60%" } });
+      return;
+    }
     gsap.to(v, { clipPath: "inset(0 0 0% 0 round 12px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: v, start: "top 80%" } });
     const img = v.querySelector("img");
     if (img) gsap.fromTo(img, { scale: 1.18 }, { scale: 1, ease: "none", scrollTrigger: { trigger: v, start: "top bottom", end: "bottom top", scrub: true } });
