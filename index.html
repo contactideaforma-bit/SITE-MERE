@@ -20,13 +20,49 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "MyEasyDev",
-    "url": "https://myeasydev-studio.fr/",
-    "email": "webidea@gmail.com",
-    "description": "Création de sites internet et d'applications pour les commerces de proximité, région marseillaise.",
-    "areaServed": "Provence-Alpes-Côte d'Azur",
-    "priceRange": "€€"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://myeasydev-studio.fr/#website",
+        "url": "https://myeasydev-studio.fr/",
+        "name": "MyEasyDev",
+        "description": "Création de sites internet et d'applications pour les commerces de proximité, restaurants, artisans et collectivités de la région marseillaise.",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://myeasydev-studio.fr/#business" }
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://myeasydev-studio.fr/#business",
+        "name": "MyEasyDev",
+        "legalName": "Myriam Ayouaz (entrepreneur individuel) — nom commercial MyEasyDev",
+        "url": "https://myeasydev-studio.fr/",
+        "logo": "https://myeasydev-studio.fr/assets/img/favicon.svg",
+        "image": "https://myeasydev-studio.fr/assets/img/favicon.svg",
+        "telephone": "+33626161393",
+        "email": "webidea@gmail.com",
+        "description": "Création de sites internet sur mesure avec espace de gestion, commande en ligne et référencement local pour les commerces, restaurants, artisans et mairies. Vous restez propriétaire de votre site et de votre nom de domaine.",
+        "founder": { "@type": "Person", "name": "Myriam Ayouaz" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "144 avenue Charles de Gaulle",
+          "postalCode": "92200",
+          "addressLocality": "Neuilly-sur-Seine",
+          "addressCountry": "FR"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Marseille" },
+          { "@type": "AdministrativeArea", "name": "Bouches-du-Rhône" },
+          { "@type": "AdministrativeArea", "name": "Provence-Alpes-Côte d'Azur" },
+          { "@type": "Country", "name": "France" }
+        ],
+        "knowsAbout": ["Création de site internet", "Site vitrine", "Commande en ligne", "Réservation en ligne", "Référencement local", "Application mobile", "Logiciel métier"],
+        "priceRange": "850 € - 2 800 €",
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": "Virement, carte bancaire",
+        "identifier": { "@type": "PropertyValue", "propertyID": "SIREN", "value": "130993348" },
+        "sameAs": ["https://myeasyauto.fr", "https://mytwinapp.fr", "https://ideaforma.fr"]
+      }
+    ]
   }
   </script>
 </head>
