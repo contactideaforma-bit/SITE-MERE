@@ -62,11 +62,22 @@
     if (resizer) resizer.observe(box);
   };
 
+  /* Les aperçus qui s'éloignent de l'écran sont démontés : sur mobile, une vingtaine
+     de sites chargés en même temps fait planter le navigateur. */
+  const unmount = (box) => {
+    const frame = box.querySelector("iframe");
+    if (!frame) return;
+    if (resizer) resizer.unobserve(box);
+    frame.src = "about:blank";
+    frame.remove();
+    delete box.dataset.loaded;
+  };
   const previews = document.querySelectorAll(".preview[data-src]");
+  const small = window.matchMedia("(max-width: 860px)").matches;
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => { if (en.isIntersecting) { mount(en.target); io.unobserve(en.target); } });
-    }, { rootMargin: "300px 0px" });
+      entries.forEach((en) => { if (en.isIntersecting) mount(en.target); else unmount(en.target); });
+    }, { rootMargin: small ? "120px 0px" : "300px 200px" });
     previews.forEach((p) => io.observe(p));
   } else {
     previews.forEach(mount);

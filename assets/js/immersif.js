@@ -7,11 +7,13 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hasGsap = typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined";
   const isDesktop = () => window.matchMedia("(min-width: 861px)").matches;
+  const lowPower = window.matchMedia("(max-width: 860px), (pointer: coarse)").matches;
+  if (lowPower) document.documentElement.classList.add("low-power");
 
   /* ---------- Fond WebGL : lumière qui dérive ---------- */
   const sky = document.getElementById("sky");
   const initSky = () => {
-    if (!sky || reduceMotion) return null;
+    if (!sky || reduceMotion || lowPower) return null;
     const gl = sky.getContext("webgl", { antialias: false, alpha: false, powerPreference: "low-power" });
     if (!gl) return null;
 
@@ -110,7 +112,7 @@
     probe.onload = () => show(LOCAL);
     probe.onerror = () => { const r = new Image(); r.onload = () => show(REMOTE); r.src = REMOTE; };
     probe.src = LOCAL;
-    if (!reduceMotion) {
+    if (!reduceMotion && !lowPower) {
       let px = 0, py = 0, tx = 0, ty = 0;
       window.addEventListener("pointermove", (e) => { tx = (e.clientX / innerWidth - 0.5) * 14; ty = (e.clientY / innerHeight - 0.5) * 10; }, { passive: true });
       const loop = () => {
@@ -168,7 +170,7 @@
 
   /* ---------- Smooth scroll ---------- */
   let lenis = null;
-  if (typeof window.Lenis !== "undefined" && !reduceMotion) {
+  if (typeof window.Lenis !== "undefined" && !reduceMotion && !lowPower) {
     lenis = new window.Lenis({ lerp: 0.09, wheelMultiplier: 0.95, smoothWheel: true });
     if (hasGsap) {
       lenis.on("scroll", window.ScrollTrigger.update);
