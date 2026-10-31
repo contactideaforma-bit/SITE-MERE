@@ -449,3 +449,6 @@ body.menu-open .tn-burger i { background: var(--vert); }
   .cookie-banner { bottom: 96px; }
 }
 @media (prefers-reduced-motion: reduce) { .banner-img { animation: none; } }
+
+/* Logo texte (démonstration) */
+.brand-text { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.35rem; letter-spacing: 0.12em; text-transform: uppercase; color: inherit; white-space: nowrap; }

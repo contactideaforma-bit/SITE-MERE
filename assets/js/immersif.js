@@ -225,7 +225,7 @@
     .fromTo(".top", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 0.4);
 
   let played = null;
-  try { played = sessionStorage.getItem("mymy-intro"); } catch (e) {}
+  try { played = sessionStorage.getItem("mymy-intro-2"); } catch (e) {}
   const flash = document.querySelector(".flash");
   const beam = document.querySelector(".beam");
   if (intro && !reduceMotion && !played) {
@@ -237,7 +237,7 @@
     const lights = { key: 0, rim: 0 };
     const applyLights = () => { if (skyState) { skyState.key = lights.key; skyState.rim = lights.rim; } };
     const blink = (at, tl) => { if (flash) tl.fromTo(flash, { opacity: 0 }, { opacity: 0.18, duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, at); };
-    const tl = gsap.timeline({ onComplete: () => { intro.classList.add("is-done"); document.documentElement.classList.remove("lenis-stopped"); heroTl.play(); if (beam) gsap.to(beam, { opacity: 1, duration: 1.5 }); try { sessionStorage.setItem("mymy-intro", "1"); } catch (e) {} } });
+    const tl = gsap.timeline({ onComplete: () => { intro.classList.add("is-done"); document.documentElement.classList.remove("lenis-stopped"); heroTl.play(); if (beam) gsap.to(beam, { opacity: 1, duration: 1.5 }); try { sessionStorage.setItem("mymy-intro-2", "1"); } catch (e) {} } });
     tl.to(".intro__word span", { y: 0, duration: 1.1, stagger: 0.12 }, 0)
       .to(".intro__note span", { y: 0, duration: 0.9 }, 0.5)
       .to(num, { v: 100, duration: 1.6, ease: "power2.inOut", onUpdate: () => { if (count) count.textContent = String(Math.round(num.v)).padStart(3, "0"); } }, 0.2)
@@ -274,24 +274,20 @@
   }
   gsap.to(".hero__inner, .hero__below", { yPercent: -12, opacity: 0.2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
 
-  /* ---------- Maquettes vivantes : les aperçus du hero défilent tout seuls ---------- */
-  const liveFrames = new Map();
-  const animateFrame = (box) => {
-    const frame = box.querySelector("iframe");
-    if (!frame || liveFrames.has(frame) || lowPower) return;
-    const scale = box.clientWidth / 1280;
-    const visible = box.clientHeight / scale;            /* hauteur visible, en pixels du site */
-    const total = Math.ceil(visible * 3);                /* on rend trois écrans de haut */
-    frame.style.height = total + "px";
-    const dist = (total - visible) * scale;              /* déplacement en pixels de la boîte */
-    const tween = gsap.fromTo(frame, { top: 0 }, { top: -dist, duration: 14, ease: "sine.inOut", yoyo: true, repeat: -1, repeatDelay: 1.2, delay: 2 });
-    liveFrames.set(frame, tween);
-  };
-  const stageBoxes = document.querySelectorAll(".stage .preview");
-  if (stageBoxes.length) {
-    const mo = new MutationObserver(() => stageBoxes.forEach(animateFrame));
-    stageBoxes.forEach((b) => { mo.observe(b, { childList: true }); animateFrame(b); });
-    window.addEventListener("resize", () => { liveFrames.forEach((t, f) => { t.kill(); liveFrames.delete(f); }); stageBoxes.forEach(animateFrame); });
+  /* ---------- Maquettes vivantes : les aperçus du hero défilent tout seuls (images, zéro iframe) ---------- */
+  if (!lowPower) {
+    document.querySelectorAll(".stage .shot-box").forEach((box, i) => {
+      const img = box.querySelector(".shot--tall");
+      if (!img) return;
+      const run = () => {
+        const dist = img.clientHeight - box.clientHeight;
+        if (dist <= 0) return;
+        gsap.killTweensOf(img);
+        gsap.fromTo(img, { y: 0 }, { y: -dist, duration: 12 + i * 1.5, ease: "sine.inOut", yoyo: true, repeat: -1, repeatDelay: 1.4, delay: 1.5 + i });
+      };
+      if (img.complete) run(); else img.addEventListener("load", run, { once: true });
+      window.addEventListener("resize", run);
+    });
   }
 
   /* Zoom plein écran avant d'ouvrir une maquette (hero et galerie) */

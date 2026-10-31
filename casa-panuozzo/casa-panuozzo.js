@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  var IMG = "https://casapanuozzo.fr/wp-content/uploads/";
+  var IMG = "#wp-content/uploads/";
   var UNS = "https://images.unsplash.com/";
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
