@@ -20,7 +20,7 @@
     const vs = `attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }`;
     const fs = `
       precision mediump float;
-      uniform vec2 r; uniform float t; uniform vec2 m; uniform float s;
+      uniform vec2 r; uniform float t; uniform vec2 m; uniform float s; uniform vec2 l;
       float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123); }
       float noise(vec2 p){
         vec2 i = floor(p), f = fract(p);
@@ -39,21 +39,21 @@
         vec2 key = vec2(0.18 + (m.x - 0.5) * 0.25, 0.72 + s * 0.15 + (m.y - 0.5) * 0.1);
         float dk = length(q - vec2((key.x) * asp - 0.5 * asp, key.y - 0.5));
         float keyL = exp(-dk * dk * 2.2);
-        col += vec3(0.95, 0.78, 0.52) * keyL * 0.26;
+        col += vec3(0.95, 0.78, 0.52) * keyL * 0.26 * l.x;
 
         /* Contre-jour bleu froid à droite */
         vec2 rim = vec2(0.86 - (m.x - 0.5) * 0.15, 0.35 - s * 0.2);
         float dr = length(q - vec2(rim.x * asp - 0.5 * asp, rim.y - 0.5));
         float rimL = exp(-dr * dr * 1.6);
-        col += vec3(0.33, 0.42, 1.0) * rimL * 0.2;
+        col += vec3(0.33, 0.42, 1.0) * rimL * 0.2 * l.y;
 
         /* Cyclorama : le sol se relève doucement, comme un fond de studio */
         float floorL = smoothstep(0.55, 0.0, uv.y) * 0.05;
-        col += vec3(0.86, 0.80, 0.70) * floorL;
+        col += vec3(0.86, 0.80, 0.70) * floorL * max(l.x, l.y);
 
         /* Volutes de brume très douces */
         float n = fbm(q * 1.6 + vec2(tt * 0.5, -tt * 0.3));
-        col += vec3(0.6, 0.62, 0.78) * smoothstep(0.55, 0.95, n) * 0.06;
+        col += vec3(0.6, 0.62, 0.78) * smoothstep(0.55, 0.95, n) * 0.06 * max(l.x, l.y);
 
         float v = length(vec2(q.x / asp, q.y));
         col *= 1.0 - smoothstep(0.3, 0.9, v) * 0.5;
@@ -70,9 +70,9 @@
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
     const loc = gl.getAttribLocation(prog, "p");
     gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    const uR = gl.getUniformLocation(prog, "r"), uT = gl.getUniformLocation(prog, "t"), uM = gl.getUniformLocation(prog, "m"), uS = gl.getUniformLocation(prog, "s");
+    const uR = gl.getUniformLocation(prog, "r"), uT = gl.getUniformLocation(prog, "t"), uM = gl.getUniformLocation(prog, "m"), uS = gl.getUniformLocation(prog, "s"), uL = gl.getUniformLocation(prog, "l");
 
-    const state = { mx: 0.5, my: 0.5, tx: 0.5, ty: 0.5, scroll: 0, visible: true };
+    const state = { mx: 0.5, my: 0.5, tx: 0.5, ty: 0.5, scroll: 0, visible: true, key: 1, rim: 1 };
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5) * 0.5;
       sky.width = Math.floor(innerWidth * dpr); sky.height = Math.floor(innerHeight * dpr);
@@ -93,6 +93,7 @@
         gl.uniform1f(uT, (performance.now() - start) / 1000);
         gl.uniform2f(uM, state.mx, state.my);
         gl.uniform1f(uS, state.scroll);
+        gl.uniform2f(uL, state.key, state.rim);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       }
       requestAnimationFrame(frame);
@@ -100,7 +101,8 @@
     requestAnimationFrame(frame);
     return state;
   };
-  if (!initSky() && sky) sky.style.background = "radial-gradient(70% 55% at 18% 10%, rgba(242,180,92,0.22), transparent 60%), radial-gradient(60% 60% at 88% 60%, rgba(93,109,255,0.2), transparent 60%), #000";
+  const skyState = initSky();
+  if (!skyState && sky) sky.style.background = "radial-gradient(70% 55% at 18% 10%, rgba(242,180,92,0.22), transparent 60%), radial-gradient(60% 60% at 88% 60%, rgba(93,109,255,0.2), transparent 60%), #000";
 
   /* ---------- Photo de studio : locale si présente, sinon Unsplash ; parallaxe lente ---------- */
   const photo = document.getElementById("photo");
@@ -224,16 +226,37 @@
 
   let played = null;
   try { played = sessionStorage.getItem("mymy-intro"); } catch (e) {}
+  const flash = document.querySelector(".flash");
+  const beam = document.querySelector(".beam");
   if (intro && !reduceMotion && !played) {
-    document.documentElement.classList.add("lenis-stopped");
+    /* Studio éteint : lumières à zéro, photo masquée, puis allumage projecteur par projecteur */
+    document.documentElement.classList.add("lenis-stopped", "lights-off");
+    if (skyState) { skyState.key = 0; skyState.rim = 0; }
     const count = intro.querySelector(".intro__count");
     const num = { v: 0 };
-    gsap.timeline({ onComplete: () => { intro.classList.add("is-done"); document.documentElement.classList.remove("lenis-stopped"); heroTl.play(); try { sessionStorage.setItem("mymy-intro", "1"); } catch (e) {} } })
-      .to(".intro__word span", { y: 0, duration: 1.1, stagger: 0.12 }, 0)
-      .to(num, { v: 100, duration: 1.5, ease: "power2.inOut", onUpdate: () => { if (count) count.textContent = String(Math.round(num.v)).padStart(3, "0"); } }, 0)
-      .to(".intro__word span", { y: "-110%", duration: 0.8, ease: "expo.in", stagger: 0.06 }, 1.5)
-      .to(intro, { yPercent: -100, duration: 1, ease: "expo.inOut" }, 1.9);
+    const lights = { key: 0, rim: 0 };
+    const applyLights = () => { if (skyState) { skyState.key = lights.key; skyState.rim = lights.rim; } };
+    const blink = (at, tl) => { if (flash) tl.fromTo(flash, { opacity: 0 }, { opacity: 0.18, duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, at); };
+    const tl = gsap.timeline({ onComplete: () => { intro.classList.add("is-done"); document.documentElement.classList.remove("lenis-stopped"); heroTl.play(); if (beam) gsap.to(beam, { opacity: 1, duration: 1.5 }); try { sessionStorage.setItem("mymy-intro", "1"); } catch (e) {} } });
+    tl.to(".intro__word span", { y: 0, duration: 1.1, stagger: 0.12 }, 0)
+      .to(".intro__note span", { y: 0, duration: 0.9 }, 0.5)
+      .to(num, { v: 100, duration: 1.6, ease: "power2.inOut", onUpdate: () => { if (count) count.textContent = String(Math.round(num.v)).padStart(3, "0"); } }, 0.2)
+      .to(".intro__word span", { y: "-110%", duration: 0.7, ease: "expo.in", stagger: 0.06 }, 1.7)
+      .to(".intro__note span", { y: "-120%", duration: 0.5, ease: "expo.in" }, 1.8)
+      .to(intro, { opacity: 0, duration: 0.6, ease: "power2.inOut" }, 2.1)
+      /* Projecteur 1 : chaud, avec un léger vacillement d'amorçage */
+      .to(lights, { key: 0.35, duration: 0.08, ease: "none", onUpdate: applyLights }, 2.2)
+      .to(lights, { key: 0.1, duration: 0.1, ease: "none", onUpdate: applyLights }, 2.3)
+      .to(lights, { key: 1.25, duration: 0.5, ease: "power3.out", onUpdate: applyLights }, 2.42)
+      .to(lights, { key: 1, duration: 1.2, ease: "power2.inOut", onUpdate: applyLights }, 2.92)
+      /* Projecteur 2 : contre-jour bleu */
+      .to(lights, { rim: 1.3, duration: 0.35, ease: "power3.out", onUpdate: applyLights }, 2.95)
+      .to(lights, { rim: 1, duration: 1, ease: "power2.inOut", onUpdate: applyLights }, 3.3)
+      /* La photo du studio apparaît dans la lumière */
+      .add(() => document.documentElement.classList.remove("lights-off"), 2.6);
+    blink(2.2, tl); blink(2.95, tl);
   } else {
+    if (beam) gsap.set(beam, { opacity: 1 });
     if (intro) intro.classList.add("is-done");
     heroTl.play();
   }
@@ -250,6 +273,52 @@
     }, { passive: true });
   }
   gsap.to(".hero__inner, .hero__below", { yPercent: -12, opacity: 0.2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+
+  /* ---------- Maquettes vivantes : les aperçus du hero défilent tout seuls ---------- */
+  const liveFrames = new Map();
+  const animateFrame = (box) => {
+    const frame = box.querySelector("iframe");
+    if (!frame || liveFrames.has(frame) || lowPower) return;
+    const scale = box.clientWidth / 1280;
+    const visible = box.clientHeight / scale;            /* hauteur visible, en pixels du site */
+    const total = Math.ceil(visible * 3);                /* on rend trois écrans de haut */
+    frame.style.height = total + "px";
+    const dist = (total - visible) * scale;              /* déplacement en pixels de la boîte */
+    const tween = gsap.fromTo(frame, { top: 0 }, { top: -dist, duration: 14, ease: "sine.inOut", yoyo: true, repeat: -1, repeatDelay: 1.2, delay: 2 });
+    liveFrames.set(frame, tween);
+  };
+  const stageBoxes = document.querySelectorAll(".stage .preview");
+  if (stageBoxes.length) {
+    const mo = new MutationObserver(() => stageBoxes.forEach(animateFrame));
+    stageBoxes.forEach((b) => { mo.observe(b, { childList: true }); animateFrame(b); });
+    window.addEventListener("resize", () => { liveFrames.forEach((t, f) => { t.kill(); liveFrames.delete(f); }); stageBoxes.forEach(animateFrame); });
+  }
+
+  /* Zoom plein écran avant d'ouvrir une maquette (hero et galerie) */
+  const zoomOpen = (el, href) => {
+    if (!href || el.classList.contains("is-zooming")) return;
+    const r = el.getBoundingClientRect();
+    const veil = document.createElement("div"); veil.className = "zoom-veil"; document.body.appendChild(veil);
+    el.classList.add("is-zooming");
+    gsap.set(el, { top: r.top, left: r.left, width: r.width, height: r.height, x: 0, y: 0, rotateX: 0, rotateY: 0, scale: 1, opacity: 1, filter: "none" });
+    if (lenis) lenis.stop();
+    gsap.timeline({ onComplete: () => { window.location.href = href; } })
+      .to(veil, { opacity: 1, duration: 0.6, ease: "power2.inOut" }, 0)
+      .to(el, { top: 0, left: 0, width: innerWidth, height: innerHeight, borderRadius: 0, duration: 0.9, ease: "expo.inOut" }, 0.05)
+      .to(el, { opacity: 0, duration: 0.25 }, 0.95);
+  };
+  document.querySelectorAll(".stage .window[data-href]").forEach((w) => {
+    const open = (e) => { if (w.dataset.pos !== "0") return; e.preventDefault(); zoomOpen(w, w.dataset.href); };
+    w.addEventListener("click", open);
+    w.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") open(e); });
+  });
+  document.querySelectorAll(".work > a").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      if (lowPower || e.metaKey || e.ctrlKey || e.shiftKey || a.target === "_blank" || !a.getAttribute("href").startsWith("/")) return;
+      const frame = a.querySelector(".work__frame"); if (!frame) return;
+      e.preventDefault(); zoomOpen(frame, a.getAttribute("href"));
+    });
+  });
 
   /* ---------- Bandeau ---------- */
   const track = document.querySelector(".ticker__track");
@@ -278,6 +347,20 @@
     });
   });
 
+  /* ---------- Projecteur qui suit le défilement ---------- */
+  if (beam && !lowPower) {
+    const qy = gsap.quickTo(beam, "y", { duration: 0.9, ease: "power3" });
+    const qs = gsap.quickTo(beam, "scaleY", { duration: 0.9, ease: "power3" });
+    ST.create({ trigger: document.body, start: 0, end: "max", onUpdate: (self) => { const v = gsap.utils.clamp(-1, 1, self.getVelocity() / 2500); qy(v * 70); qs(1 + Math.abs(v) * 0.35); } });
+    window.addEventListener("pointermove", (e) => { gsap.to(beam, { x: (e.clientX / innerWidth - 0.5) * 120, duration: 2, ease: "power2" }); }, { passive: true });
+  }
+  if (!lowPower) {
+    document.querySelectorAll(".work__frame, .case__frame, .plan, .included li, .app__visual, .launch, .summary, .step").forEach((el) => el.classList.add("lit"));
+    gsap.utils.toArray(".lit").forEach((el) => {
+      ST.create({ trigger: el, start: "top 62%", onEnter: () => el.classList.add("is-lit"), onLeaveBack: () => el.classList.remove("is-lit") });
+    });
+  }
+
   /* ---------- Titres en lignes ---------- */
   gsap.utils.toArray(".lines").forEach((el) => {
     gsap.to(el.querySelectorAll(".line > span"), { y: 0, duration: 1.4, stagger: 0.1, scrollTrigger: { trigger: el, start: "top 86%" } });
@@ -298,12 +381,22 @@
       if (mascot) gsap.fromTo(mascot, { scale: 0, rotate: -30 }, { scale: 1, rotate: -6, duration: 1.2, ease: "back.out(1.7)", scrollTrigger: { trigger: v, start: "top 60%" } });
       return;
     }
-    const phone = v.querySelector(".phone");
-    if (phone) {
-      gsap.to(phone, { clipPath: "inset(0 0 0% 0 round 40px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: v, start: "top 78%" } });
-      gsap.fromTo(phone, { y: 40 }, { y: -40, ease: "none", scrollTrigger: { trigger: v, start: "top bottom", end: "bottom top", scrub: true } });
+    const morph = v.querySelector(".morph");
+    if (morph) {
       const waty = v.querySelector(".waty");
-      if (waty) gsap.fromTo(waty, { scale: 0, rotate: -30 }, { scale: 1, rotate: -8, duration: 1.2, ease: "back.out(1.7)", scrollTrigger: { trigger: v, start: "top 60%" } });
+      if (lowPower) {
+        if (waty) gsap.fromTo(waty, { scale: 0, rotate: -30 }, { scale: 1, rotate: -8, duration: 1.2, ease: "back.out(1.7)", scrollTrigger: { trigger: v, start: "top 60%" } });
+        return;
+      }
+      const deskW = () => v.clientWidth, deskH = () => Math.round(v.clientWidth * 0.62);
+      gsap.set(morph, { width: deskW(), height: deskH(), transformPerspective: 1400 });
+      const tl = gsap.timeline({ scrollTrigger: { trigger: v, start: "top 70%", end: "center 45%", scrub: 0.8, invalidateOnRefresh: true } });
+      tl.to(morph, { rotateY: -14, duration: 0.3, ease: "power2.in" }, 0)
+        .to(".morph__bar", { opacity: 0, duration: 0.2 }, 0.15)
+        .to(morph, { width: () => Math.min(300, deskW() * 0.7), height: 600, borderRadius: 40, padding: 10, rotateY: 0, duration: 0.7, ease: "power3.inOut" }, 0.3)
+        .to(".morph__desktop", { opacity: 0, duration: 0.3 }, 0.45)
+        .to(".morph__mobile", { opacity: 1, duration: 0.3 }, 0.55);
+      if (waty) gsap.fromTo(waty, { scale: 0, rotate: -30 }, { scale: 1, rotate: -8, duration: 1.2, ease: "back.out(1.7)", scrollTrigger: { trigger: v, start: "center 40%" } });
       return;
     }
     gsap.to(v, { clipPath: "inset(0 0 0% 0 round 12px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: v, start: "top 80%" } });
@@ -323,6 +416,50 @@
   /* ---------- Pied de page : mot géant ---------- */
   const giant = document.querySelector(".foot__giant");
   if (giant) gsap.fromTo(giant, { xPercent: 6 }, { xPercent: -6, ease: "none", scrollTrigger: { trigger: giant, start: "top bottom", end: "bottom top", scrub: true } });
+
+  /* ---------- Détails : boutons magnétiques ---------- */
+  if (!lowPower) {
+    document.querySelectorAll(".btn, .gallery__arrow, .stage__tabs button").forEach((b) => {
+      const qx = gsap.quickTo(b, "x", { duration: 0.6, ease: "power3" }), qy = gsap.quickTo(b, "y", { duration: 0.6, ease: "power3" });
+      b.addEventListener("pointermove", (e) => { const r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width / 2) * 0.28); qy((e.clientY - r.top - r.height / 2) * 0.28); });
+      b.addEventListener("pointerleave", () => { qx(0); qy(0); });
+    });
+  }
+
+  /* ---------- Détails : les prix roulent comme un compteur ---------- */
+  const fmt = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 });
+  document.querySelectorAll("#s-gross, #s-off, #s-total, #s-month").forEach((dd) => {
+    let current = parseFloat(dd.textContent.replace(/[^\d,-]/g, "").replace(",", ".")) || 0;
+    let busy = false;
+    new MutationObserver(() => {
+      if (busy) return;
+      const target = parseFloat(dd.textContent.replace(/[^\d,-]/g, "").replace(",", ".")) || 0;
+      const suffix = dd.textContent.replace(/^[\s\d,.\-\u202f\u00a0]+/, "");
+      if (target === current) return;
+      const o = { v: current }; busy = true; dd.classList.add("is-rolling");
+      gsap.to(o, { v: target, duration: 0.7, ease: "power2.out", onUpdate: () => { dd.textContent = (target < 0 ? "-" : "") + fmt.format(Math.abs(Math.round(o.v))) + " " + suffix.trim(); }, onComplete: () => { busy = false; current = target; dd.classList.remove("is-rolling"); } });
+    }).observe(dd, { childList: true, characterData: true, subtree: true });
+  });
+
+  /* ---------- Détails : lettres qui se recomposent au survol ---------- */
+  if (!lowPower) {
+    const GLYPHS = "abcdefghijklmnopqrstuvwxyz0123456789";
+    document.querySelectorAll(".work__open, .top__nav a:not(.top__cta), .case .work__open").forEach((el) => {
+      const node = Array.from(el.childNodes).find((n) => n.nodeType === 3 && n.textContent.trim());
+      if (!node) return;
+      const original = node.textContent; let running = false;
+      el.addEventListener("pointerenter", () => {
+        if (running) return; running = true;
+        const start = performance.now(), dur = 420;
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / dur);
+          node.textContent = original.split("").map((ch, i) => (ch === " " || i / original.length < p) ? ch : GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join("");
+          if (p < 1) requestAnimationFrame(tick); else { node.textContent = original; running = false; }
+        };
+        requestAnimationFrame(tick);
+      });
+    });
+  }
 
   window.addEventListener("load", () => ST.refresh());
   document.fonts && document.fonts.ready.then(() => ST.refresh());

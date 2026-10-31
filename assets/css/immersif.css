@@ -63,6 +63,13 @@ input, textarea, select { font: inherit; }
 .intro__word span { display: block; transform: translateY(110%); }
 .intro__count { position: absolute; right: var(--gutter); bottom: 28px; font-variant-numeric: tabular-nums; color: var(--paper-3); font-size: 0.9rem; }
 .intro.is-done { display: none; }
+.intro__note { position: absolute; left: var(--gutter); bottom: 28px; margin: 0; color: var(--paper-3); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; overflow: hidden; }
+.intro__note span { display: block; transform: translateY(120%); }
+.flash { position: fixed; inset: 0; z-index: 81; pointer-events: none; background: #fff; opacity: 0; }
+.beam { position: fixed; left: 50%; top: 58vh; z-index: 1; width: 160vw; height: 70vh; transform: translate(-50%, -50%); pointer-events: none; mix-blend-mode: screen; opacity: 0; background: radial-gradient(closest-side, rgba(242, 200, 140, 0.22), rgba(242, 200, 140, 0.06) 45%, transparent 75%); will-change: transform; }
+html.low-power .beam, html.no-gsap .beam { display: none; }
+/* Avant l'allumage : photo et lumières éteintes */
+html.lights-off .photo.is-ready { opacity: 0; }
 
 /* ---------- En-tête ---------- */
 .top { position: fixed; inset: 0 0 auto 0; z-index: 70; display: flex; align-items: center; justify-content: space-between; padding: 22px var(--gutter); mix-blend-mode: difference; color: #fff; transition: padding 0.5s var(--ease); }
@@ -134,6 +141,13 @@ main { position: relative; z-index: 2; }
 .window__bar { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; background: var(--ink-3); color: var(--paper-2); font-size: 0.74rem; letter-spacing: 0.02em; border-bottom: 1px solid var(--line); flex: 0 0 auto; }
 .window__bar::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 14px 0 0 var(--blue), 28px 0 0 var(--paper-3); margin-right: 26px; flex: 0 0 auto; }
 .window__bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.window__open { margin-left: auto; font-style: normal; color: var(--amber-soft); font-size: 0.72rem; opacity: 0; transform: translateX(6px); transition: opacity 0.4s, transform 0.5s var(--ease); flex: 0 0 auto; padding-left: 10px; }
+.window[data-pos="0"] { cursor: pointer; }
+.window[data-pos="0"]:hover .window__open, .window[data-pos="0"]:focus-visible .window__open { opacity: 1; transform: none; }
+.window[data-pos="0"]:hover { border-color: rgba(236, 228, 212, 0.55); }
+.window.is-zooming { position: fixed !important; z-index: 95 !important; transition: none !important; margin: 0; }
+.zoom-veil { position: fixed; inset: 0; z-index: 94; background: var(--ink); opacity: 0; pointer-events: none; }
+.work__frame.is-zooming { position: fixed !important; z-index: 95 !important; transition: none !important; aspect-ratio: auto; }
 .preview { position: relative; width: 100%; flex: 1; min-height: 0; overflow: hidden; background: #fff; }
 .preview iframe { position: absolute; top: 0; left: 0; width: 1280px; border: 0; transform-origin: 0 0; pointer-events: none; }
 .stage__tabs { display: flex; gap: 8px; margin-top: 18px; }
@@ -417,6 +431,32 @@ html.no-gsap .phone, html.no-gsap .window--static { clip-path: none; }
 .cta { padding: clamp(36px, 5vw, 64px); border: 1px solid var(--line-strong); border-radius: 16px; background: rgba(11, 13, 19, 0.55); display: grid; gap: 22px; max-width: 76ch; }
 .cta .contact__big { font-size: clamp(2.2rem, 4.6vw, 4rem); }
 @media (max-width: 860px) { .case { grid-template-columns: 1fr; } .case:nth-child(even) .case__frame { order: 0; } }
+
+/* ---------- Projecteur : sortie de l'ombre ---------- */
+.lit { position: relative; filter: brightness(0.42) saturate(0.8); transition: filter 1.1s var(--ease); }
+.lit::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; background: linear-gradient(115deg, transparent 30%, rgba(255, 236, 200, 0.22) 50%, transparent 70%); background-size: 260% 100%; background-position: 120% 0; opacity: 0; }
+.lit.is-lit { filter: none; }
+.lit.is-lit::after { animation: sweep 1.3s var(--ease) forwards; }
+@keyframes sweep { 0% { opacity: 1; background-position: 120% 0; } 100% { opacity: 0; background-position: -60% 0; } }
+html.no-gsap .lit, html.low-power .lit { filter: none; }
+
+/* ---------- Boutons magnétiques, compteur de prix ---------- */
+.btn { will-change: transform; }
+.summary dd.is-rolling { color: var(--blue); transition: color 0.3s; }
+
+/* ---------- Écran → téléphone (My Twin App) ---------- */
+.morph { position: relative; margin: 0; width: 100%; aspect-ratio: auto; border-radius: 12px; overflow: hidden; background: #0a0b10; border: 1px solid rgba(236, 228, 212, 0.28); box-shadow: 0 60px 110px -40px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.06); display: flex; flex-direction: column; will-change: width, height, border-radius; }
+.morph__bar { flex: 0 0 auto; }
+.morph img { position: absolute; left: 0; top: 32px; width: 100%; height: calc(100% - 32px); object-fit: cover; object-position: top; transform: none; }
+.morph__mobile { opacity: 0; top: 0 !important; height: 100% !important; border-radius: inherit; }
+.app__visual--phone { min-height: 560px; align-items: center; justify-items: center; }
+html.no-gsap .morph, html.low-power .morph { width: min(300px, 70%); height: 600px; border-radius: 40px; padding: 10px; }
+html.no-gsap .morph .morph__bar, html.low-power .morph .morph__bar, html.no-gsap .morph__desktop, html.low-power .morph__desktop { display: none; }
+html.no-gsap .morph__mobile, html.low-power .morph__mobile { opacity: 1; position: static; border-radius: 31px; }
+
+/* ---------- Contact dans un rond de lumière ---------- */
+.chapter--spot { position: relative; }
+.chapter--spot::before { content: ""; position: absolute; left: 50%; top: 40%; width: min(110vw, 1400px); height: 80%; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(242, 200, 140, 0.13), rgba(93, 109, 255, 0.05) 55%, transparent 75%); pointer-events: none; }
 
 /* ---------- Révélations génériques ---------- */
 .reveal { opacity: 0; transform: translateY(26px); }

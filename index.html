@@ -71,8 +71,11 @@
 
   <div class="intro" aria-hidden="true">
     <div class="intro__word"><span>myeasy<i>dev</i></span></div>
+    <p class="intro__note"><span>Allumage du studio</span></p>
     <div class="intro__count">000</div>
   </div>
+  <div class="flash" aria-hidden="true"></div>
+  <div class="beam" aria-hidden="true"></div>
 
   <div class="photo" id="photo" aria-hidden="true"></div>
   <canvas class="sky" id="sky" aria-hidden="true"></canvas>
@@ -103,16 +106,16 @@
         </h1>
         <div class="hero__stage" aria-label="Aperçu de sites réalisés">
           <div class="stage">
-            <figure class="window" data-pos="0">
-              <div class="window__bar"><span>Maquette · restaurant de bord de mer</span></div>
+            <figure class="window" data-pos="0" data-href="/auberge-la-vigie/" tabindex="0" role="link" aria-label="Ouvrir la maquette du restaurant de bord de mer">
+              <div class="window__bar"><span>Maquette · restaurant de bord de mer</span><em class="window__open">Ouvrir ↗</em></div>
               <div class="preview" data-src="/auberge-la-vigie/"></div>
             </figure>
-            <figure class="window" data-pos="1">
-              <div class="window__bar"><span>Maquette · mairie</span></div>
+            <figure class="window" data-pos="1" data-href="/mairie-castelmar/" tabindex="0" role="link" aria-label="Ouvrir la maquette de la mairie">
+              <div class="window__bar"><span>Maquette · mairie</span><em class="window__open">Ouvrir ↗</em></div>
               <div class="preview" data-src="/mairie-castelmar/"></div>
             </figure>
-            <figure class="window" data-pos="2">
-              <div class="window__bar"><span>Maquette · carrosserie</span></div>
+            <figure class="window" data-pos="2" data-href="/carrosserie-onyx/" tabindex="0" role="link" aria-label="Ouvrir la maquette de la carrosserie">
+              <div class="window__bar"><span>Maquette · carrosserie</span><em class="window__open">Ouvrir ↗</em></div>
               <div class="preview" data-src="/carrosserie-onyx/"></div>
             </figure>
           </div>
@@ -324,7 +327,11 @@
 
         <article class="app app--flip">
           <div class="app__visual app__visual--phone">
-            <figure class="phone"><img src="/assets/img/realisations/myta-journal.jpg" alt="Écran Journal de l'application My Twin App : calories du jour, macronutriments, conseil de Waty" loading="lazy"></figure>
+            <figure class="morph">
+              <div class="window__bar morph__bar"><span>mytwinapp.fr</span></div>
+              <img class="morph__desktop" src="/assets/img/realisations/myta.jpg" alt="Page d'accueil de mytwinapp.fr" loading="lazy">
+              <img class="morph__mobile" src="/assets/img/realisations/myta-journal.jpg" alt="Écran Journal de l'application My Twin App : calories du jour, macronutriments, conseil de Waty" loading="lazy">
+            </figure>
             <img class="waty" src="/assets/img/realisations/waty.png" alt="Waty, la mascotte pastèque de My Twin App" loading="lazy">
           </div>
           <div class="reveal">
@@ -498,7 +505,7 @@
     </section>
 
     <!-- ===================== CONTACT ===================== -->
-    <section class="chapter" id="contact" aria-labelledby="contact-title">
+    <section class="chapter chapter--spot" id="contact" aria-labelledby="contact-title">
       <div class="contact">
         <div>
           <h2 class="contact__big lines" id="contact-title"><span class="line"><span>Parlons de</span></span><span class="line"><span><em>votre</em> site</span></span></h2>
