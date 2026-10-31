@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le comptoir – espace commerçant de la boutique | Casa Panuozzo</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FBF6EA">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Mrs+Saint+Delafield&family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="casa-panuozzo.css">
+<style>
+  .cpt-head { position: sticky; top: 0; z-index: 30; background: var(--crema); border-bottom: 2px solid var(--verde); }
+  .cpt-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; border-top: 1px solid var(--oro); }
+  .cpt-bar { max-width: 1400px; margin: 0 auto; padding: .7rem var(--gutter); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+  .cpt-bar h1 { font-size: 1.8rem; margin: 0; flex: 1; min-width: 220px; }
+  .cpt-bar h1 small { display: block; font-family: var(--f-label); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .clock { font-family: var(--f-label); font-size: 1.6rem; letter-spacing: .05em; font-variant-numeric: tabular-nums; }
+  .switch { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; padding: .3rem .9rem; border: 1.5px solid var(--verde); border-radius: 6px; background: var(--carta); cursor: pointer; font-family: var(--f-label); text-transform: uppercase; letter-spacing: .08em; color: var(--verde); }
+  .switch[aria-pressed="true"] { border-color: var(--pomodoro); background: var(--rosa); color: var(--pomodoro-2); }
+  .switch i { width: 34px; height: 20px; border-radius: 10px; background: var(--sabbia); border: 1px solid var(--line); position: relative; }
+  .switch i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--verde); transition: left .2s; }
+  .switch[aria-pressed="true"] i::after { left: 16px; background: var(--pomodoro); }
+  .cpt-main { max-width: 1400px; margin: 0 auto; padding: 1.2rem var(--gutter) 3rem; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--verde); border-bottom: 1px solid var(--line); margin-bottom: 1.4rem; }
+  .kpis div { padding: .9rem 1rem .9rem 0; }
+  .kpis div + div { padding-left: 1rem; border-left: 1px solid var(--line); }
+  .kpis small { font-family: var(--f-label); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-size: .82rem; }
+  .kpis b { display: block; font-family: var(--f-sign); font-weight: 400; font-size: 2rem; line-height: 1.1; }
+  .kpis .save b { color: var(--pomodoro); }
+  .board3 { display: grid; grid-template-columns: repeat(3, 1fr) 280px; gap: 1rem; align-items: start; }
+  .col { border: 1.5px solid var(--verde); border-radius: 8px; background: var(--carta); min-height: 300px; }
+  .col h2 { font-size: 1.35rem; margin: 0; padding: .7rem .9rem; border-bottom: 1px solid var(--verde); display: flex; justify-content: space-between; align-items: baseline; }
+  .col h2 span { font-family: var(--f-label); font-size: 1rem; color: var(--pomodoro); }
+  .col ul { list-style: none; margin: 0; padding: .7rem; display: grid; gap: .7rem; }
+  .tk { border: 1px solid var(--line); border-radius: 6px; background: var(--crema); padding: .8rem; animation: tkIn .5s var(--ease); }
+  .tk.new { border-color: var(--pomodoro); box-shadow: 0 0 0 3px rgba(194, 47, 70, .15); }
+  @keyframes tkIn { from { opacity: 0; transform: translateY(-8px); } }
+  .tk-top { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+  .tk-top b { font-family: var(--f-sign); font-weight: 400; font-size: 1.5rem; color: var(--pomodoro); }
+  .tk-top span { font-family: var(--f-label); font-size: 1.1rem; letter-spacing: .04em; }
+  .tk p { margin: .2rem 0; font-size: .9rem; }
+  .tk ul { list-style: none; padding: .4rem 0; margin: .3rem 0; border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line); display: block; }
+  .tk ul li { font-size: .92rem; padding: .15rem 0; }
+  .tk ul li small { display: block; color: var(--muted); font-size: .8rem; }
+  .tk .note { background: var(--rosa); padding: .3rem .5rem; border-radius: 4px; font-size: .85rem; }
+  .tk .btn-tomato, .tk .btn-line { width: 100%; margin-top: .5rem; min-height: 44px; font-size: .95rem; }
+  .muted { color: var(--muted); font-size: .9rem; padding: .3rem .2rem; }
+  .stock h2 { font-size: 1.35rem; }
+  .stock label { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .55rem .9rem; border-bottom: 1px solid var(--line); font-family: var(--f-text); text-transform: none; letter-spacing: 0; font-size: .95rem; cursor: pointer; min-height: 44px; }
+  .stock input { width: 22px; height: 22px; accent-color: var(--pomodoro); }
+  .stock .intro { padding: .7rem .9rem 0; }
+  .demo-tools { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+  .cpt-tabs { display: none; }
+  @media (max-width: 1100px) { .board3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 720px) {
+    .kpis { grid-template-columns: 1fr 1fr; }
+    .kpis div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .kpis div:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .board3 { grid-template-columns: 1fr; }
+    .cpt-head { position: static; } .cpt-bar h1 { font-size: 1.5rem; } .cpt-tabs { display: flex; position: sticky; top: 0; z-index: 5; background: var(--crema); margin-bottom: .8rem; }
+    .cpt-tabs button { flex: 1; min-height: 46px; border: 0; border-bottom: 2px solid var(--line); background: none; font-family: var(--f-label); text-transform: uppercase; letter-spacing: .06em; font-size: .92rem; color: var(--muted); white-space: nowrap; }
+    .cpt-tabs button[aria-selected="true"] { border-color: var(--pomodoro); color: var(--verde); }
+    .col[data-col]:not(.show) { display: none; }
+  }
+</style>
+</head>
+<body class="tn">
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+<div class="demo-ribbon" role="note"><strong>Maquette</strong> de l'espace commerçant proposé à Casa Panuozzo — les commandes passées sur <a href="./">l'appli client</a> dans ce navigateur arrivent ici en direct.</div>
+
+<header class="cpt-head">
+  <div class="cpt-bar">
+    <h1><small>Casa Panuozzo Marseille · espace comptoir</small>Le comptoir</h1>
+    <span class="clock" data-clock>--:--</span>
+    <button class="switch" type="button" data-sound aria-pressed="true"><i></i>Sonnerie</button>
+    <button class="switch" type="button" data-pause aria-pressed="false"><i></i><span data-pause-label>Commandes ouvertes</span></button>
+  </div>
+</header>
+
+<main id="main" class="cpt-main">
+  <section class="kpis" aria-label="Chiffres du jour">
+    <div><small>Commandes du jour</small><b data-k-count>0</b></div>
+    <div><small>Chiffre encaissé</small><b data-k-ca>0,00 €</b></div>
+    <div><small>Panier moyen</small><b data-k-avg>—</b></div>
+    <div class="save"><small>Commission évitée*</small><b data-k-save>0,00 €</b></div>
+  </section>
+
+  <div class="cpt-tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-show="recue">Reçues</button>
+    <button role="tab" aria-selected="false" data-show="four">En prépa</button>
+    <button role="tab" aria-selected="false" data-show="prete">Prêtes</button>
+    <button role="tab" aria-selected="false" data-show="stock">Stock</button>
+  </div>
+
+  <div class="board3">
+    <section class="col show" data-col="recue"><h2>Reçues <span data-n="recue">0</span></h2><ul data-list="recue"></ul></section>
+    <section class="col" data-col="four"><h2>En préparation <span data-n="four">0</span></h2><ul data-list="four"></ul></section>
+    <section class="col" data-col="prete"><h2>Prêtes <span data-n="prete">0</span></h2><ul data-list="prete"></ul></section>
+    <section class="col stock" data-col="stock"><h2 style="padding:.7rem .9rem;margin:0;border-bottom:1px solid var(--verde)">Épuisé aujourd'hui</h2>
+      <p class="muted intro">Cochez un produit : il passe aussitôt en « épuisé » sur l'appli client.</p>
+      <div data-stock></div>
+    </section>
+  </div>
+
+  <div class="demo-tools">
+    <button class="btn-line" type="button" data-fake>Simuler une commande entrante</button>
+    <button class="linkish" type="button" data-reset>Vider les commandes de démonstration</button>
+  </div>
+  <p class="muted">* Estimation : commission qu'aurait prélevée une plateforme de livraison à 30 % sur ces commandes. Dans la version finale, l'accès au comptoir est protégé par un identifiant, les commandes sont stockées sur un serveur sécurisé (Supabase) et peuvent être imprimées sur l'imprimante à tickets du comptoir <span class="placeholder-flag">matériel à confirmer</span>.</p>
+  <p><a href="./" class="btn-line">← Retour à l'appli client</a></p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  var store = {
+    get: function (k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+    set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  var bc = null; try { bc = new BroadcastChannel("casa-panuozzo"); } catch (e) {}
+  var emit = function (t) { if (bc) try { bc.postMessage({ type: t }); } catch (e) {} };
+  var euro = function (n) { return n.toFixed(2).replace(".", ",") + " €"; };
+  var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+  var esc = function (v) { return String(v || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var PRODUCTS = [["casa-panuozzo", "Le Casa Panuozzo"], ["portofino", "Le Portofino"], ["truffe", "Le Truffé"], ["veau", "Le Veau"], ["mortadella", "La Mortadella pistache"], ["pastrami", "Le Pastrami"], ["tiramisu", "Tiramisu fait maison"], ["cedrata", "Cedrata"]];
+  var NEXT = { recue: "four", four: "prete", prete: "remise" };
+  var LABEL = { recue: "Lancer la préparation", four: "Marquer prête", prete: "Remise au client" };
+  var seen = store.get("casa-panuozzo-seen", []) || [];
+
+  function orders() { return store.get("casa-panuozzo-orders", []) || []; }
+  function save(list) { store.set("casa-panuozzo-orders", list); emit("orders"); }
+
+  function render() {
+    var list = orders(), today = new Date().toDateString(), fresh = [];
+    ["recue", "four", "prete"].forEach(function (st) {
+      var items = list.filter(function (o) { return o.status === st; }).sort(function (a, b) { return a.slot < b.slot ? -1 : 1; });
+      $("[data-n='" + st + "']").textContent = items.length;
+      $("[data-list='" + st + "']").innerHTML = items.length ? items.map(function (o) {
+        var isNew = seen.indexOf(o.id) < 0; if (isNew) fresh.push(o.id);
+        return '<li class="tk' + (isNew ? " new" : "") + '"><div class="tk-top"><b>' + o.id + '</b><span>retrait ' + o.slot + '</span></div>' +
+          '<p><b>' + esc(o.name) + '</b> · ' + (o.mode === "place" ? "sur place" : "à emporter") + ' · <a href="tel:' + esc(o.phone.replace(/\s/g, "")) + '">' + esc(o.phone) + '</a></p>' +
+          '<ul>' + o.lines.map(function (l) { return '<li>' + l.qty + ' × ' + esc(l.name) + (l.detail ? '<small>' + esc(l.detail) + '</small>' : "") + '</li>'; }).join("") + '</ul>' +
+          (o.note ? '<p class="note">« ' + esc(o.note) + ' »</p>' : "") +
+          '<p>' + euro(o.total) + ' · ' + (o.pay === "carte" ? "payé en ligne" : "à encaisser") + '</p>' +
+          '<button class="' + (st === "prete" ? "btn-line" : "btn-tomato") + '" type="button" data-adv="' + o.id + '">' + LABEL[st] + '</button></li>';
+      }).join("") : '<li class="muted">Rien pour l\'instant.</li>';
+    });
+    var day = list.filter(function (o) { return new Date(o.at).toDateString() === today; });
+    var ca = day.reduce(function (s, o) { return s + o.total; }, 0);
+    $("[data-k-count]").textContent = day.length;
+    $("[data-k-ca]").textContent = euro(ca);
+    $("[data-k-avg]").textContent = day.length ? euro(ca / day.length) : "—";
+    $("[data-k-save]").textContent = euro(ca * 0.3);
+    if (fresh.length) { ding(); seen = seen.concat(fresh); store.set("casa-panuozzo-seen", seen); }
+    var out = store.get("casa-panuozzo-stock", []) || [];
+    $("[data-stock]").innerHTML = PRODUCTS.map(function (p) { return '<label>' + p[1] + '<input type="checkbox" data-out="' + p[0] + '"' + (out.indexOf(p[0]) > -1 ? " checked" : "") + '></label>'; }).join("");
+    var paused = !!store.get("casa-panuozzo-pause", false), pb = $("[data-pause]");
+    pb.setAttribute("aria-pressed", paused); $("[data-pause-label]").textContent = paused ? "Commandes en pause" : "Commandes ouvertes";
+  }
+
+  var actx = null, sound = true;
+  function ding() {
+    if (!sound) return;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      [880, 1320].forEach(function (f, i) {
+        var o = actx.createOscillator(), g = actx.createGain(); o.frequency.value = f; o.type = "sine";
+        g.gain.setValueAtTime(0.0001, actx.currentTime + i * .18); g.gain.exponentialRampToValueAtTime(0.25, actx.currentTime + i * .18 + .02); g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + i * .18 + .5);
+        o.connect(g).connect(actx.destination); o.start(actx.currentTime + i * .18); o.stop(actx.currentTime + i * .18 + .55);
+      });
+    } catch (e) {}
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-adv]");
+    if (a) { var list = orders(); list.forEach(function (o) { if (o.id === a.getAttribute("data-adv")) o.status = NEXT[o.status]; }); save(list); render(); }
+    if (e.target.closest("[data-pause]")) { store.set("casa-panuozzo-pause", !store.get("casa-panuozzo-pause", false)); emit("pause"); render(); }
+    var s = e.target.closest("[data-sound]"); if (s) { sound = !sound; s.setAttribute("aria-pressed", sound); if (sound) ding(); }
+    var t = e.target.closest("[data-show]");
+    if (t) { $$("[data-show]").forEach(function (b) { b.setAttribute("aria-selected", b === t); }); $$("[data-col]").forEach(function (c) { c.classList.toggle("show", c.getAttribute("data-col") === t.getAttribute("data-show")); }); }
+    if (e.target.closest("[data-fake]")) {
+      var l2 = orders(), d = new Date(Date.now() + 20 * 60000); d.setMinutes(Math.ceil(d.getMinutes() / 10) * 10);
+      var names = ["Yanis", "Inès", "Karim", "Léa", "Sofiane", "Manon"], n = names[l2.length % names.length];
+      l2.push({ id: "T-" + (400 + l2.length + 27), at: Date.now(), slot: pad(d.getHours()) + ":" + pad(d.getMinutes()), mode: l2.length % 2 ? "place" : "emporter", pay: l2.length % 3 ? "comptoir" : "carte", name: n, phone: "06 00 00 00 01", note: l2.length % 2 ? "" : "Bien chaud svp",
+        lines: [{ name: "Le Truffé", qty: 1, detail: "formule : Cedrata + Tiramisu fait maison", total: 18.8 }, { name: "Le Portofino", qty: 1, detail: "sans salade de mesclun", total: 10.9 }], total: 29.7, status: "recue" });
+      save(l2); render();
+    }
+    if (e.target.closest("[data-reset]")) { store.set("casa-panuozzo-orders", []); store.set("casa-panuozzo-seen", []); seen = []; emit("orders"); render(); }
+  });
+  document.addEventListener("change", function (e) {
+    if (!e.target.matches("[data-out]")) return;
+    var out = store.get("casa-panuozzo-stock", []) || [], id = e.target.getAttribute("data-out");
+    out = e.target.checked ? out.concat(id) : out.filter(function (x) { return x !== id; });
+    store.set("casa-panuozzo-stock", out); emit("stock");
+  });
+  if (bc) bc.onmessage = render;
+  window.addEventListener("storage", function (e) { if (e.key && e.key.indexOf("casa-panuozzo-") === 0) render(); });
+  function clock() { var d = new Date(); $("[data-clock]").textContent = pad(d.getHours()) + ":" + pad(d.getMinutes()); }
+  clock(); setInterval(clock, 15000);
+  seen = seen.concat(orders().map(function (o) { return o.id; })); /* pas de sonnerie pour l'existant */
+  render();
+})();
+</script>
+</body>
+</html>

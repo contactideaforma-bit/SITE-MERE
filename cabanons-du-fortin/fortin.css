@@ -1,0 +1,142 @@
+/* Cabanons du Fortin — style « carte postale » : photo à bord déchiré, timbre,
+   mention manuscrite, bande de gîtes qui défile, frise d'histoire. Fond écru. */
+:root{
+  --font-heading:'Gloock',Georgia,serif;--font-body:'Source Serif 4',Georgia,serif;--font-hand:'Caveat',cursive;
+  --ecru:#F7F4EE;--white:#FFFFFF;--ink:#1F2A33;--mute:#5C6873;--sea:#1B6E8E;--sea-2:#2D8FB3;--sun:#E9A03B;--sand:#EFE6D6;--line:rgba(31,42,51,.14);
+  --color-bg:var(--ecru);--color-text:var(--ink);--color-text-muted:var(--mute);--color-accent:var(--sea);--color-accent-2:var(--sun);--color-border:var(--line);
+}
+body{background:var(--ecru);color:var(--ink);font-size:1.1rem;line-height:1.65}
+h1,h2,h3{font-family:var(--font-heading);font-weight:400;line-height:1.12;letter-spacing:0}
+h2{font-size:clamp(1.9rem,1.3rem+2.2vw,3rem);margin-bottom:.8rem}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.kicker{font-family:var(--font-hand);font-size:1.5rem;color:var(--sea);margin-bottom:.1rem}
+.hand{font-family:var(--font-hand);font-size:1.6rem;color:var(--sea);line-height:1.2;margin-bottom:.6rem}
+.intro{color:var(--mute);max-width:62ch}
+.demo-ribbon{background:var(--sea);color:#fff}.demo-ribbon strong{color:#FFD98A}
+.skip-link{background:var(--sea)} :focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.placeholder-flag{font-size:.8em}
+
+.btn-sea,.btn-txt{display:inline-block;font-weight:500;min-height:48px;line-height:1.3;transition:background .2s,color .2s}
+.btn-sea{background:var(--sea);color:#fff;padding:.85rem 1.5rem;border-radius:3px;box-shadow:0 6px 16px rgba(27,110,142,.25)}
+.btn-sea:hover{background:var(--sea-2)}
+.btn-txt{color:var(--sea);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px;padding:.85rem 0}
+
+/* En-tête */
+.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem clamp(1rem,3vw,2rem);background:rgba(247,244,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:var(--font-heading);font-size:1.35rem;line-height:1}
+.logo small{display:block;font-family:var(--font-hand);font-size:1rem;color:var(--sea);margin-top:.15rem}
+.logo-wave{width:34px;height:34px;border-radius:6px;background:var(--sea);position:relative}
+.logo-wave::after{content:"";position:absolute;left:5px;right:5px;top:18px;height:6px;border-top:2.5px solid #fff;border-radius:50%}
+.top-nav{display:flex;align-items:center;gap:1.6rem}
+.top-nav a{font-weight:500;font-size:1rem;border-bottom:2px solid transparent;padding:.3rem 0}
+.top-nav a:hover{border-color:var(--sun)}
+.top-book{background:var(--sun);color:var(--ink);padding:.55rem 1rem!important;border-radius:3px;border:0!important}
+.top-menu{display:none}.mnav{display:none}
+
+/* Carte postale */
+.card{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,4vw,4rem);align-items:center;padding:clamp(1.5rem,4vw,3.5rem) clamp(1rem,3vw,2.5rem)}
+.card-photo{position:relative;margin:0;background:var(--white);padding:10px 10px 44px;box-shadow:0 20px 50px rgba(31,42,51,.18);transform:rotate(-1.5deg)}
+.card-photo img{width:100%;aspect-ratio:18/11;object-fit:cover;display:block}
+.stamp{position:absolute;right:22px;top:22px;background:var(--white);color:var(--sea);font-family:var(--font-heading);font-size:.95rem;line-height:1.2;text-align:center;padding:.7rem .6rem;border:2px dashed var(--sea);outline:4px solid var(--white);transform:rotate(6deg)}
+.card-text h1{font-size:clamp(2rem,1.3rem+2.6vw,3.6rem);margin-bottom:1rem}
+.card-text>p{color:var(--mute)}
+.card-actions{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin:1.4rem 0}
+.card-facts{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-size:.95rem;color:var(--mute)}
+.card-facts b{font-family:var(--font-heading);font-size:1.3rem;color:var(--ink);margin-right:.2rem}
+
+/* Gîtes : rail */
+.gites{padding:clamp(3rem,6vw,5rem) 0 2rem;background:var(--white);border-top:1px solid var(--line)}
+.rail{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1.6rem clamp(1.25rem,calc((100% - 1180px)/2 + 1.25rem),50%) 2rem;scrollbar-width:thin;scrollbar-color:var(--sea) transparent}
+.gite{flex:0 0 min(360px,82vw);scroll-snap-align:start;background:var(--ecru);border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.gite img{width:100%;aspect-ratio:9/7;object-fit:cover;display:block}
+.gite-body{padding:1.2rem 1.3rem 1.4rem}
+.gite h3{font-size:1.45rem;margin-bottom:.4rem}
+.gite h3 small{display:block;font-family:var(--font-hand);font-size:1.15rem;color:var(--sea)}
+.gite p{color:var(--mute);font-size:1rem;margin-bottom:.6rem}
+.price{color:var(--ink)!important;margin:0!important}
+.price b{font-family:var(--font-heading);font-size:1.3rem;color:var(--sea)}
+
+/* Calanque */
+.calanque{position:relative}
+.calanque img{width:100%;height:min(80vh,680px);object-fit:cover;display:block}
+.calanque-note{position:absolute;left:clamp(1rem,6vw,6rem);bottom:clamp(1rem,5vw,4rem);width:min(520px,90%);background:rgba(247,244,238,.95);padding:clamp(1.3rem,3vw,2.2rem);border-left:6px solid var(--sun)}
+.calanque-note p:last-child{margin:0;color:var(--mute)}
+
+/* Histoire */
+.histoire{padding:clamp(3rem,6vw,5rem) 0;background:var(--sand)}
+.frise{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1.6rem;position:relative}
+.frise::before{content:"";position:absolute;left:0;right:0;top:1.2rem;border-top:2px dashed var(--sea)}
+.frise li{position:relative;padding-top:2.6rem}
+.frise li::before{content:"";position:absolute;left:0;top:.6rem;width:1.3rem;height:1.3rem;border-radius:50%;background:var(--sun);border:3px solid var(--sand)}
+.frise time{display:block;font-family:var(--font-heading);font-size:1.6rem;margin-bottom:.4rem}
+.frise p{margin:0;color:var(--mute);font-size:1rem}
+
+/* Réserver */
+.book{padding:clamp(3rem,6vw,5rem) 0;background:var(--white);border-top:1px solid var(--line)}
+.book-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.book-form{scroll-margin-top:90px}
+.book-form .intro{margin-bottom:1.2rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.book-form label{display:block;margin-bottom:.9rem}
+.book-form label>span{display:block;font-family:var(--font-hand);font-size:1.2rem;color:var(--sea);margin-bottom:.15rem}
+.book-form input,.book-form select{width:100%;border:1.5px solid var(--ink);border-radius:3px;background:var(--ecru);padding:.6rem .8rem;min-height:46px;font-family:var(--font-body);font-size:1.02rem}
+.consent{display:flex!important;gap:.6rem;align-items:flex-start;font-size:.92rem;color:var(--mute)}
+.consent input{width:18px;height:18px;min-height:0;margin-top:.3rem;accent-color:var(--sea);flex:0 0 auto}
+.form-msg{margin:.8rem 0 0;font-weight:500;color:var(--sea);min-height:1.4em}.form-msg.is-error{color:#B3261E}
+.venir address{font-style:normal;font-family:var(--font-heading);font-size:1.5rem;line-height:1.25;margin-bottom:.8rem}
+.venir p{color:var(--mute)}
+.phone{font-family:var(--font-heading);font-size:1.7rem;color:var(--ink)!important}
+.phone a{color:var(--sea)}
+.map iframe{width:100%;height:230px;border:1px solid var(--line);display:block;margin-top:1rem;border-radius:3px}
+.credit{font-size:.85rem;color:var(--mute);margin:2rem auto 0}
+
+.foot{background:var(--ink);color:#fff;padding:1.5rem 0}
+.foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.92rem}
+.foot p{margin:0}.foot a{text-decoration:underline}
+.datebar{display:none}
+.cookie-banner{background:var(--white);border:1px solid var(--line);border-radius:4px}.cookie-actions .btn-primary{background:var(--sea);border-radius:3px}
+
+@media (max-width:1024px){
+  .top-nav{display:none}
+  .top-menu{display:block;width:46px;height:46px;border:1.5px solid var(--ink);border-radius:6px;background:var(--white);position:relative}
+  .top-menu span,.top-menu span::before,.top-menu span::after{content:"";position:absolute;left:11px;width:20px;height:2px;background:var(--ink)}
+  .top-menu span{top:21px}.top-menu span::before{left:0;top:-7px}.top-menu span::after{left:0;top:7px}
+  .mnav{display:flex;flex-direction:column;position:fixed;inset:0;z-index:70;background:var(--ecru);padding:5rem 1.5rem 2rem}
+  .mnav[hidden]{display:none}
+  .mnav a{font-family:var(--font-heading);font-size:2rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+  .mnav a:last-child{margin-top:auto;background:var(--sun);text-align:center;border:0;border-radius:3px;font-family:var(--font-body);font-size:1.15rem;font-weight:500;padding:1rem}
+  body.mnav-open .top-menu{position:fixed;top:.7rem;right:1rem;z-index:80}
+  body.mnav-open .top-menu span{background:transparent}
+  body.mnav-open .top-menu span::before{top:0;transform:rotate(45deg)}body.mnav-open .top-menu span::after{top:0;transform:rotate(-45deg)}
+  .card{grid-template-columns:1fr}
+  .frise{grid-template-columns:1fr;gap:1.4rem}
+  .frise::before{left:.6rem;top:0;bottom:0;right:auto;border-top:0;border-left:2px dashed var(--sea)}
+  .frise li{padding:0 0 0 2.4rem}.frise li::before{top:.3rem}
+  .book-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:1.02rem;padding-bottom:92px}
+  .wrap{width:min(1180px,100% - 2rem)}
+  .card{padding:1rem 1rem 2rem;gap:1.6rem}
+  .card-photo{transform:rotate(-1deg);padding:8px 8px 30px}
+  .card-text h1{font-size:2rem}
+  .card-actions .btn-sea{width:100%;text-align:center}
+  .calanque img{height:60vh}
+  .calanque-note{position:static;width:auto;margin:0}
+  .two{grid-template-columns:1fr;gap:0}
+  .book-form .btn-sea{width:100%;text-align:center}
+  .map iframe{height:200px}
+  .foot-inner{flex-direction:column}
+  .datebar{display:grid;grid-template-columns:1fr 1fr auto;gap:.5rem;align-items:end;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--white);border-top:2px solid var(--sea);padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom))}
+  .datebar label span{display:block;font-family:var(--font-hand);font-size:1rem;color:var(--sea);line-height:1}
+  .datebar input{width:100%;border:1px solid var(--line);border-radius:3px;padding:.4rem;min-height:40px;font-family:var(--font-body);font-size:.9rem;background:var(--ecru)}
+  .datebar .btn-sea{padding:.6rem .9rem;min-height:40px;box-shadow:none}
+  .cookie-banner{bottom:100px}
+}
+
+/* --- Audit mobile 13/10/2026 : cibles tactiles >= 44 px, textes >= 12,8 px --- */
+
+@media (max-width:1024px){ .top-menu{ width:46px; min-width:46px; } }
+.phone a, .foot a, .btn-txt { display:inline-flex; align-items:center; min-height:44px; }
+.consent input { width:24px; height:24px; }
+

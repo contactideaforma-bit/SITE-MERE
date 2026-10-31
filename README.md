@@ -25,29 +25,29 @@ assets/
   js/main.js                   → Menu mobile, bannière cookies, formulaires de démo (aucun tracker)
   img/favicon.svg
 
-pizza-al-dente/                → Maquette client : Pizza al dente (Le Rove), non indexée
-mairie-le-rove/                → Maquette client : Mairie du Rove (refonte de lerove.fr), non indexée
+pizza-bella-vista/                → Maquette client : Pizza Bella Vista (Castelmar), non indexée
+mairie-castelmar/                → Maquette client : Mairie de Castelmar (refonte de lerove.fr), non indexée
                                  index.html + mairie.css + mairie.js + mentions-legales.html
-sushi-tys/                     → Maquette client : Sushi Ty's (Septèmes-les-Vallons), non indexée
+sushi-koi/                     → Maquette client : Sushi Koï (Septèmes-les-Vallons), non indexée
                                  index.html + sushi.css + sushi.js + mentions-legales.html
-auberge-du-merou/              → Maquette client : Auberge du Mérou (calanque de Niolon, Le Rove), non indexée
+auberge-la-vigie/              → Maquette client : Auberge La Vigie (calanque des Aiguiers, Castelmar), non indexée
                                  index.html + merou.css + merou.js + mentions-legales.html
-pizza-maracana/                → Maquette client : Pizza Maracana (chemin de Gibbes, Marseille 14e), non indexée
+pizza-samba/                → Maquette client : Pizza Samba (chemin des Amandiers, Marseille 14e), non indexée
                                  index.html + maracana.css + maracana.js + mentions-legales.html
-ecurie-du-faraon/              → Maquette client : Écurie du Faraon (centre équestre, Gignac-la-Nerthe), non indexée
+ecurie-des-collines/              → Maquette client : Écurie des Collines (centre équestre, Gignac-la-Nerthe), non indexée
                                  index.html + faraon.css + faraon.js + mentions-legales.html
-pas-des-lanciers/              → Maquette client : Centre Équestre Pas des Lanciers (Marignane), non indexée
+ecuries-du-vallon/              → Maquette client : Écuries du Vallon (Marignane), non indexée
                                  index.html + lanciers.css + lanciers.js + mentions-legales.html
-espace-gala/                   → Maquette client : Espace Gala, salle de réception (Gignac-la-Nerthe / Marignane), non indexée
+domaine-des-oliviers/                   → Maquette client : Domaine des Oliviers, salle de réception (Gignac-la-Nerthe / Marignane), non indexée
                                  index.html + gala.css + gala.js + mentions-legales.html
-gites-du-resquiadou/           → Maquette client : Gîtes du Resquiadou (Le Rove, Côte Bleue), non indexée
+cabanons-du-fortin/           → Maquette client : Cabanons du Fortin (Castelmar, Côte Bleue), non indexée
                                  index.html + resquiadou.css + resquiadou.js + mentions-legales.html
-gignac-conduite/               → Maquette client : Auto-École Gignac Conduite (Gignac-la-Nerthe), non indexée
+auto-ecole-azur/               → Maquette client : Auto-École Azur (Gignac-la-Nerthe), non indexée
                                  index.html + gignac.css + gignac.js + mentions-legales.html
-sud-carrosserie/               → Maquette client : Sud Carrosserie (Marignane), non indexée
-garage-septemes/               → Maquette client : Garage Septèmes (carrosserie & peinture, Septèmes-les-Vallons), non indexée
-kalm-by-night/                 → Maquette client : Kalm by Night (livraison de nuit, Vitrolles / Marseille), non indexée
-auto-roussillon/               → Maquette client : Auto Roussillon (garage & carrosserie AD, Cabestany / Perpignan), non indexée
+carrosserie-du-littoral/               → Maquette client : Carrosserie du Littoral (Marignane), non indexée
+carrosserie-onyx/               → Maquette client : Carrosserie Onyx (carrosserie & peinture, Septèmes-les-Vallons), non indexée
+nocturne-livraison/                 → Maquette client : Nocturne (livraison de nuit, Vitrolles / Marseille), non indexée
+garage-du-castellas/               → Maquette client : Garage du Castellas (garage & carrosserie AD, Cabestany / Perpignan), non indexée
                                  index.html + roussillon.css + roussillon.js + mentions-legales.html
                                  index.html + sud.css + sud.js + mentions-legales.html
 
@@ -116,16 +116,16 @@ chargé depuis Google Fonts, pour un rendu travaillé et reconnaissable.
 | Site                       | Titres          | Texte            |
 |----------------------------|-----------------|------------------|
 | MyEasyDev (site mère)      | Newsreader      | Familjen Grotesk |
-| Auberge du Mérou           | Castoro         | Hanken Grotesk   |
-| Sushi Ty's                 | Gabarito        | Onest            |
-| Mairie du Rove             | Petrona         | Mulish           |
-| Pizza al dente             | Zilla Slab      | Karla            |
-| Pizza Maracana             | Lilita One      | Red Hat Text     |
+| Auberge La Vigie           | Castoro         | Hanken Grotesk   |
+| Sushi Koï                 | Gabarito        | Onest            |
+| Mairie de Castelmar             | Petrona         | Mulish           |
+| Pizza Bella Vista             | Zilla Slab      | Karla            |
+| Pizza Samba             | Lilita One      | Red Hat Text     |
 | Démo Carrosserie Roc Blanc | Saira Condensed | Atkinson Hyperlegible |
 | Démo Pizzeria Lou Soleï    | Marcellus       | Figtree          |
 | Démo Pizzeria Da Enzo      | Bodoni Moda     | Work Sans        |
 | Démo Salon Émeraude        | Italiana        | Jost             |
-| Trinapoli Marseille        | Forum (+ Mrs Saint Delafield) | Albert Sans |
+| Casa Panuozzo Marseille        | Forum (+ Mrs Saint Delafield) | Albert Sans |
 
 Règle pour une nouvelle maquette : choisir un couple non encore utilisé, angles sobres (6–14 px, pas de
 pilule), étiquettes en petites capitales espacées, filets fins plutôt que bordures épaisses.
@@ -142,9 +142,9 @@ lancement dans `~/.impeccable/bin/`. Les dossiers `.claude/` et `.impeccable/` s
 Les sites ne doivent pas partager le même squelette (hero en deux colonnes + cartes). Chaque maquette
 a sa propre construction :
 
-- **Auberge du Mérou** — éditorial : couverture photo plein écran, colonnes de texte, carte typographique
+- **Auberge La Vigie** — éditorial : couverture photo plein écran, colonnes de texte, carte typographique
   à points de conduite, grandes photos interstitielles, chiffres en marge, citation d'avis unique.
-- **Sushi Ty's** — street : titre géant pleine largeur, bandeau défilant, photos façon polaroïds, rail de
+- **Sushi Koï** — street : titre géant pleine largeur, bandeau défilant, photos façon polaroïds, rail de
   catégories collé à gauche + tuiles produit (comme une appli de commande), bande oblique, galerie défilante.
 - **Carrosserie Roc Blanc** — la plaque d'immatriculation (SIV) : chaque section est une plaque (bande bleue
   gauche = titre vertical, champ blanc réfléchissant = contenu, bande bleue droite = info clé, quatre vis).
@@ -153,21 +153,21 @@ a sa propre construction :
   en mini-plaques, étapes sinistre numérotées, comparateur à poignée-vis, formulaire photo, atelier + plan.
   Mobile : bandes à l'horizontale (titre en haut, info en bas), plaque d'action fixe en bas (Appeler | statut |
   Devis photo), pas de barre d'onglets. Contexte Impeccable : demos/carrosserie-roc-blanc/PRODUCT.md et DESIGN.md.
-- **Trinapoli Marseille** — trattoria vert & rose + appli de commande installable (PWA : manifest, service worker, icônes) :
+- **Casa Panuozzo Marseille** — trattoria vert & rose + appli de commande installable (PWA : manifest, service worker, icônes) :
   bandeau plein écran sur photo de panuozzo (voile vert à gauche, fondu blanc en bas), en-tête transparent qui devient
   crème au défilement (logo crème → logo vert), capitales Forum espacées, signature manuscrite, tirets vert/rose,
   4 tuiles photo à cartouche, commande en fiches photo + prix, collage photo sur aplat vert pastel, bande photo
   « Benvenuti », contact en 3 colonnes vert pastel / blanc / rose. comptoir.html = écran commerçant relié en direct
   (localStorage + BroadcastChannel), offre.html = proposition chiffrée avec simulateur de commission.
   Photos hébergées sur trinapoli59.fr (à rapatrier à la signature). Mobile : widget de commande vert pastel en bas.
-- **Mairie du Rove** — portail civique : recherche en tête, accès rapides, démarches en vignettes, météo.
-- **Pizza Maracana** — Brésil photographique : bannière plein écran (Pain de Sucre), en-tête transparent qui devient
+- **Mairie de Castelmar** — portail civique : recherche en tête, accès rapides, démarches en vignettes, météo.
+- **Pizza Samba** — Brésil photographique : bannière plein écran (Pain de Sucre), en-tête transparent qui devient
   plein au défilement, bandeau drapeau « Vem comer ! », section commande sur photo voilée de vert, pizzas en « tickets »
   à encoches numérotés, galets photo. Images dans assets/img/maracana/.
   Mobile : pas de barre d'onglets — réglette à deux boutons (Appeler / Uber Eats), carte en accordéon par
   catégorie, étapes en frise verticale, chiffres clés en rangée qui défile.
-- **Pizza al dente** — carte de pizzeria : liste à points de conduite, filtres, bandeau d'infos.
-- **Garage Septèmes** — « le coffret noir » : fond noir laqué assumé (identité noir & or du prospect), filets d'or,
+- **Pizza Bella Vista** — carte de pizzeria : liste à points de conduite, filtres, bandeau d'infos.
+- **Carrosserie Onyx** — « le coffret noir » : fond noir laqué assumé (identité noir & or du prospect), filets d'or,
   chapitres en chiffres romains, poussière d'or animée (canvas) au premier écran, titre à reflet, bandeau défilant des
   prestations, trois plaques numérotées (Réparer · Protéger · Sublimer), carte de l'atelier en lignes pointillées
   dépliables, sceaux ronds (franchise, prêt, remorquage), comparateur avant / après à poignée d'or, frise sinistre en
